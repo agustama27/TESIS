@@ -8,9 +8,12 @@
 - Definido el remoto: `https://github.com/agustama27/TESIS` (cuenta personal) → ver [[Decisiones]] D-002.
 - Remoto configurado localmente con el usuario embebido en la URL.
 
-**Bloqueo**: el push todavía no se hizo. El `gh` CLI de esta máquina está autenticado con la cuenta de trabajo (agustama-Evoltis), que no tiene acceso al repo; además el repo `agustama27/TESIS` no aparece entre los públicos de la cuenta, así que o no existe todavía o es privado.
+- Autenticada la cuenta personal en `gh` y ejecutado `gh auth setup-git`, para que git use esa credencial en vez del token de trabajo cacheado en el Windows Credential Manager.
+- **Push realizado**: `main` publicado en el remoto y trackeando `origin/main`. El repo es privado.
 
-**Próximo paso**: autenticar la cuenta personal (`gh auth login` → `gh auth switch --user agustama27`), crear el repo si no existe, y `git push -u origin main`.
+**Nota para otra máquina**: si el push falla con "repository not found" teniendo permisos, casi seguro es el credential helper reusando la credencial equivocada. Se resuelve con `gh auth switch --user agustama27` + `gh auth setup-git`.
+
+**Próximo paso**: arrancar Etapa 0, Módulo 1 (neurociencia básica) → [[Plan-Etapa-0]].
 
 ## 2026-08-09 — Kickoff del proyecto
 
