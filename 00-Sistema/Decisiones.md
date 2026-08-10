@@ -10,8 +10,16 @@
 
 **Alternativas descartadas**: Notion (no versionable en git, atado a la cuenta), memoria interna de una herramienta de IA (no portable).
 
+## D-002 · 2026-08-10 · Repositorio en cuenta personal (agustama27), no en la de trabajo
+
+**Decisión**: el remoto es `https://github.com/agustama27/TESIS`, bajo la cuenta personal de GitHub.
+
+**Por qué**: la tesis es un proyecto personal de años y un antecedente de CV. Alojarla en la cuenta del empleador (agustama-Evoltis) implicaría perder el acceso al cambiar de trabajo — justo lo contrario de la portabilidad que busca este sistema.
+
+**Consecuencia operativa**: `gh` CLI en esta máquina está autenticado con la cuenta de trabajo. Para pushear hay que agregar la cuenta personal (`gh auth login`) y cambiar a ella (`gh auth switch --user agustama27`). El remoto ya quedó configurado con el usuario embebido en la URL para evitar que el credential manager use la credencial equivocada.
+
 ## Decisiones pendientes (tomar al cerrar Etapa 0 / en Etapa 1)
 
-- [ ] D-002: Tipo de TFG — Prototipado tecnológico vs. Trabajo de investigación.
-- [ ] D-003: Línea temática (IRREVERSIBLE) — Transformación digital vs. Educación digital.
-- [ ] D-004: Fuente de datos EEG — hardware propio vs. datasets públicos.
+- [ ] D-003: Tipo de TFG — Prototipado tecnológico vs. Trabajo de investigación.
+- [ ] D-004: Línea temática (IRREVERSIBLE) — Transformación digital vs. Educación digital.
+- [ ] D-005: Fuente de datos EEG — hardware propio vs. datasets públicos.
