@@ -20,6 +20,7 @@ Este repositorio es un **Vault de Obsidian** que contiene todo el trabajo del **
 | `20-Investigacion/` | Papers, estado del arte, resúmenes con cita APA |
 | `30-TFG/` | Documentos de las entregas oficiales del Seminario Final |
 | `40-Prototipo/` | Código y experimentos (cuando exista) |
+| `.claude/skills/` | Los 6 subagentes del harness (Markdown, legibles por cualquier herramienta) |
 | `Trabajo Final de Graduación-Notas/` | Documentación oficial de la universidad (solo lectura) |
 
 ## Loop de trabajo (obligatorio para agentes)
@@ -32,6 +33,20 @@ Al **cerrar** una sesión (o completar trabajo significativo):
 1. Agregar entrada en `00-Sistema/Bitacora.md` (fecha, qué se hizo, próximo paso).
 2. Registrar decisiones importantes en `00-Sistema/Decisiones.md`.
 3. Commit en git con conventional commits (`docs:`, `feat:`, `chore:`...). **Nunca** agregar "Co-Authored-By" ni atribución de IA.
+
+## Subagentes
+
+Seis agentes especializados en `.claude/skills/`. Detalle completo en `00-Sistema/Subagentes-Harness.md`.
+
+`bci-explorer` (busca literatura) · `bci-tutor` (explica conceptos) · `bci-synthesizer` (sintetiza fuentes) · `bci-concept-mapper` (consolida y prioriza) · `obsidian-scribe` (escribe el vault) · `tfg-editor` (verifica las entregas)
+
+Tres reglas que gobiernan a todos:
+
+1. **El vault es la fuente de verdad; Engram es un caché opcional.** Si Engram no está disponible, el agente sigue funcionando leyendo el vault. Ningún conocimiento queda solo en Engram.
+2. **`obsidian-scribe` es el único con escritura estructurada.** Los demás investigan y delegan en él. Así el formato de las notas se mantiene consistente y el grafo sirve para algo.
+3. **Ninguna cita sale de la memoria del modelo.** Toda referencia APA proviene de una fuente descargada o con DOI resoluble. Lo dudoso se marca `⚠️ SIN VERIFICAR`.
+
+`tfg-editor` **verifica, no redacta**: el TFG se defiende oralmente y la autoría es del estudiante.
 
 ## Convenciones
 

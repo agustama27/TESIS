@@ -2,6 +2,19 @@
 
 > Una entrada por sesión de trabajo. Formato: fecha, qué se hizo, próximo paso. La entrada más reciente arriba.
 
+## 2026-08-12 — Integración del harness de subagentes
+
+**Qué se hizo**:
+- Analizado el documento `Subagentes-Harness.md` propuesto. Se detectaron tres defectos verificables: la carpeta `Investigación_BCI` no estaba bajo git, los nombres de tools MCP no coincidían con los servidores reales, y convivían tres namespaces de Engram.
+- Movidas las 4 skills BCI al repo (`.claude/skills/`), corregidas y versionadas.
+- Migrado `bci-tutor` de Notion al vault; creados `obsidian-scribe` y `tfg-editor`.
+- Invertida la dependencia Engram↔vault → ver [[Decisiones|D-003]].
+- Documentado el harness en [[Subagentes-Harness]] y en `AGENTS.md`.
+
+**Hallazgo clave**: el harness propuesto usaba Engram como bus obligatorio de handoffs. Engram es local a esta máquina, así que el pipeline entero se rompía al cambiar de PC o herramienta — justo lo contrario de D-001. El vault pasó a ser la fuente de verdad.
+
+**Próximo paso**: arrancar Etapa 0, Módulo 1 (neurociencia básica) usando `bci-tutor` + `obsidian-scribe` → [[Plan-Etapa-0]].
+
 ## 2026-08-10 — Configuración del repositorio remoto
 
 **Qué se hizo**:
