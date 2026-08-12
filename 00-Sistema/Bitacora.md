@@ -2,6 +2,20 @@
 
 > Una entrada por sesión de trabajo. Formato: fecha, qué se hizo, próximo paso. La entrada más reciente arriba.
 
+## 2026-08-12 — Investigación urgente: 15 temas candidatos para el TFG
+
+**Contexto**: deadline de <10 hs para definir el tema. Se adelanta la selección de tema (Etapa 1) por delante de la Etapa 0, que se reubicará después.
+
+**Qué se hizo**:
+- Leído el PDF oficial "Selección Tema TFG": exige tipo, línea, título ~12 palabras, justificaciones y 4 citas APA verificadas.
+- Relevados repositorios: Siglo 21 (sin tesis BCI indexadas → vacancia), UNC, UTN; precedentes de grado en Chile/Ecuador confirman factibilidad.
+- Verificada literatura ancla por familia: EEGNet, LaBraM (ICLR 2024), spellers P300 (review ACM 2024), neurofeedback en aulas, Muse/Krigolson, MI-BCI post-ACV, SSVEP, emociones DEAP.
+- Escrito [[Temas-Candidatos-TFG]] con 15 fichas (tipo, línea, pregunta, datos, pros/contras, impacto CV, literatura con estado de verificación) + ranking recomendado.
+
+**Recomendación registrada**: 🥇 foundation models EEG (tema 2) · 🥈 transfer learning entre sujetos (4) · 🥉 speller P300 (3). Descartar los dependientes de hardware si no hay equipo en mano.
+
+**Próximo paso**: el usuario elige tema → correr bci-explorer para las 4 citas APA definitivas → redactar el doc de presentación con la plantilla del PDF.
+
 ## 2026-08-12 — Integración del harness de subagentes
 
 **Qué se hizo**:
