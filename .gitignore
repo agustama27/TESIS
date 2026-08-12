@@ -1,6 +1,8 @@
 # Obsidian — estado local de la UI, no conocimiento
+# (app.json y appearance.json SI se versionan: son configuracion real y portable)
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
+.obsidian/graph.json
 .obsidian/cache
 
 # Python (para 40-Prototipo)
