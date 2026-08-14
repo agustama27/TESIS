@@ -305,3 +305,21 @@ Cuando elijas, el documento `Apellido_Nombre - Tipo TFG.docx` debe contener:
 13. **Teclado parpadeo (Prototipado · TD)** — Por qué: asistivo de costo mínimo con precedente EPN. Método: detector de parpadeo voluntario (umbral+duración) + teclado por barrido web; métrica palabras/minuto. Stack: Python, JS.
 14. **Tutor adaptativo por carga (Prototipado · ED)** — Por qué: cierra el loop pedagógico (contenido se adapta a fisiología); ED sin hardware. Método: estimador workload sobre STEW → replay como estudiante simulado → motor de adaptación + banco de ejercicios → panel docente. Stack: MNE+sklearn, React, FastAPI.
 15. **Biometría EEG (Investigación · TD)** — Por qué: evaluación FAR/FRR/EER de estabilidad y unicidad de ERP. Método: verificación 1:1, estabilidad multi-sesión como hallazgo central. Stack: MNE, sklearn.
+
+---
+
+## Ampliación 2: pitch al tutor (2026-08-12, 3ª pasada)
+
+Cada ficha del deck ahora incluye la sección **"Pitch al tutor"**: problema con cifras, por qué ahora, dónde está la Ingeniería en Software, y objeción probable con respuesta.
+
+### El argumento madre (aplica a los 15 temas)
+
+**"¿Y esto qué tiene que ver con Ingeniería en Software?"** — Una BCI es un sistema de software intensivo: pipeline de adquisición streaming, procesamiento con presupuesto de latencia, ML en línea, arquitectura event-driven, UX de accesibilidad extrema y atributos de calidad duros (tiempo real, confiabilidad, seguridad de datos biométricos). **La neurociencia es el dominio; la Ingeniería en Software es la disciplina** — como fintech no es economía ni salud digital es medicina. Al mercado BCI (USD 3,4 → 6,5 mil millones 2025→2030, Grand View Research) no le faltan neurocientíficos: le faltan ingenieros de software.
+
+### Cifras verificadas para justificaciones (2026-08-12)
+
+- **Mercado BCI**: USD ~3,44 mil millones (2025) → 6,52 mil millones (2030), CAGR 18,15% — Grand View Research.
+- **Somnolencia al volante**: 17,6% de choques fatales involucran conductor somnoliento (AAA Foundation 2017-2021, ~30.000 muertes/5 años); costo social USD 109 mil millones/año (NHTSA).
+- **ACV**: 12,2 millones/año en el mundo (World Stroke Organization); hasta 80% de sobrevivientes con déficit de miembro superior; persiste a 6 meses en 30-66%.
+- **Síndrome de enclaustramiento**: 80% de supervivencia a 10 años con buen cuidado (Neurology 2023); 62% usa tecnología asistiva — décadas de vida con necesidad de comunicación.
+- **Calibración BCI**: ~20-30 min por usuario/sesión — el bloqueo #1 de productización (motiva temas 2 y 4).
