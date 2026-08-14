@@ -5,7 +5,9 @@
 
 ## ESTADO ACTUAL (2026-08-14) — rankings anteriores SUPERADOS
 
-**🎯 EN FOCO — Tema 19: Fidelidad en la decodificación brain-to-text** (evolución del tema 17 tras dos rondas de validación adversarial con el usuario). Investigación de implementación: [[Fidelidad-Brain-to-Text]].
+**🎯 EN FOCO — dos finalistas (2026-08-14):**
+- **Tema 23: Compresión de decodificadores brain-to-text para tiempo real** — "del paper al dispositivo"; diseñado desde las búsquedas laborales reales de Neuralink (piden textualmente quantization, real-time ML, constraints de potencia/latencia, y aclaran que NO se requiere neurociencia previa).
+- **Tema 19: Fidelidad en la decodificación brain-to-text** (evolución del tema 17). Investigación de implementación: [[Fidelidad-Brain-to-Text]].
 
 **🟢 EN RESERVA** (elegibles si el foco cae): 1 (benchmark imaginería motora) · 2 (foundation models EEG) · 4 (transfer learning) · 7 (SDK BCI) · 10 (juego serio ACV) · 14 (tutor adaptativo) · 18 (neuroderechos) · **nuevos 2026-08-14, perfil Investigación+AI+SE**: **20 (drift/mantenimiento de decodificadores — MLOps neural, benchmark FALCON de NeurIPS)** · 21 (robustez adversarial) · 22 (datos sintéticos por difusión).
 

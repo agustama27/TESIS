@@ -3,9 +3,10 @@
 > Cada tema en formato "Definiciones Iniciales TFG" (PDF oficial de la universidad).
 > Estado al 2026-08-14. Lista maestra con análisis: [[../../20-Investigacion/Temas-Candidatos-TFG|Temas-Candidatos-TFG]].
 
-## 🎯 En foco
+## 🎯 En foco — dos finalistas
 
-- [[Tema-19-Fidelidad-Brain-to-Text]] — **el candidato a presentar**
+- [[Tema-23-Compresion-Decodificadores-Tiempo-Real]] — **"del paper al dispositivo"**: achicar el decodificador para que corra en tiempo real, midiendo cuánta calidad sobrevive. Diseñado desde las búsquedas laborales reales de Neuralink.
+- [[Tema-19-Fidelidad-Brain-to-Text]] — **la auditoría**: ¿cuánto de lo que el sistema "dice" viene del cerebro y cuánto lo completa el modelo de lenguaje?
 
 ## 🟢 En reserva
 
