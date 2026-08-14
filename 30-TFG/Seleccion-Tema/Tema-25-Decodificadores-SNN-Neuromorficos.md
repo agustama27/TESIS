@@ -65,6 +65,19 @@ El consumo energético del software es hoy un atributo de calidad de primera cla
 
 **Stack**: Python · PyTorch · snnTorch o SpikingJelly · FALCON/NLB · Colab (GPU moderada — los datasets de movimiento son livianos).
 
+## Materia prima verificada (2026-08-14) — datasets, código y herramientas existentes
+
+| Recurso | Qué es | URL |
+|---|---|---|
+| FALCON datasets | 5 datasets de movimiento, descarga directa desde DANDI (ej. M2: primate, dedos, 15,9 GB) | https://snel-repo.github.io/falcon/datasets.html |
+| snnTorch / SpikingJelly | Frameworks SNN sobre PyTorch, con tutoriales — `pip install` | https://snntorch.readthedocs.io · https://github.com/fangwei123456/spikingjelly |
+| **fmi-basel/neural-decoding-RSNN** | **Código público del problema exacto**: decodificación de velocidad de dedos con SNNs recurrentes; incluye bigRSNN (rendimiento) y tinyRSNN (eficiencia) | https://github.com/fmi-basel/neural-decoding-RSNN |
+| **NeuroBench** | Harness de benchmarking neuromórfico (Nature Communications 2025) con conteo estandarizado de operaciones — el "medidor de energía" ya publicado | https://github.com/NeuroBench/neurobench |
+
+**Día uno**: `pip install snntorch neurobench` + clonar el repo de Basilea + bajar FALCON de DANDI. No se arranca en el desierto.
+
+**Tarea obligatoria del Mes 1** (honestidad metodológica): mapear qué comparaciones ya cubrieron NeuroBench y el repo de Basilea, y posicionar la tesis en el hueco (p. ej., comparación limpia sobre FALCON multi-sesión o condiciones no barridas). Llegar a un campo con herramientas maduras y huecos identificables es la posición ideal para un TFG.
+
 ## Riesgo principal (honesto)
 
 Es el tema con mayor curva de aprendizaje de los tres finalistas: ~1 mes siendo novato en un paradigma nuevo antes de ser productivo (los otros dos usan el stack actual del autor desde el día uno). A cambio, es el perfil más "investigador de frontera": las SNN para implantes son apuesta a 5-10 años y tema natural de doctorado — máxima señal para posgrado.
