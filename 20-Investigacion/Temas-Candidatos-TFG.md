@@ -7,7 +7,7 @@
 
 **🎯 EN FOCO — Tema 19: Fidelidad en la decodificación brain-to-text** (evolución del tema 17 tras dos rondas de validación adversarial con el usuario). Investigación de implementación: [[Fidelidad-Brain-to-Text]].
 
-**🟢 EN RESERVA** (elegibles si el foco cae): 1 (benchmark imaginería motora) · 2 (foundation models EEG) · 4 (transfer learning) · 7 (SDK BCI) · 10 (juego serio ACV) · 14 (tutor adaptativo) · 18 (neuroderechos).
+**🟢 EN RESERVA** (elegibles si el foco cae): 1 (benchmark imaginería motora) · 2 (foundation models EEG) · 4 (transfer learning) · 7 (SDK BCI) · 10 (juego serio ACV) · 14 (tutor adaptativo) · 18 (neuroderechos) · **nuevos 2026-08-14, perfil Investigación+AI+SE**: **20 (drift/mantenimiento de decodificadores — MLOps neural, benchmark FALCON de NeurIPS)** · 21 (robustez adversarial) · 22 (datos sintéticos por difusión).
 
 **❌ DESCARTADOS**:
 - **3 · Speller P300** — decisión del usuario: "muy cliché, ya se ha realizado, no aportaría al CV".
