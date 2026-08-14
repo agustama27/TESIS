@@ -351,3 +351,18 @@ A pedido del usuario se investigó qué es factible como tesis de Ingeniería en
 - **SE**: threat modeling, privacy-by-design, compliance tooling — seguridad informática, área núcleo de la carrera. ÚNICO tema sin datos ni GPU ni hardware: riesgo técnico mínimo absoluto.
 
 **Actualización del ranking**: para el objetivo declarado "trabajar en Neuralink o similar", los temas 16 y 17 compiten de igual a igual con el 🥇 (tema 2). El 16 si te tira el software de sistemas/bajo nivel; el 17 si te tira el ML de secuencias. El 18 es el outsider de máxima factibilidad.
+
+---
+
+## Ranking final — Top 5 (2026-08-14)
+
+Criterio: impacto en CV para maestría/neurotech (peso máximo) · factibilidad 4 meses sin hardware · encaje con perfil AI Engineer · encuadre institucional limpio. Los cinco son cero-hardware con datasets públicos.
+
+1. **🥇 Tema 17 — Decodificación brain-to-text** (Investigación · TD): el problema exacto de Neuralink con datasets públicos de Stanford y benchmark internacional. Encaje milimétrico con el perfil AI Engineer.
+2. **🥈 Tema 2 — Foundation models de EEG** (Investigación · TD): frontera no invasiva, red de seguridad por diseño (benchmark vs EEGNet ya es tesis).
+3. **🥉 Tema 16 — Compresión de telemetría neural N1** (Investigación · TD): el CV más distintivo; tercero solo porque exige perfil de sistemas (C/C++/Rust).
+4. **Tema 4 — Transfer learning entre sujetos** (Investigación · TD): la opción más segura sin resignar nivel de posgrado.
+5. **Tema 3 — Speller P300** (Prototipado · TD): el mejor Prototipado; demo visible e impacto social.
+
+**Desempate por perfil**: ML de secuencias → 17 · EEG frontera con seguridad → 2 · sistemas/performance → 16 · mínimo riesgo → 4 · construir > experimentar → 3.
+**Menciones fuera del top**: 18 (neuroseguridad, máxima factibilidad) y 14 (mejor Educación Digital sin hardware).
