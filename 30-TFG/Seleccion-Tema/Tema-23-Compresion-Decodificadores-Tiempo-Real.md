@@ -1,3 +1,4 @@
+
 # Tema 23 — Del paper al dispositivo: compresión de decodificadores brain-to-text
 
 > Estado: 🎯 **EN FOCO** (finalista junto al [[Tema-19-Fidelidad-Brain-to-Text|tema 19]]) · agregado 2026-08-14
@@ -49,6 +50,18 @@ Las personas con parálisis total ya pueden comunicarse mediante decodificadores
 | 4 · E4 | Armar la frontera precisión-latencia-tamaño, análisis de dónde y por qué se rompe, redacción, código público. | Contar qué encontraste. |
 
 **Stack**: Python · PyTorch (cuantización/poda/destilación nativas) · dataset Dryad + pipeline del benchmark · GPU moderada (Colab Pro) · mediciones de latencia en CPU/GPU estándar.
+
+## Contexto: ¿qué aparatos son estos sistemas hoy, y dónde entra tu tesis?
+
+**La cadena física completa de un sistema brain-to-text actual tiene tres eslabones:**
+
+1. **Los sensores (dentro de la cabeza)**: en los estudios de Stanford (Willett, Card) son *arrays de Utah* — grillas rígidas de silicio de ~4×4 mm con ~100 micro-agujas cada una, implantadas quirúrgicamente sobre la corteza motora. Los participantes tienen 2-4 de estas grillas. Neuralink usa otra tecnología: 1.024 electrodos en hilos flexibles insertados por un robot, con el chip completo (N1) sellado dentro del cráneo, inalámbrico y a batería.
+2. **La electrónica de adquisición**: en los estudios académicos, los arrays se conectan por un *pedestal* (un conector que atraviesa el cuero cabelludo) mediante CABLES a amplificadores externos — el participante está literalmente enchufado durante cada sesión. Neuralink eliminó el cable: amplifica, digitaliza y transmite por radio desde adentro.
+3. **La computadora donde corre EL DECODIFICADOR (el software)**: en el laboratorio es una workstation con GPU al lado del participante, sin restricciones. En el mundo Neuralink, el destino es un dispositivo pequeño (el teléfono o una unidad externa portátil) — con memoria, cómputo y batería limitados.
+
+**El estado actual, honesto**: unas pocas decenas de personas en el mundo tienen estos implantes (ensayos clínicos de BrainGate, Neuralink, Blackrock, Paradromics, Synchron). El eslabón 1 y 2 son hardware médico que ni vos ni casi nadie puede tocar. **El eslabón 3 es SOFTWARE — y es exactamente donde vive tu tesis.**
+
+**Qué podés hacer vos, concretamente**: los datos que salieron de los eslabones 1-2 ya están grabados y públicos (Dryad). Tu trabajo empieza ahí: tomás el decodificador publicado (software), lo achicás con técnicas estándar, y medís si podría correr en un dispositivo del tipo eslabón-3 portátil — usando tu propia CPU como escenario de referencia de "hardware modesto". No tocás un solo electrodo, y sin embargo trabajás en el eslabón que define si esta tecnología sale del laboratorio o no.
 
 ## Viabilidad de cómputo (objeción anticipada: "no tengo capacidad de cómputo")
 
