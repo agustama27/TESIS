@@ -50,6 +50,27 @@ Las personas con parálisis total ya pueden comunicarse mediante decodificadores
 
 **Stack**: Python · PyTorch (cuantización/poda/destilación nativas) · dataset Dryad + pipeline del benchmark · GPU moderada (Colab Pro) · mediciones de latencia en CPU/GPU estándar.
 
+## Viabilidad de cómputo (objeción anticipada: "no tengo capacidad de cómputo")
+
+**No hay simulaciones**: las mediciones son directas (correr el modelo, cronometrar, contar aciertos).
+
+| Parte | ¿GPU potente? | Dónde |
+|---|---|---|
+| Latencia y tamaño | NO — medir en CPU de notebook ES el experimento (escenario de dispositivo) | Máquina propia |
+| Cuantización post-entrenamiento | NO — minutos, sin reentrenar | Máquina propia / gratis |
+| Entrenar el baseline (una vez) | Sí, horas acotadas | Kaggle (30 hs GPU gratis/semana) o Colab Pro (~USD 12/mes) |
+| Poda + ajuste fino | GPU moderada | Kaggle / Colab Pro |
+| Destilación | La más cara | Solo si el presupuesto alcanza |
+
+**Escalera de alcance declarada en el diseño metodológico**:
+- **Plan A (núcleo garantizado, recursos gratuitos)**: baseline + cuantización en niveles + todas las mediciones → la tesis ya existe.
+- **Plan B**: + poda con ajuste fino.
+- **Plan C**: + destilación; si no entra, trabajo futuro declarado.
+
+Mitigaciones extra: empezar por el dataset de **handwriting** (más liviano que speech) y escalar; ⚠️ **verificar en el Mes 1 si el repo del benchmark publica los pesos pre-entrenados del baseline** — si están, cae el paso más caro.
+
+**Respuesta modelo al tutor**: "El diseño está pensado para mis recursos: la latencia se mide en CPU estándar — que es el escenario de dispositivo que estudio, no una concesión. La técnica principal no requiere reentrenar. Lo único costoso es entrenar el baseline una vez, y entra en las horas gratuitas de Kaggle o en Colab Pro. El alcance está escalonado y declarado: el núcleo es ejecutable con recursos gratuitos."
+
 ## Ampliación
 
 - Contexto del campo: [[../../20-Investigacion/Decodificacion-Brain-to-Text|Decodificacion-Brain-to-Text]]
