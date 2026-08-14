@@ -70,9 +70,36 @@ Participante T12 (ELA) **intenta hablar**; la RNN decodifica fonemas desde thres
 
 ## Gaps identificados (candidatos a pregunta de investigación)
 
-- ¿Por qué RNN > Transformers en decodificación neural? (lección 3 del benchmark — abierta)
-- ¿Cuánto del rendimiento es el LM "adivinando" vs la señal neural? (la ablación propuesta)
+- ~~¿Por qué RNN > Transformers en decodificación neural?~~ → **ACTUALIZADO 2026-08-14, ver sección siguiente: la pregunta mutó.**
+- ¿Cuánto del rendimiento es el LM "adivinando" vs la señal neural? (la ablación propuesta — sigue abierta)
 - Transferencia entre participantes (cross-brain) — emergente en 2026, conecta con [[Temas-Candidatos-TFG|tema 4]].
+
+## Estado de la pregunta de investigación (verificación 2026-08-14)
+
+**Validación adversarial pedida por el usuario**: ¿sigue abierta la pregunta "por qué los Transformers no superan a la RNN"? **Respuesta honesta: en su forma 2024, NO — está mutando. Y eso la mejoró.**
+
+**La contradicción documentada en la literatura** (esto es lo valioso):
+
+- **2024**: El Benchmark '24 (arXiv 2412.17227, Willett et al.) reporta que Transformers y state-space models "no parecen ofrecer beneficio" sobre la RNN. Todos los ganadores usaron RNN + ensembles + LLM rescoring.
+- **2025-2026**: la marea cambió:
+  - *A generalizable speech neuroprosthesis* (bioRxiv 2026, ⚠️ preprint sin revisión de pares): un decodificador de fonemas **basado en Transformer escala con el tamaño del dataset y supera a la RNN en TODOS los tamaños**, con modelos multi-usuario logrando >50% menos WER relativo que modelos individuales.
+  - *Cross-species neural foundation model* (arXiv 2511.21740): un encoder **pre-entrenado** supera tanto a RNNs como a Transformers entrenados desde cero.
+  - Brain-to-Text '25 (competencia Kaggle, 466 participantes): los primeros puestos bajaron a ~1,5-1,8% WER con sistemas basados en Transformers (⚠️ fuente parcial: nota patrocinada de Tether en TechCrunch — verificar con el reporte oficial del benchmark '25 cuando se publique).
+  - *Time-Masked Transformers with Lightweight Test-Time Adaptation* (arXiv 2507.02800) — más evidencia de Transformers competitivos.
+  - NeurIPS 2025: *A Generalist Intracortical Motor Decoder* (Ye et al.) — escalar Transformers autorregresivos tiene límites propios por variabilidad entre datasets.
+
+**La pregunta REFINADA (esta sí está abierta y es mejor):**
+
+> **¿Bajo qué condiciones una arquitectura Transformer supera a la RNN como decodificador intracortical — cantidad de datos, pre-entrenamiento, uno vs. varios usuarios — y cuánto aporta cada etapa (decodificador neural vs. modelo de lenguaje) al rendimiento final?**
+
+**Por qué esta versión aporta de verdad:**
+
+1. **Adjudica una contradicción publicada**: 2024 dice "los Transformers no ayudan"; 2026 dice "ganan en todos los tamaños". Ambas no pueden ser ciertas sin condiciones de borde — mapearlas con protocolo controlado y reproducible sobre los datasets públicos ES el aporte. Las contradicciones documentadas son el mejor lugar donde puede pararse una tesis: garantizan que la respuesta le importa a alguien.
+2. **Produce conocimiento de ingeniería accionable**: "usá RNN si tenés X datos y un solo usuario; Transformer si Y" — una guía de decisión de arquitectura, el tipo de resultado que la comunidad de software consume.
+3. **Es robusta al avance del campo**: aunque salgan papers nuevos durante los 4 meses de tesis, una caracterización controlada en régimen de datos reproducible (un participante, presupuesto acotado — el caso real de un implante nuevo) no pierde validez: los preprints 2026 usan datos multi-usuario masivos privados; tu nicho es el régimen de datos del benchmark público.
+4. La **ablación decodificador-vs-LM sigue intacta** como segunda pata: nadie publicó esa cuantificación sistemática.
+
+**Riesgo declarado**: el campo se mueve rápido (competencias anuales, preprints). Mitigación: anclar la tesis al protocolo del benchmark público (comparabilidad garantizada) y encuadrarla como caracterización de condiciones, no como carrera de novedad.
 
 ## Referencias (APA)
 
