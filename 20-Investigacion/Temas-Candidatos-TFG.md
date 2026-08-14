@@ -1,8 +1,21 @@
 # Temas candidatos para el TFG — BCI / NeuroIngeniería
 
-> Investigación realizada el 2026-08-12 (urgente: definición de tema en <10 hs).
-> 15 temas verificados contra las restricciones de la universidad y con literatura ancla real.
-> Cómo se presenta el tema elegido: ver [[#Plantilla de presentación (formato del PDF oficial)]].
+> Investigación iniciada el 2026-08-12 · **Estado actualizado: 2026-08-14**
+> Cada tema tiene su página de presentación en formato oficial en `30-TFG/Seleccion-Tema/` → [[../30-TFG/Seleccion-Tema/00-Indice|Índice]].
+
+## ESTADO ACTUAL (2026-08-14) — rankings anteriores SUPERADOS
+
+**🎯 EN FOCO — Tema 19: Fidelidad en la decodificación brain-to-text** (evolución del tema 17 tras dos rondas de validación adversarial con el usuario). Investigación de implementación: [[Fidelidad-Brain-to-Text]].
+
+**🟢 EN RESERVA** (elegibles si el foco cae): 1 (benchmark imaginería motora) · 2 (foundation models EEG) · 4 (transfer learning) · 7 (SDK BCI) · 10 (juego serio ACV) · 14 (tutor adaptativo) · 18 (neuroderechos).
+
+**❌ DESCARTADOS**:
+- **3 · Speller P300** — decisión del usuario: "muy cliché, ya se ha realizado, no aportaría al CV".
+- **16 · Compresión N1** — decisión del usuario: percibido como inviable ("si Neuralink no pudo…"); técnicamente era caracterización de frontera, pero sin convicción del autor no hay tesis.
+- **17 · Brain-to-text benchmark (forma original)** — la pregunta "¿por qué los Transformers no ganan?" se está cerrando (evidencia 2025-26, ver [[Decodificacion-Brain-to-Text]]); **evolucionó al tema 19**.
+- **11 · Validación Muse** — depende 100% de hardware importado.
+- **5 · Neurofeedback / 9 · Domótica SSVEP / 13 · Teclado parpadeo** — dependencia de hardware sin equipo en mano.
+- **6 · Somnolencia / 8 · Estrés / 12 · Emociones DEAP / 15 · Biometría** — dominados por opciones de mayor retorno con el mismo esfuerzo; sin interés del autor.
 
 ---
 
@@ -246,7 +259,7 @@ TD = Transformación Digital · PD = Plataformas de Desarrollo · ED = Educació
 
 ---
 
-## Recomendación (mi ranking honesto)
+## [SUPERADO — ver "ESTADO ACTUAL" arriba] Recomendación inicial (2026-08-12, histórico)
 
 **🥇 Tema 2 — Foundation models de EEG** si tu prioridad es el posgrado/carrera en neuroingeniería. Es frontera 2024-2026, intersecta EXACTAMENTE tu perfil de AI Engineer, no depende de hardware, y te posiciona donde el campo va — no donde estuvo. Riesgo técnico real pero manejable (LaBraM open source + baseline EEGNet como red de seguridad: si el fine-tuning no converge, el benchmark comparativo YA es la tesis).
 
@@ -354,7 +367,7 @@ A pedido del usuario se investigó qué es factible como tesis de Ingeniería en
 
 ---
 
-## Ranking final — Top 5 (2026-08-14)
+## [SUPERADO — ver "ESTADO ACTUAL" arriba] Ranking Top 5 (2026-08-14, histórico)
 
 Criterio: impacto en CV para maestría/neurotech (peso máximo) · factibilidad 4 meses sin hardware · encaje con perfil AI Engineer · encuadre institucional limpio. Los cinco son cero-hardware con datasets públicos.
 

@@ -2,6 +2,15 @@
 
 > Una entrada por sesión de trabajo. Formato: fecha, qué se hizo, próximo paso. La entrada más reciente arriba.
 
+## 2026-08-14 — Convergencia al tema de fidelidad + reestructura del vault
+
+**Qué se hizo**:
+- Investigada en profundidad la implementación de la tesis de **fidelidad brain-to-text** → [[Fidelidad-Brain-to-Text]]. Hallazgo clave: el protocolo de fidelidad existe en EEG no invasivo (modelos alimentados con ruido puro siguen generando frases fluidas — arXiv 2603.03312, Sci Reports 2025) pero NADIE lo aplicó a los sistemas intracorticales de alto rendimiento; Willett 2023 solo AFIRMA baja dependencia del LM. La tesis pone esa afirmación a prueba.
+- Actualizada la lista maestra: **tema 19 (fidelidad) EN FOCO**; 7 en reserva; 11 descartados con motivo registrado. Rankings anteriores marcados como superados.
+- Creada `30-TFG/Seleccion-Tema/` con **una página por tema (19 + índice) en el formato oficial** "Definiciones Iniciales TFG" del PDF de la universidad; ampliaciones en páginas separadas de `20-Investigacion/`.
+
+**Próximo paso**: decisión final del usuario sobre el tema 19 → redactar el documento Word oficial de presentación.
+
 ## 2026-08-12 — Investigación urgente: 15 temas candidatos para el TFG
 
 **Contexto**: deadline de <10 hs para definir el tema. Se adelanta la selección de tema (Etapa 1) por delante de la Etapa 0, que se reubicará después.
