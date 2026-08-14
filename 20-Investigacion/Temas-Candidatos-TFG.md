@@ -323,3 +323,31 @@ Cada ficha del deck ahora incluye la sección **"Pitch al tutor"**: problema con
 - **ACV**: 12,2 millones/año en el mundo (World Stroke Organization); hasta 80% de sobrevivientes con déficit de miembro superior; persiste a 6 meses en 30-66%.
 - **Síndrome de enclaustramiento**: 80% de supervivencia a 10 años con buen cuidado (Neurology 2023); 62% usa tecnología asistiva — décadas de vida con necesidad de comunicación.
 - **Calibración BCI**: ~20-30 min por usuario/sesión — el bloqueo #1 de productización (motiva temas 2 y 4).
+
+---
+
+## Ampliación 3: bloque Neuralink — temas 16-18 (2026-08-14)
+
+A pedido del usuario se investigó qué es factible como tesis de Ingeniería en Software en relación a los avances de Neuralink y BCI invasiva. Hallazgo central: **la frontera invasiva es accesible con datos públicos** — sin hardware ni quirófano.
+
+### 16 · Compresión de telemetría neural (Neuralink Compression Challenge) — Investigación · TD · 🟢 · ⭐⭐⭐⭐⭐
+
+- **Verificado**: Neuralink publicó 1 hora de grabaciones crudas del implante N1 (corteza motora de primate) en content.neuralink.com/compression-challenge. Reto: compresión lossless 200x, <1 ms, <10 mW. El N1 genera ~200 Mbps y transmite ~1 Mbps. Estado del arte: zip ≈ 2,2x — problema ABIERTO.
+- **Tesis**: caracterizar la frontera ratio-latencia-potencia con predictores adaptativos, codificación entrópica (rANS) y variantes aprendidas. Un resultado negativo bien argumentado (por qué 200x choca con la entropía de la señal) ES aporte.
+- **SE**: algoritmia, sistemas de bajo nivel, benchmarking — ingeniería de performance. Stack: C/C++/Rust + Python.
+- **CV**: "trabajé con datos reales del implante N1" — la línea más distintiva posible apuntando a neurotech.
+
+### 17 · Decodificación brain-to-text sobre datos intracorticales públicos — Investigación · TD · 🟡 · ⭐⭐⭐⭐⭐
+
+- **Verificado**: datasets de Stanford públicos en Dryad — handwriting BCI (Willett 2021, 192 electrodos, ~90 caracteres/min) y speech neuroprosthesis (Willett 2023, doi:10.5061/dryad.x69p8czpq). Benchmark internacional activo: Brain-to-Text '24.
+- **Tesis**: reproducir el baseline RNN, comparar arquitecturas (GRU vs Transformer) y ablacionar el aporte del language model. Métricas CER/WER comparables internacionalmente.
+- **SE**: ML de secuencias + integración con LMs + evaluación rigurosa + latencia de inferencia. Es el problema EXACTO del equipo de decodificación de Neuralink.
+- **Objeción resuelta**: los datos ya existen y son públicos — el trabajo es 100% computacional (los cirujanos implantan; los ingenieros de software decodifican).
+
+### 18 · Seguridad y neuroderechos: threat modeling para sistemas BCI — Prototipado · TD · 🟢 · ⭐⭐⭐⭐
+
+- **Verificado**: Chile = primer país con neuroderechos constitucionales (2021); fallo de Corte Suprema 2023 contra empresa BCI estadounidense real (PMC10929545); Neuroprotection Bill 2023 trata neurodatos como tejido orgánico; UNESCO debatiendo marco global. Argentina: vacío legal — oportunidad.
+- **Tesis (prototipo)**: herramienta de threat modeling específica de BCI — catálogo de amenazas de neurodatos (inferencia de salud, replay, manipulación de estímulos), mapeo amenaza→control→neuroderecho, generador de reportes. Caso de estudio: la arquitectura del dispositivo del fallo chileno.
+- **SE**: threat modeling, privacy-by-design, compliance tooling — seguridad informática, área núcleo de la carrera. ÚNICO tema sin datos ni GPU ni hardware: riesgo técnico mínimo absoluto.
+
+**Actualización del ranking**: para el objetivo declarado "trabajar en Neuralink o similar", los temas 16 y 17 compiten de igual a igual con el 🥇 (tema 2). El 16 si te tira el software de sistemas/bajo nivel; el 17 si te tira el ML de secuencias. El 18 es el outsider de máxima factibilidad.
