@@ -9,6 +9,12 @@
 
 ## 🟢 En reserva
 
+**Agregados 2026-08-14 — perfil Investigación + AI engineering + SE:**
+- [[Tema-20-Drift-Mantenimiento-Decodificadores]] — MLOps neural, con benchmark público dedicado (FALCON, NeurIPS 2024) ⭐ reserva alta
+- [[Tema-21-Robustez-Adversarial-Decodificadores]] — seguridad × AI reliability
+- [[Tema-22-Datos-Sinteticos-EEG]] — IA generativa × data-centric AI
+
+**De la investigación original:**
 - [[Tema-01-Benchmark-Imagineria-Motora]]
 - [[Tema-02-Foundation-Models-EEG]]
 - [[Tema-04-Transfer-Learning-Sujetos]]

@@ -77,6 +77,20 @@ Medir cuánta información de la señal sobrevive hasta la salida (mutual inform
 - **Pone a prueba una afirmación de Nature** — no una curiosidad marginal.
 - **Implicancias regulatorias**: conecta con agencia del usuario y neuroderechos ([[Temas-Candidatos-TFG|tema 18]]) sin dejar de ser un trabajo técnico medible.
 
+## Objeciones anticipadas (simulacro para el tutor)
+
+**"El sistema ya tiene 97,5% de precisión — ¿qué margen de mejora te queda?"**
+> No busco mejorar la precisión: busco auditar qué significa. Es la diferencia entre un alumno que saca 97,5 sabiendo las respuestas y uno que dedujo por contexto: misma nota, distinto significado. Mido cuánto de ese número proviene de la señal neural y cuánto del modelo de lenguaje completando texto probable. Cuanto más alto el número publicado, más relevante la auditoría — nadie pregunta qué compone un número mediocre; los números espectaculares son los que hay que abrir.
+
+**"¿Y si el resultado da que el sistema es fiel — no te quedás sin tesis?"**
+> Al revés: el diseño es informativo en ambas direcciones. Fidelidad alta = primera cuantificación de una afirmación de Nature que estaba sin verificar. Fidelidad baja = hallazgo de un problema de confiabilidad con implicancias clínicas. No dependo de que el experimento "salga bien" — esa independencia del resultado es la marca de una buena pregunta.
+
+**"¿Esto no es neurociencia?"**
+> Los datos ya existen, públicos, grabados por Stanford. Mi trabajo es evaluación de sistemas de ML: ablaciones, métricas, protocolos reproducibles — ingeniería de software de confiabilidad aplicada al caso más sensible que existe.
+
+**"¿Por qué nadie lo hizo antes?"**
+> Porque el protocolo de fidelidad nació en 2025-2026 en el subcampo no invasivo (donde la alucinación era escandalosa) y los grupos intracorticales están enfocados en rendimiento, no en auditoría. La ventana entre ambos subcampos es exactamente donde se para esta tesis.
+
 ## Riesgos honestos
 
 1. Willett podría tener razón (los sistemas intracorticales son fieles) → el resultado sigue siendo publicable: "verificamos cuantitativamente la afirmación" + las curvas de degradación son aporte igual.
