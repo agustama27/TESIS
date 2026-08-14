@@ -275,3 +275,33 @@ Cuando elijas, el documento `Apellido_Nombre - Tipo TFG.docx` debe contener:
 9. **Justificación del TFG** (15-20 renglones): por qué importa, cómo se aborda, qué tecnologías (si es Prototipado).
 
 **Siguiente paso al elegir**: correr `bci-explorer` sobre el tema elegido para armar las 4 citas APA completas y verificadas + redactar el documento juntos (yo verifico, vos firmás las ideas).
+
+---
+
+## Ampliación: encuadre justificado y metodología por tema (2026-08-12, 2ª pasada)
+
+> Versión navegable completa en el deck interactivo (artifact). Resumen de encuadre + fases acá para portabilidad.
+> Datasets adicionales verificados hoy: **SEED-VIG** (SJTU, 23 sujetos, PERCLOS), **STEW** (IEEE DataPort, DOI 10.21227/44r8-ya50, 48 sujetos), **MOABB** (148 datasets, NeuroTechX).
+
+### Estructura común de los 4 meses
+
+- **Prototipado**: E1 relevamiento + marco teórico + metodología (Scrum/UML) → E2 análisis y diseño + mockups SIN código → E3 seguridad, costos, riesgos, conclusión → E4 codificación del core + demo.
+- **Investigación**: M1 marco teórico + hipótesis + diseño experimental → M2 pipeline y baselines → M3 experimento principal + estadística → M4 robustez + redacción final.
+
+### Encuadre y metodología (síntesis)
+
+1. **Benchmark DL vs clásicos (Investigación · TD)** — Por qué: respuesta validada estadísticamente, no sistema. Método: BCI IV-2a + PhysioNet; CSP+LDA/SVM vs EEGNet; Wilcoxon por sujeto; costo computacional. Stack: MNE, scikit-learn, PyTorch, MOABB.
+2. **Foundation models EEG (Investigación · TD)** — Por qué: experimento controlado sobre adoptabilidad (calibración). Método: curvas de aprendizaje 1-100% de datos, LaBraM fine-tuned vs EEGNet desde cero. Stack: PyTorch, LaBraM, Colab Pro.
+3. **Speller P300 (Prototipado · TD)** — Por qué: sistema con organización modelable (centro de rehabilitación) y proceso (sesión de comunicación). Método: E1 relevamiento → E2 UML + mockups matriz 6×6 → E3 seguridad datos biométricos → E4 front estimulador + detección P300 sobre dataset BNCI en replay. Stack: React, FastAPI, MNE, MOABB.
+4. **Transfer learning entre sujetos (Investigación · TD)** — Por qué: pregunta cuantificable con protocolo LOSO estándar. Método: baselines → Riemannian alignment → fine-tuning EEGNet con fracciones crecientes; curvas de calibración. Stack: MOABB, pyRiemann, PyTorch.
+5. **Neurofeedback atención (Prototipado · ED)** — Por qué: producto educativo, organización = la universidad; línea ED menos competida. Método: E1 relevamiento + COMPRAR MUSE YA → E2 arquitectura Muse→BrainFlow→índice→UI → E3 consentimiento/datos neurales → E4 core con feedback en vivo (N=1 declarado). Stack: BrainFlow, Muse 2, React/Electron.
+6. **Somnolencia conductor (Prototipado · TD)** — Por qué: sistema para empresa de transporte modelada. Método: SEED-VIG con replay tiempo real, features espectrales → regresor vs PERCLOS, dashboard supervisor + alerta. Stack: MNE, FastAPI, React.
+7. **Framework/SDK BCI (Prototipado · PD)** — Por qué: producto PARA desarrolladores — único encaje natural en PD. Método: API Source→Filter→Feature→Classifier→Sink, plugins, v1 = replay + 2 paradigmas + speller ejemplo + PyPI. Riesgo: scope creep. Stack: Python asyncio, BrainFlow adapter, GitHub Actions.
+8. **Estrés/carga cognitiva (Investigación · TD)** — Por qué: comparación experimental pura. Método: STEW principal (workload 1-9), protocolo subject-independent declarado, PSD+SVM vs CNN-LSTM; el gap dependent/independent es el hallazgo. Stack: MNE, PyTorch.
+9. **Domótica SSVEP (Prototipado · TD)** — Por qué: hogar asistido modelable. Método: estimulador web de frecuencias → CCA/FBCCA sobre dataset SSVEP en replay → MQTT a Home Assistant simulado. Limitación: Muse frontal NO sirve para SSVEP. Stack: MNE/NumPy, MQTT.
+10. **Juego serio post-ACV (Prototipado · TD)** — Por qué: centro de neurorrehabilitación modelable, evidencia clínica 2024-25 real. Método: clasificador MI (BCI IV-2a replay) → juego (Phaser/Godot) via WebSocket → panel kinesiólogo. Alcance declarado: sin pacientes reales. Stack: Python, Phaser/Godot.
+11. **Validación Muse (Investigación · TD)** — Por qué: replicación experimental con datos propios (oddball, N 10-15). SOLO con hardware en mano — descartado por calendario. Stack: PsychoPy, BrainFlow, MNE.
+12. **Emociones DEAP (Investigación · TD)** — Por qué: benchmark metodológico contra el data leakage del campo. Método: splits subject-independent públicos, spectral+SVM vs CNN/LSTM/Transformer. Stack: MNE, PyTorch.
+13. **Teclado parpadeo (Prototipado · TD)** — Por qué: asistivo de costo mínimo con precedente EPN. Método: detector de parpadeo voluntario (umbral+duración) + teclado por barrido web; métrica palabras/minuto. Stack: Python, JS.
+14. **Tutor adaptativo por carga (Prototipado · ED)** — Por qué: cierra el loop pedagógico (contenido se adapta a fisiología); ED sin hardware. Método: estimador workload sobre STEW → replay como estudiante simulado → motor de adaptación + banco de ejercicios → panel docente. Stack: MNE+sklearn, React, FastAPI.
+15. **Biometría EEG (Investigación · TD)** — Por qué: evaluación FAR/FRR/EER de estabilidad y unicidad de ERP. Método: verificación 1:1, estabilidad multi-sesión como hallazgo central. Stack: MNE, sklearn.
