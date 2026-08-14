@@ -6,6 +6,17 @@
 
 Las redes neuronales comunes calculan con números continuos, todas las neuronas todo el tiempo — por eso gastan tanta energía. Las neuronas del cerebro no: están en silencio y solo disparan un impulso cuando algo importa; por eso el cerebro entero funciona con lo que consume una lamparita. Las **redes de impulsos (SNN)** copian ese truco, y son la gran apuesta para que el decodificador corra DENTRO de un implante (presupuesto de milivatios: un chip en el cráneo no puede calentar el tejido). Elegancia extra: la señal que graban los electrodos **ya son impulsos** — la SNN la procesa en su formato nativo. **Tu tesis: comparar con rigor decodificadores SNN contra los convencionales sobre los datasets públicos, midiendo precisión Y costo computacional (el proxy estándar de energía). La tabla del trade-off es la tesis.**
 
+## Para explicárselo a cualquiera (el guion de 60 segundos)
+
+> "Hay gente paralizada con chips en la cabeza que traducen sus neuronas a movimientos o palabras. El programa traductor hoy corre en una computadora grande — pero el objetivo es que corra adentro del chip, y ahí no puede gastar energía porque un chip que se calienta daña el cerebro. Existe un tipo nuevo de inteligencia artificial que computa como el cerebro mismo: en silencio, activándose solo cuando hace falta — como un sereno con silbato en vez de una oficina calculando sin parar — y por eso gasta muchísimo menos. Mi tesis pone a competir al traductor de siempre contra el eficiente, sobre grabaciones públicas de cerebros reales, y mide quién traduce mejor y gastando cuánto. La tabla que sale le dice a la industria de los implantes si el futuro eficiente ya llegó o cuánto le falta."
+
+**Las analogías clave** (usarlas siempre en este orden):
+1. **El límite biológico**: un chip dentro del cráneo no puede calentarse — presupuesto menor a una lamparita de navidad.
+2. **Red normal = oficina** donde todos calculan todo el tiempo, haya trabajo o no.
+3. **Red de impulsos = sereno con silbato**: silencio, silencio, ¡pip!, silencio — solo gasta cuando pasa algo. Así funciona el cerebro real (20 watts, una lamparita).
+4. **La coincidencia hermosa**: los electrodos graban pips de neuronas reales — la red de impulsos y el cerebro hablan el mismo idioma nativo, sin traducción intermedia.
+5. **La tesis = la tabla**: dos traductores, mismas grabaciones, tres números (precisión, cuentas realizadas, velocidad). Sin resultado malo posible.
+
 ## Definiciones Iniciales (formato oficial)
 
 - **Tipo de TFG**: ☑ Trabajo de Investigación
