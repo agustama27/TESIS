@@ -3,11 +3,12 @@
 > Cada tema en formato "Definiciones Iniciales TFG" (PDF oficial de la universidad).
 > Estado al 2026-08-14. Lista maestra con análisis: [[../../20-Investigacion/Temas-Candidatos-TFG|Temas-Candidatos-TFG]].
 
-## 🎯 En foco — dos finalistas elegidos por el autor (2026-08-14, ejercicio de decisión)
+## 🎯 En foco — tres finalistas elegidos por el autor (2026-08-14)
 
 - [[Tema-24-LLM-Comunicacion-Asistida-Espanol]] — **construir**: expansión de texto abreviado con LLMs en español (réplica de SpeakFaster/Nature Comms, inexistente en español). El stack diario del autor.
 - [[Tema-19-Fidelidad-Brain-to-Text]] — **auditar**: ¿cuánto de lo que el sistema "dice" viene del cerebro y cuánto lo completa el modelo de lenguaje?
-- 🧬 **Fusión posible**: un solo pipeline con las dos preguntas — construir la expansión en español Y auditar su fidelidad. Ver sección final del Tema 24.
+- [[Tema-25-Decodificadores-SNN-Neuromorficos]] — **la frontera**: redes de impulsos vs redes convencionales como decodificadores, con la energía como atributo de calidad. La mayor curva de aprendizaje, la máxima señal de posgrado.
+- 🧬 **Fusión posible 24+19**: un solo pipeline con las dos preguntas — construir la expansión en español Y auditar su fidelidad. Ver sección final del Tema 24.
 
 ### Antes en foco, ahora en reserva alta
 - [[Tema-23-Compresion-Decodificadores-Tiempo-Real]] — "del paper al dispositivo" (Word oficial ya generado, listo si se reactiva).
