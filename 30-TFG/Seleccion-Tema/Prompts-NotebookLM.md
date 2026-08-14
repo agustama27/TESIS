@@ -33,3 +33,16 @@ Presentación de 12 láminas en español rioplatense neutro para defender un tem
 
 - La presentación acompaña TU relato: vos hablás, ella apoya. Si una lámina no la podés explicar sin leerla, se simplifica o se saca.
 - Revisar la salida contra esta checklist: ¿terminología TFG correcta? ¿sin líneas duplicadas? ¿cada cifra existe en las fuentes?
+
+---
+
+## Prompts COMPACTOS (8 láminas: problema → alcance → qué resuelve) — 2026-08-14
+
+Para presentaciones breves de los tres finalistas. Misma estructura: portada / problema / evidencia / pregunta / qué voy a hacer / alcance SÍ-NO / qué resolvería / cierre con plan y recursos. Con notas del orador y prohibición de inventar cifras.
+
+Los tres prompts completos están registrados en la conversación de kickoff y se copian tal cual al cuadro de personalización de NotebookLM, adjuntando como fuente el `.md` del tema correspondiente:
+- Tema 24 → `Tema-24-LLM-Comunicacion-Asistida-Espanol.md`
+- Tema 19 → `Tema-19-Fidelidad-Brain-to-Text.md` (+ `Fidelidad-Brain-to-Text.md`)
+- Tema 25 → `Tema-25-Decodificadores-SNN-Neuromorficos.md`
+
+Regla de los 8: si una lámina no se puede explicar sin leerla, se simplifica o se elimina.
