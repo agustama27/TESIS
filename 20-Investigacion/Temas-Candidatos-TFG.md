@@ -8,7 +8,8 @@
 **🎯 EN FOCO — dos finalistas ELEGIDOS POR EL AUTOR (ejercicio de decisión, 2026-08-14):**
 - **Tema 24: LLMs para comunicación asistida en español** (réplica de SpeakFaster/Nature Comms 2024, inexistente en español; stack diario del autor; sin hardware).
 - **Tema 19: Fidelidad en la decodificación brain-to-text** (evolución del tema 17). Investigación de implementación: [[Fidelidad-Brain-to-Text]].
-- 🧬 **Fusión posible** (ver Tema 24): construir la expansión en español Y auditar su fidelidad — un pipeline, las dos preguntas.
+- **Tema 25: Decodificadores SNN/neuromórficos** (redes de impulsos vs convencionales; energía como atributo de calidad; formalizado a pedido del autor — curva de aprendizaje declarada como riesgo).
+- 🧬 **Fusión posible 24+19** (ver Tema 24): construir la expansión en español Y auditar su fidelidad — un pipeline, las dos preguntas.
 - Tema 23 (compresión) pasa a reserva alta con Word oficial ya generado.
 
 **🟢 EN RESERVA** (elegibles si el foco cae): 1 (benchmark imaginería motora) · 2 (foundation models EEG) · 4 (transfer learning) · 7 (SDK BCI) · 10 (juego serio ACV) · 14 (tutor adaptativo) · 18 (neuroderechos) · **nuevos 2026-08-14, perfil Investigación+AI+SE**: **20 (drift/mantenimiento de decodificadores — MLOps neural, benchmark FALCON de NeurIPS)** · 21 (robustez adversarial) · 22 (datos sintéticos por difusión).
