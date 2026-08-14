@@ -77,6 +77,40 @@ Fin. Si el tutor pregunta más, mejor — significa que mordió el anzuelo.
 **"¿Por qué esto y no algo más tradicional?"**
 > "Porque la universidad no tiene ninguna tesis de este tema — sería de las primeras — y porque es el área donde quiero desarrollarme profesionalmente. Prefiero cuatro meses invertidos en algo que define mi carrera que en un sistema más del montón."
 
+## ¿Cómo vas a VALIDAR que el programa mejora? (la pregunta del tutor)
+
+Esta es la pregunta metodológica central, y tiene respuesta sólida. Vamos por partes.
+
+### La clave: los datos vienen con la respuesta correcta
+
+Cuando Stanford grabó a los participantes, les mostraba **una oración en pantalla** y les pedía que intentaran decirla. O sea que cada grabación tiene dos cosas: la señal del cerebro Y **la oración que la persona intentó decir** (la "respuesta correcta").
+
+Validar es entonces como **corregir un examen**: tu programa produce un texto a partir de la señal, y lo comparás palabra por palabra contra la oración correcta. Si la persona intentó decir "quiero agua fría" y tu programa decodificó "quiero agua fina", erró 1 palabra de 3. Ese porcentaje de palabras erradas es el **WER** — la nota del examen. Es un número objetivo, automático, sin opiniones: no necesitás médicos, jueces ni encuestas.
+
+### ¿Cuál es tu "población estadística"?
+
+Acá está el matiz que tenés que tener CLARO para el tutor: **tu unidad de análisis no son personas — son oraciones grabadas.**
+
+- El dataset de escritura tiene **1.000 oraciones** (43.501 caracteres) grabadas en 10 sesiones.
+- El de habla tiene cientos de oraciones por sesión, a lo largo de semanas.
+
+Tu población es ese conjunto de oraciones/sesiones. Cada oración es una observación. Con cientos de observaciones por condición podés hacer estadística seria — igual que un test A/B sobre miles de requests, aunque venga de un solo servidor.
+
+**¿Y no es un problema que sea UNA persona?** Es la pregunta trampa, y la respuesta honesta es la mejor defensa: los papers de Nature de este campo son con N=1 o N=2 participantes — es lo normal, porque cada participante requiere neurocirugía. La validez INTERNA de tu experimento (¿el cambio que hice mejora la decodificación en estos datos?) es fuerte; la generalización a otras personas se **declara como limitación**, igual que lo declaran los papers de Nature. Un tesista que conoce las limitaciones de su método impresiona más que uno que promete de más.
+
+### Las cuatro reglas que hacen que la medición sea seria
+
+1. **Datos de examen separados** ("held-out test set"): dividís las oraciones — con unas entrenás el programa, con OTRAS lo evaluás. El programa se mide con oraciones que nunca vio, como un alumno que estudia con una guía y rinde con un examen distinto. El benchmark internacional ya define esta división oficialmente — la usás tal cual, así tus números son comparables con los de todos los equipos del mundo.
+2. **Comparación justa**: todas las variantes que compares (con corrector / sin corrector / lector A / lector B) se evalúan sobre EXACTAMENTE las mismas oraciones de examen. Misma cancha para todos.
+3. **Controlar el azar del entrenamiento**: entrenar una red tiene componente aleatorio (como barajar un mazo). Entrenás cada variante varias veces con semillas distintas y reportás el promedio y la variación — no un número de una corrida con suerte.
+4. **Test estadístico**: para afirmar "A es mejor que B" no alcanza con que el promedio dé mejor — hacés un test pareado sobre las oraciones (¿A le ganó a B consistentemente en las mismas oraciones, o fue ruido?). Es el mismo concepto que la significancia en un test A/B.
+
+### El párrafo listo para el tutor
+
+> "La validación es objetiva y automática: los datasets incluyen la oración que el participante intentó decir, así que cada variante del sistema se evalúa comparando su salida contra esa referencia, con la métrica estándar del campo — el porcentaje de palabras erradas (WER). Mi población estadística son las oraciones grabadas: mil en el dataset de escritura, cientos por sesión en el de habla. Uso la división oficial entrenamiento/evaluación del benchmark internacional, para que mis números sean directamente comparables con los publicados. Cada comparación se repite con varias semillas de entrenamiento y se somete a un test estadístico pareado sobre las oraciones. Y declaro explícitamente la limitación de que los datos provienen de pocos participantes — que es la norma del campo, incluso en los papers de Nature, por la naturaleza quirúrgica de la recolección."
+
+Si soltás ese párrafo cuando pregunte cómo validás, la reunión la ganaste.
+
 ## Por qué NO tenés que saber todo hoy
 
 El tutor no espera un experto — espera tres cosas: **un problema claro** (personas sin comunicación + software que la devuelve), **un plan realista** (reproducir → experimentar → documentar, con datos públicos), y **evidencia de que es posible** (papers publicados, datos abiertos, código disponible, competencia internacional). Las tres las tenés.
