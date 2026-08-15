@@ -18,7 +18,7 @@
 - Sensor: 1.024 electrodos en 64 hilos flexibles, insertados por un robot.
 - Todo el sistema (chip + batería + radio) queda **sellado dentro del cráneo**, sin cables al exterior.
 - Batería recargable **por inducción** (como el cargador inalámbrico del celular), ~12 horas de autonomía.
-- Transmite por **Bluetooth** a una computadora o teléfono.
+- Transmite de forma inalámbrica a una computadora o teléfono. ⚠️ **Protocolo NO verificado en fuente primaria**: múltiples fuentes secundarias afirman Bluetooth Low Energy (BLE) con cifrado AES-256, pero no se encontró confirmación en documentación oficial de Neuralink ni en papers. **Alerta de calidad de fuente**: una de esas fuentes afirma ">100 Mbps por BLE", lo cual es imposible (BLE 5 con PHY 2M llega a ~2 Mbps), lo que resta credibilidad al conjunto. El dato es *plausible* — el implante comprime antes de transmitir, así que un radio de bajo ancho de banda y bajo consumo es coherente con la arquitectura — pero **no citarlo en el TFG sin fuente primaria** (patente, paper o documentación oficial).
 
 **Esta diferencia lo explica casi todo**: en el mundo A la energía no es problema porque hay cable; en el mundo B **la energía es EL problema**, porque todo tiene que vivir de una batería adentro de la cabeza sin calentar el tejido.
 
@@ -94,6 +94,12 @@ Fijate la lógica encadenada:
 - Energía en implantes neurales: [Comparative analysis of energy transfer mechanisms for neural implants (PMC10825050)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10825050/)
 
 ⚠️ Antes de citar cualquiera de estos números en el TFG, verificar la fuente primaria (paper original, no divulgación).
+
+### Lección de rigor (2026-08-14)
+
+Las especificaciones de hardware del N1 (consumo de 24,7 mW, compresión 200×, batería de 12 h, protocolo BLE) provienen de **divulgación técnica, no de fuentes primarias**. Al intentar verificarlas: el sitio de Neuralink es una SPA sin texto extraíble, y la ficha de bionic-vision.org solo confirma electrodos e hilos. Peor: una de las fuentes afirma ">100 Mbps por BLE", físicamente imposible.
+
+**Regla para el TFG**: la divulgación técnica se copia entre sí sin verificar. Diez blogs coincidiendo no equivalen a un paper. Toda especificación de hardware citada debe venir de: el paper original (p. ej. Musk & Neuralink, JMIR 2019), una patente, o documentación oficial. Verificar antes de la Entrega 1.
 
 ## Enlaces
 
