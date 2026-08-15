@@ -58,11 +58,13 @@ Este es el concepto que hay que entender de verdad, porque es la puerta por dond
 
 Los 1.024 electrodos generan **muchísimos datos crudos** (del orden de 200 Mbps). Mandar todo eso por radio consumiría una cantidad de energía imposible para el presupuesto térmico. Entonces el diseño enfrenta un **compromiso**:
 
-| Estrategia | Costo de cómputo adentro | Costo de radio | Viable hoy |
+| Estrategia | Costo de cómputo adentro | Costo de radio | Estado real |
 |---|---|---|---|
-| **Mandar todo crudo afuera** | Cero | Altísimo ❌ | No |
-| **Procesar un poco adentro, mandar lo esencial** | Bajo | Bajo ✅ | **Es lo que se hace** |
-| **Decodificar todo adentro, mandar solo la intención** | Alto ❓ | Mínimo | **El futuro** |
+| **Mandar todo crudo afuera** | Cero | Altísimo ❌ | Inviable con batería |
+| **Procesar un poco adentro, mandar lo esencial** | Bajo | Bajo ✅ | **Lo que se hace hoy** (esquema híbrido) |
+| **Decodificar todo adentro, mandar solo la intención** | Alto ❓ | Mínimo | **Camino explorado, NO consenso** ⚠️ |
+
+⚠️ **Corrección importante (2026-08-14)**: la tercera fila decía antes "el futuro" — es incorrecto presentarlo así. La literatura documenta **dos caminos vigentes** (cómputo en el implante vs. cómputo en el dispositivo vestible externo) y los trata como un **compromiso de diseño abierto**, no como una dirección única. Análisis completo con evidencia de ambos lados: [[../20-Investigacion/Donde-Decodificar-Adentro-o-Afuera|¿Dónde decodificar?]].
 
 Por eso el N1 hace **detección de spikes en el propio chip** y comprime los datos hasta ~200 veces antes de transmitir: **es más barato calcular un poco adentro que transmitir mucho afuera.**
 
@@ -72,14 +74,16 @@ Por eso el N1 hace **detección de spikes en el propio chip** y comprime los dat
 
 ## Y acá entra el Tema 25
 
-Fijate la lógica encadenada:
+Fijate la lógica encadenada — **sin apostar a ninguna predicción**:
 
-1. La industria **ya movió el procesamiento hacia adentro** (detección de spikes) porque transmitir es caro.
-2. El siguiente paso natural es meter también **el decodificador** adentro — así el implante manda "el usuario quiere mover el cursor a la derecha" en vez de miles de spikes. Eso sería el mínimo de radio posible.
-3. **Pero el decodificador es un programa de inteligencia artificial, y esos gastan demasiado** para el presupuesto de milivatios.
-4. **Las redes de impulsos (SNN) atacan exactamente ese punto**: si calcular se vuelve mucho más barato, el equilibrio de la tabla de arriba se corre hacia "decodificar todo adentro".
+1. Está establecido que **la transmisión es el mayor consumidor de energía** del implante, y que por eso el procesamiento migra hacia adentro cuando el cómputo lo permite (por eso el N1 detecta spikes en el chip).
+2. **Cuánto más se puede mover hacia adentro es una pregunta abierta**, y depende de una sola variable: **cuánto cuesta computar ahí**.
+3. Los programas de IA actuales gastan demasiado para el presupuesto de milivatios — por eso los dispositivos que ya decodifican dentro del cuerpo (NeuroPace RNS, Medtronic Percept) usan algoritmos muy simples.
+4. **Las redes de impulsos atacan exactamente esa variable**: si computar sale mucho más barato, se puede hacer más adentro con el mismo presupuesto.
 
-**Por eso la pregunta del Tema 25 no es académica**: si las redes de impulsos igualan la precisión gastando una fracción del cómputo, habilitan el paso 2 — implantes que hacen todo adentro. Si no la igualan, se sabe cuánto falta.
+**La pregunta del Tema 25 mide esa variable.** Y el resultado sirve se resuelva el compromiso como se resuelva: si todo migra adentro, dice si el paradigma alcanza; si se mantiene el esquema híbrido actual, dice cuánto más se puede hacer adentro; y si el decodificador queda en un vestible externo, la eficiencia sigue importando porque también funciona a batería.
+
+📄 Análisis completo de la premisa, con evidencia a favor y en contra: [[../20-Investigacion/Donde-Decodificar-Adentro-o-Afuera|¿Dónde decodificar?]]
 
 ---
 
