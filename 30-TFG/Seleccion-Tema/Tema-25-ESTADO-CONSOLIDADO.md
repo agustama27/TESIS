@@ -1,5 +1,10 @@
 # Tema 25 — Estado consolidado
 
+> 🔄 **ACTUALIZACIÓN 2026-08-15 — el tema estaba dado por muerto y SE REACTIVA.**
+> Se lo había descartado porque NeuroBench (consorcio, *Nature Communications*) ya publicó una comparación equivalente. Ese descarte aplicó un **estándar de paper de alto impacto que no corresponde a un TFG de grado** — ver [[../../20-Investigacion/Calibracion-Alcance-Tesis-BCI|Calibración de alcance]].
+> **Reformulación viable**: *"Implementación y evaluación comparativa de decodificadores convencionales y de impulsos sobre datos públicos"*, usando NeuroBench como **referente de contraste** (no como competidor), y declarando explícitamente qué es replicación y qué es aporte propio. Eso es exactamente lo que hacen las tesis de grado aprobadas en el área.
+> Las secciones 1-13 siguen vigentes salvo la afirmación de originalidad de la sección 4.
+
 > **Esta es la única versión vigente.** Escrita el 2026-08-14 después de dos correcciones de rigor.
 > Reemplaza cualquier formulación anterior. Si algo de otra nota la contradice, manda esta.
 > Página con formato oficial: [[Tema-25-Decodificadores-SNN-Neuromorficos]] · Roadmap: [[Roadmap-Tema-25]]

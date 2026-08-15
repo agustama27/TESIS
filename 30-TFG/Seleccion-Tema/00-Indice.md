@@ -1,5 +1,8 @@
 # Selección de Tema — Índice de presentaciones
 
+> ⚠️ **LEER ANTES DE DESCARTAR CUALQUIER TEMA**: [[../../20-Investigacion/Calibracion-Alcance-Tesis-BCI|Calibración de alcance]] (2026-08-15).
+> Durante la selección se aplicó por error un estándar de paper de alto impacto ("¿el hueco es inédito en el mundo?"). Las tesis de grado reales sobre BCI **extienden sistemas existentes**; la vara correcta es la ejecución rigurosa de un problema delimitado, no la originalidad mundial. Los temas descartados por "falta de originalidad" deben reevaluarse.
+
 > Cada tema en formato "Definiciones Iniciales TFG" (PDF oficial de la universidad).
 > Estado al 2026-08-14. Lista maestra con análisis: [[../../20-Investigacion/Temas-Candidatos-TFG|Temas-Candidatos-TFG]].
 

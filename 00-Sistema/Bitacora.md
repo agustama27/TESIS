@@ -2,6 +2,18 @@
 
 > Una entrada por sesión de trabajo. Formato: fecha, qué se hizo, próximo paso. La entrada más reciente arriba.
 
+## 2026-08-15 — Corrección de calibración: la vara estaba mal
+
+**Qué se hizo**:
+- Auditoría rigurosa del Tema 25 → se encontró que NeuroBench (consorcio, *Nature Communications*) ya publicó la comparación SNN vs ANN en decodificación motora ("primate reaching task"), y que la crítica al proxy energético también está publicada. Se dio el tema por muerto.
+- El usuario pidió relevar tesis reales de grado en ingeniería sobre BCI. **Hallazgo correctivo**: descargada y analizada la tesis de UNSAM (Helguera, 2021, Ing. Biomédica, 141 pp.) — su objetivo completo fue *extender un sistema BCI existente de 2 a 3-4 opciones*. No probó con la población objetivo (quedó como trabajo futuro).
+- Escrita [[Calibracion-Alcance-Tesis-BCI]]: la vara de un TFG es **ejecución rigurosa de un problema delimitado**, no originalidad mundial.
+- **Tema 25 reactivado** con reformulación: implementación y evaluación comparativa usando NeuroBench como referente de contraste.
+
+**Lección**: se venían descartando temas buenos aplicando estándar de paper de alto impacto. Para un TFG, que exista trabajo similar no invalida — obliga a declarar qué es replicación y qué es aporte propio.
+
+**Próximo paso**: reevaluar los tres finalistas con la vara correcta.
+
 ## 2026-08-14 — Convergencia al tema de fidelidad + reestructura del vault
 
 **Qué se hizo**:
