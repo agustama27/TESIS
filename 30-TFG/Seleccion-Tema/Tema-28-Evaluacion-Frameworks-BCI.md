@@ -76,6 +76,18 @@ Arquitectura de software + benchmarking + neurotecnología de frontera — el pe
 
 El caso de estudio puede incluir un decodificador convencional Y uno de impulsos como cargas de trabajo — el interés del autor por las SNN sobrevive dentro de esta tesis sin cargar con su justificación.
 
+## Objeción anticipada clave (planteada por el autor, 2026-08-15)
+
+**"La industria va a construir su propio software cuando llegue la era de los implantes — no va a usar los frameworks gratuitos. ¿Para qué evaluarlos?"**
+
+Respuesta en tres capas:
+
+1. **El usuario de la tesis no es la industria: es la ciencia.** Las empresas hacen stacks propietarios para sus productos; pero la validación científica, la replicación y la formación de los ingenieros ocurren en universidades y laboratorios que dependen del ecosistema abierto. Si las herramientas abiertas no aguantan datos de implante, la ciencia queda afuera de esa era.
+2. **Para los DATOS, la era de los implantes ya llegó**: los datasets intracorticales (Stanford/Willett, FALCON) son públicos HOY, y los laboratorios ya necesitan procesarlos con las herramientas que tienen. La pregunta es de presente, no de futuro.
+3. **Precedente histórico**: cada era arrancó con stacks cerrados y maduró sobre infraestructura abierta (Unix propietario → Linux en toda la nube; móviles cerrados → Android; y PyTorch, open source, debajo de toda la IA actual — incluida la de las empresas que compiten entre sí). Las empresas compiten en el producto y convergen en la infraestructura.
+
+**Formulación blindada de la pregunta**: "Los datos de implante ya son públicos y la comunidad científica ya los necesita procesar, pero sus herramientas se diseñaron para un caudal mil veces menor. Esta tesis mide si las herramientas que la ciencia realmente usa pueden con los datos que ya existen." — Sin futurología: presente medible.
+
 ## Plan de 4 meses
 
 | Mes | Trabajo |
