@@ -49,8 +49,10 @@ Cinco marcas dicen "las nuestras son las más rápidas", pero cada una midió en
 
 ## 6. Método
 
+⚠️ **Definición crítica del baseline** (ver [[../../20-Investigacion/Decodificadores-Estado-del-Arte|Estado del arte de decodificadores]]): comparar solo contra un filtro de Kalman sería vencer a un decodificador de generación anterior — resultado sin valor. **El rival real es una red recurrente moderna (GRU/LSTM)**, que es el estado del arte vigente. Diseño correcto: **tres competidores** — lineal (Kalman/Wiener, como piso), recurrente moderna (el rival de verdad) y redes de impulsos.
+
 1. Cargar sesiones de datasets públicos: matriz de spikes + trayectoria real del movimiento, sincronizadas.
-2. Entrenar el decodificador convencional (referencia) y 1-2 redes de impulsos con los mismos splits.
+2. Entrenar los tres decodificadores (lineal, recurrente moderno, redes de impulsos) con los mismos splits.
 3. Medir en cada configuración: **precisión** de decodificación, **operaciones de cómputo** (proxy de energía), **latencia**.
 4. Repetir con varias semillas; test estadístico pareado entre paradigmas.
 5. Construir la frontera precisión-vs-cómputo.
