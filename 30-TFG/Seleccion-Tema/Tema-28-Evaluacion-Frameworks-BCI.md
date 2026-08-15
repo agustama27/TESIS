@@ -48,6 +48,34 @@ El ecosistema de software para interfaces cerebro-computadora creció en framewo
 
 La elección de framework es la primera decisión de arquitectura de cualquier proyecto BCI y hoy se toma sin evidencia comparativa. El trabajo aplica las herramientas centrales de la Ingeniería de Software — modelos de calidad, benchmarking, análisis de trade-offs — a un ecosistema que nunca fue evaluado así, con protocolo reproducible y datos públicos. El diseño es informativo en cualquier resultado: la guía de decisión tiene valor sea cual sea el framework que gane, y los benchmarks quedan publicados para la comunidad. Sin hardware, sin GPU, ejecutable con recursos mínimos. *(Expandir a 15-20 renglones.)*
 
+## 🚀 El gancho Neuralink (agregado 2026-08-15, a pedido del autor)
+
+**Lo honesto primero**: Neuralink no usa estos frameworks — construye su stack propietario. La conexión NO es "evalúo lo que usa Neuralink". La conexión legítima es mejor:
+
+### El stress-test de la era de los implantes
+
+Todo el ecosistema de frameworks abiertos nació para **EEG**: 8-64 canales a 250-1000 Hz. Pero la era que Neuralink inauguró es de **datos intracorticales**: 1.024 canales a ~30.000 Hz — **tres órdenes de magnitud más caudal**. Y los datos de esa escala ya son públicos (datasets de Stanford/Willett, FALCON).
+
+**La pregunta que hace única a la tesis**: *¿está el ecosistema de software abierto preparado para la era de los implantes?* El benchmark deja de ser "comparar frameworks con cargas de juguete" y pasa a ser un **stress-test de escalabilidad**: reproducir señal a escala creciente (canales × frecuencia de muestreo) a través de cada framework y medir **dónde se rompe cada uno** — latencia, jitter, pérdida de muestras, CPU. Curvas de quiebre por arquitectura.
+
+- Es medible, reproducible y visual (las curvas de degradación de cada framework son la demo).
+- Es una ausencia verificable: los frameworks se evalúan a sí mismos con EEG; nadie publicó su comportamiento a escala intracortical. ⚠️ Verificar en el Mes 1 con búsqueda dedicada.
+- No afirma nada sobre Neuralink — usa la escala de datos que esa industria volvió realidad, con datasets públicos.
+
+### Título tentativo alternativo (con el gancho)
+
+*"Evaluación arquitectónica de frameworks BCI de código abierto frente a cargas de datos de próxima generación"*
+
+### La línea de CV que produce
+
+> "Evalué sistemáticamente la infraestructura de software abierta del campo BCI y medí si puede escalar a los caudales de datos de los implantes de nueva generación."
+
+Arquitectura de software + benchmarking + neurotecnología de frontera — el perfil que las empresas del área (que construyen exactamente esta infraestructura, pero cerrada) contratan. Y para una maestría: metodología de evaluación + resultados reproducibles + un hueco real.
+
+### Sinergia con el interés en SNN (opcional)
+
+El caso de estudio puede incluir un decodificador convencional Y uno de impulsos como cargas de trabajo — el interés del autor por las SNN sobrevive dentro de esta tesis sin cargar con su justificación.
+
 ## Plan de 4 meses
 
 | Mes | Trabajo |
