@@ -25,6 +25,8 @@ Eso es todo. El resto de la página explica por qué eso importa y cómo se hace
 
 > **El problema en una línea**: el traductor funciona, pero consume demasiado para vivir dentro del implante.
 
+⚠️ **Precisión importante — no apostamos a una predicción**: no se afirma que "el futuro sea decodificar todo adentro". La literatura documenta **dos caminos vigentes** (cómputo en el implante vs. en un dispositivo externo) y trata el reparto como un **compromiso de diseño abierto**; la práctica actual es híbrida. Lo que sí está establecido es que la transmisión es el mayor consumidor de energía y que el reparto depende de **cuánto cuesta computar adentro** — que es justamente la variable que esta tesis mide. Evidencia de ambos lados: [[../../20-Investigacion/Donde-Decodificar-Adentro-o-Afuera|¿Dónde decodificar?]].
+
 ## 3. La solución que se está explorando
 
 Comparemos dos formas de computar:
