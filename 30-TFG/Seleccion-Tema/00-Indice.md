@@ -6,6 +6,10 @@
 > Cada tema en formato "Definiciones Iniciales TFG" (PDF oficial de la universidad).
 > Estado al 2026-08-14. Lista maestra con análisis: [[../../20-Investigacion/Temas-Candidatos-TFG|Temas-Candidatos-TFG]].
 
+## 📋 Documento de decisión vigente
+
+**[[Reevaluacion-2026-08-15]]** — los tres finalistas reevaluados con la vara correcta, ángulo QA/testing explorado, y tema 26 embrionario (framework de pruebas para BCI open source).
+
 ## 🎯 En foco — tres finalistas elegidos por el autor (2026-08-14)
 
 - [[Tema-24-LLM-Comunicacion-Asistida-Espanol]] — **construir**: expansión de texto abreviado con LLMs en español (réplica de SpeakFaster/Nature Comms, inexistente en español). El stack diario del autor.
