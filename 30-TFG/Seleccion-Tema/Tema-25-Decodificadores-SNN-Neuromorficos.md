@@ -1,5 +1,7 @@
 # Tema 25 — Redes de impulsos para decodificar señales del cerebro
 
+> 📌 **LEER PRIMERO: [[Tema-25-ESTADO-CONSOLIDADO]]** — versión única y vigente tras las correcciones de rigor. Esta página conserva el formato oficial para el formulario; si algo la contradice, manda la consolidada.
+>
 > Estado: 🎯 **EN FOCO** (finalista junto a [[Tema-24-LLM-Comunicacion-Asistida-Espanol|24]] y [[Tema-19-Fidelidad-Brain-to-Text|19]])
 > **Cómo leer esta página**: las secciones 1 a 5 son para entender el tema (cualquier persona las entiende). De la 6 en adelante es el material formal para el formulario de la universidad y la ejecución.
 
