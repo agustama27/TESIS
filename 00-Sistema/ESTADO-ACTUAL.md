@@ -7,15 +7,15 @@
 
 ## 🎯 Dónde está parado el proyecto HOY
 
-**Fase**: selección de tema, en el momento de DECISIÓN FINAL (no de exploración — la exploración terminó).
+**Fase**: selección de tema **CERRADA (2026-08-16)** — tema confirmado por el autor, ver [[Decisiones|D-004]]. Próxima fase: formalización (Módulo 0 + Word oficial) y primer contacto técnico.
 
-**Propuesta sobre la mesa** (elegida por el mentor tras ~30 temas explorados, bajo regla de veto):
+**Tema confirmado** (elegido por el mentor tras ~30 temas explorados, confirmado por el autor el 2026-08-16 con la alternativa LLM-agentes sobre la mesa):
 
 > **"Evaluación de resiliencia de frameworks BCI open source mediante inyección de fallos, con medición del impacto en la precisión del decodificador."**
 > Tema 28 + expansión 28.1 (robustez/chaos engineering) + capa IA (función de transferencia falla-de-software → error-del-modelo).
 > Trabajo de Investigación · línea Transformación Digital · sin hardware, sin GPU, datos públicos.
 
-**Estado de la decisión**: PENDIENTE de confirmación del autor. **Regla de veto pactada**: puede vetar solo eligiendo otro tema de la lista final verificada (28.2 costo de cifrado, 24 LLM-español, 19 fidelidad) con razón escrita en bitácora. NO se generan más temas — regla firme acordada tras detectar el patrón de búsqueda infinita.
+**Estado de la decisión**: ✅ **CONFIRMADA por el autor (2026-08-16)** — regla de veto no ejercida. La decisión incluyó el giro de dominio (sección más abajo): las alternativas LLM-agentes fueron presentadas explícitamente y el autor eligió BCI por el puente de carrera hacia neurotecnología. Detalle y consecuencias (tipo=Investigación, línea=Transformación Digital, datos públicos) en [[Decisiones|D-004]]. La selección NO se reabre.
 
 **Esquema visual de la propuesta** (para mostrar al tutor): https://claude.ai/code/artifact/2b87500e-b857-4f89-b859-f614e57479ae
 
@@ -51,22 +51,19 @@
 
 **Memoria Engram**: proyecto `tesis`, topic keys `bci/*` (seleccion-tema/estado, seleccion-tema/calibracion, brain-to-text/*, se4ai/*).
 
-## 🔀 NOVEDAD DE ÚLTIMO MOMENTO (2026-08-16, al cierre): posible giro de dominio
+## 🔀 Giro de dominio evaluado y RESUELTO (2026-08-16): se mantiene BCI
 
 Al cerrar la sesión se encontró en el vault un documento nuevo — [[../30-TFG/Seleccion-Tema/Alternativas-Fuera-de-BCI-2026-08-16|Alternativas fuera de BCI]] — que plantea **temas de Ingeniería de Software × sistemas LLM/agentes** (testing de regresión de agentes conversacionales, evaluación de agentes de voz en español, benchmarks): el dominio que el autor ejerce a diario en Evoltis. El documento sigue la calibración correcta y contiene una observación clave: *tras 30 temas BCI sin que ninguno encienda — incluido el de mayor motivación declarada — el candidato a problema puede ser el dominio, no la lista.*
 
-**Esto redefine la decisión pendiente**: ya no es solo "confirmar o vetar la propuesta BCI", sino **elegir dominio**: (a) la propuesta BCI (28+28.1+capa IA), o (b) las alternativas LLM-agentes (temas A/B del documento — motivación presunta máxima por ser su oficio).
-
-⚠️ **Advertencia de rigor**: las citas y afirmaciones del documento de alternativas NO fueron verificadas por esta sesión (regla: verificar antes de enamorarse). Primera tarea si se toma ese camino: correr la verificación completa de sus fuentes y huecos. Segunda: confirmar con la universidad que la línea temática admite sistemas LLM. Tercera: límites de propiedad intelectual con el empleador (el tema A roza herramientas del trabajo).
+**Resolución (2026-08-16)**: el dilema (a) BCI vs (b) LLM-agentes fue presentado al autor con ambas opciones completas. El mentor recomendó el tema B (evaluación de agentes de voz); **el autor eligió BCI** priorizando el puente de carrera hacia neurotecnología/maestría. Registrado en [[Decisiones|D-004]]. Los temas A/B/C quedan en el vault como material de referencia (posibles publicaciones laterales), NO como candidatos de TFG. Sus citas siguen ⚠️ SIN VERIFICAR.
 
 ## ⏭️ Próximos pasos (en orden)
 
-1. **[BLOQUEANTE] Decisión de dominio del autor**: BCI (propuesta 28+28.1+IA) vs LLM-agentes (temas A/B de Alternativas). La prueba de humo aplica a ambos: 3 horas de sábado con el candidato elegido.
-2. **[BLOQUEANTE] Conseguir la fecha del Módulo 0 / reunión con el tutor** (SAM o Profesor Director). Sin fecha no hay presión real y la decisión flota.
-3. Generar el **Word oficial** del tema confirmado (plantillas .docx de los temas 19/23 como base; 5 minutos).
-4. Día 3 del sprint: `pip install bcipy` + hola mundo de BciPy y MEDUSA — primer contacto real (3 hs).
-5. Regenerar presentación NotebookLM del tema confirmado (prompts listos).
-6. Pendientes menores: repositorio PUCE caído (reintentar); texto completo tesis Uniandes (anti-bot).
+1. **[BLOQUEANTE] Conseguir la fecha del Módulo 0 / reunión con el tutor** (SAM o Profesor Director). Es el único bloqueante restante — sin fecha no hay presión real.
+2. Generar el **Word oficial** del tema confirmado (plantillas .docx de los temas 19/23 como base; 5 minutos).
+3. **Prueba de humo** (3 hs de sábado): `pip install bcipy` + hola mundo de BciPy y MEDUSA — primer contacto real con los frameworks que la tesis va a evaluar.
+4. Regenerar presentación NotebookLM del tema confirmado (prompts listos).
+5. Pendientes menores: repositorio PUCE caído (reintentar); texto completo tesis Uniandes (anti-bot).
 
 ## 🗂️ Estado del repo
 

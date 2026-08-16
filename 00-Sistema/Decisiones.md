@@ -30,8 +30,21 @@ Sobre `tfg-editor`: el TFG se defiende oralmente ante una Comisión Académica E
 
 **Correcciones técnicas aplicadas**: nombres de tools `mcp__engram__*` → `mcp__plugin_engram_engram__*`; namespace de Engram unificado a `tesis` (convivían `Investigación_BCI`, `bci-thesis` y `tesis`).
 
-## Decisiones pendientes (tomar al cerrar Etapa 0 / en Etapa 1)
+## D-004 · 2026-08-16 · Dominio y tema del TFG confirmados: BCI — propuesta 28+28.1+capa IA
 
-- [ ] D-004: Tipo de TFG — Prototipado tecnológico vs. Trabajo de investigación.
-- [ ] D-005: Línea temática (IRREVERSIBLE) — Transformación digital vs. Educación digital.
-- [ ] D-006: Fuente de datos EEG — hardware propio vs. datasets públicos.
+**Decisión**: el autor confirma la propuesta del mentor como tema del TFG: **"Evaluación de resiliencia de frameworks BCI open source mediante inyección de fallos, con medición del impacto en la precisión del decodificador"** (tema 28 + expansión 28.1 + capa IA falla→error del modelo). La decisión se tomó con la alternativa completa sobre la mesa: el documento [[../30-TFG/Seleccion-Tema/Alternativas-Fuera-de-BCI-2026-08-16|Alternativas fuera de BCI]] (temas LLM-agentes A/B/C, dominio laboral del autor) fue presentado explícitamente como opción (a) vs (b) y el autor eligió BCI.
+
+**Por qué**: BCI es el puente declarado de carrera hacia neurotecnología/maestría (meta registrada en `AGENTS.md`). La alternativa LLM-agentes ofrecía curva de aprendizaje nula y motivación presunta máxima, pero el autor priorizó el objetivo de carrera sobre la comodidad del dominio conocido. La propuesta elegida tiene hueco verificado dos veces, plantilla metodológica publicada (arXiv 2404.06203) y es ejecutable sin hardware ni GPU.
+
+**Alternativas descartadas**: temas A/B/C de LLM-agentes (quedan documentados en el vault por si sirven para publicaciones laterales — NO como tema de TFG); temas BCI finalistas 28.2, 24 y 19 (regla de veto no ejercida).
+
+**Consecuencias** (quedan definidas por el tema, a ratificar formalmente con el tutor):
+- Tipo de TFG: **Trabajo de Investigación** (resuelve la ex-pendiente D-004 tipo).
+- Línea temática (IRREVERSIBLE): **Transformación Digital** (resuelve la ex-pendiente D-005).
+- Fuente de datos: **datasets públicos, sin hardware propio** (resuelve la ex-pendiente D-006).
+
+**Regla vigente**: la selección de tema queda CERRADA. No se generan más temas ni se reabre la exploración.
+
+## Decisiones pendientes
+
+- [ ] D-007: Ratificación del tipo/línea/tema con el tutor en el Módulo 0 (formalidad — la decisión de fondo es D-004).

@@ -2,6 +2,15 @@
 
 > Una entrada por sesión de trabajo. Formato: fecha, qué se hizo, próximo paso. La entrada más reciente arriba.
 
+## 2026-08-16 — DECISIÓN DE DOMINIO: BCI confirmado como tema del TFG
+
+**Qué se hizo**:
+- Sesión corta y decisiva: el autor vino a resolver el bloqueante de dominio planteado en [[ESTADO-ACTUAL]].
+- Se presentaron las dos opciones completas: (a) propuesta BCI 28+28.1+capa IA, (b) alternativas LLM-agentes (temas A/B/C de [[../30-TFG/Seleccion-Tema/Alternativas-Fuera-de-BCI-2026-08-16|Alternativas fuera de BCI]]). El mentor recomendó el tema B (evaluación de agentes de voz) por el patrón de los 30 temas sin encender.
+- **El autor eligió BCI — propuesta 28+28.1+capa IA** — priorizando el puente de carrera hacia neurotecnología. Registrado como [[Decisiones|D-004]]. La selección de tema queda CERRADA.
+
+**Próximo paso**: conseguir fecha del Módulo 0 / reunión con tutor (ahora el único bloqueante) → Word oficial del tema → prueba de humo (`pip install bcipy`, 3 hs de sábado).
+
 ## 2026-08-16 — Cierre de la sesión de selección: propuesta final sobre la mesa
 
 **Qué se hizo (últimos días de la sesión)**:
