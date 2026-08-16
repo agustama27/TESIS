@@ -6,6 +6,13 @@
 > Cada tema en formato "Definiciones Iniciales TFG" (PDF oficial de la universidad).
 > Estado al 2026-08-14. Lista maestra con análisis: [[../../20-Investigacion/Temas-Candidatos-TFG|Temas-Candidatos-TFG]].
 
+## 🔬 Sprint en curso (cierra 2026-08-23) — familia del Tema 28
+
+**[[Sprint-Descubrimiento-Frameworks]]** — con las expansiones auditadas y verificadas:
+- **28.1 · Robustez por inyección de fallos** (chaos engineering sobre frameworks BCI) — ✅ hueco verificado, plantilla metodológica hallada (arXiv 2404.06203). Investigación.
+- **28.2 · Costo del cifrado de señal neural** (verificación independiente de Secure LSL + caracterización bajo carga) — ✅ verificado con corrección (el overhead SÍ fue autoreportado: <5%). Investigación + eje neuroderechos.
+- **28.3 · Benchmark vivo** (contenedores + CI, estilo MOABB para frameworks) — envoltorio que convierte cualquiera de las anteriores en Prototipado.
+
 ## 📋 Documento de decisión vigente
 
 **[[Reevaluacion-2026-08-15]]** — los tres finalistas reevaluados con la vara correcta, ángulo QA/testing explorado, y tema 26 embrionario (framework de pruebas para BCI open source).
