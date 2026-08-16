@@ -107,6 +107,8 @@ Respuesta en tres capas:
 | Acusación de subjetividad | Método documentado (ISO 25010), criterios definidos ANTES de evaluar, todo verificable |
 | Alcance: 7 frameworks × profundidad | Dos niveles: evaluación estática para todos, benchmark+caso de estudio solo para finalistas |
 
+> 🔄 **Formulación de trabajo vigente (2026-08-16)**: existe una reformulación metodológica completa de este tema — [[Propuesta-Reformulacion-Tema-28]] (3 RQs, supuestos, fault models, dataset, escalera de PoCs) — **auditada y aceptada como versión de trabajo, condicionada al PoC**. Este archivo se reescribirá recién cuando el PoC pase. Hasta entonces, este documento conserva la historia y el contexto del tema.
+
 ## Auditoría externa (2026-08-16) — corrección verificada + recorte de alcance
 
 Un segundo agente de IA leyó el repo completo y produjo tres aportes; se auditaron antes de aceptarlos (regla vigente):

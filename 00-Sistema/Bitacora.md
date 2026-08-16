@@ -2,6 +2,16 @@
 
 > Una entrada por sesión de trabajo. Formato: fecha, qué se hizo, próximo paso. La entrada más reciente arriba.
 
+## 2026-08-16 — Reformulación metodológica del tema 28 (handoff externo auditado)
+
+**Qué se hizo**:
+- El autor trajo un handoff de otro agente de IA ([[../30-TFG/Seleccion-Tema/Propuesta-Reformulacion-Tema-28|Propuesta-Reformulacion-Tema-28]]) con la reformulación completa de la familia 28: 3 RQs falsables (propagación de fallos / discrepancia infraestructura-función / valor de detección ML vs reglas), sección de supuestos que NO asumir, fault models acotados, dataset BNCI2014_001 + CSP/LDA, y escalera de 4 PoCs.
+- **Auditada contra el vault y ACEPTADA como formulación de trabajo, condicionada a PoC** (criterio del propio documento, §35). El [[../30-TFG/Seleccion-Tema/Tema-28-Evaluacion-Frameworks-BCI|Tema-28]] no se reescribe hasta que el PoC pase; quedó bannereado apuntando a la propuesta.
+- Antes, en esta misma sesión: verificada la objeción sobre LSL fetcheando el paper (PMC12434378) — declara stress-tests pero sin métricas cuantitativas y sin medir impacto en decodificador → hueco refinado: *verificación independiente y cuantitativa + propagación a la decodificación*.
+- Prueba de humo actualizada a v3 (escalera de 4 PoCs) en [[ESTADO-ACTUAL]].
+
+**Próximo paso**: ejecutar la escalera de PoCs (sábado). Si pasa → decisión de tema prácticamente cerrada + enviar Word al tutor (sigue válido para presentación de idea).
+
 ## 2026-08-16 — Decisión de dominio: BCI elegido en sesión → **corregido a PRELIMINAR el mismo día**
 
 > ⚠️ **Corrección posterior (misma fecha)**: el autor aclaró que la decisión definitiva de tema AÚN NO está tomada. Lo registrado abajo queda como preferencia preliminar. D-004 revertida a pendiente; ESTADO-ACTUAL corregido. Sigue vigente: no se generan temas nuevos.
