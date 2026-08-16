@@ -53,6 +53,43 @@ La única evaluación con personas que NO requiere pacientes: **desarrolladores*
 
 **Regla de decisión pactada**: al 2026-08-23, de las direcciones que sobrevivan la verificación, el autor ELIGE UNA o acepta que esta rama no es la suya y se cierra. **No hay extensión del sprint.**
 
+## 4. Resultados del sprint — día 1: análisis riguroso de 6 ideas de expansión (2026-08-16)
+
+El autor trajo 6 ideas de expansión para el tema 28. Se auditaron las afirmaciones de hecho ANTES de aceptarlas (regla vigente). Veredictos:
+
+### ✅ 28.1 — Robustez: inyección de fallos (chaos engineering) → **PASA, la más fuerte**
+
+- **Afirmación verificada**: la literatura de "robustez BCI" es sobre modelos frente a ruido/ataques en la señal; la **capa de software** (pérdida de muestras, desconexión, jitter, deriva de reloj) no aparece evaluada en ningún framework BCI. ✔ Confirmado con búsqueda dedicada.
+- **Bonus metodológico encontrado**: existe una plantilla EXACTA a seguir — *A Comprehensive Benchmarking Analysis of Fault Recovery in Stream Processing Frameworks* ([arXiv 2404.06203](https://arxiv.org/pdf/2404.06203)) hace esto mismo para Flink/Spark. Metodología madura de otro dominio + ausencia en BCI = el molde tema-19/SpeakFaster que ya sabemos que funciona.
+- **Es justo (no hombre de paja)**: LSL y los frameworks DECLARAN recuperación de conexión y manejo de interrupciones — se testea lo que prometen.
+- **Tesis**: *"Evaluación de resiliencia de frameworks BCI mediante inyección de fallos"* — inyectores (drop, jitter, desconexión, clock skew) + replay de señal + curvas de degradación/recuperación por framework. ¿Pierde datos en silencio? ¿avisa? ¿se recupera? Testing puro, disciplina núcleo.
+
+### ✅ 28.2 — Seguridad: el costo de cifrar señal neural → **PASA, CON CORRECCIÓN**
+
+- **Verificado**: [Secure LSL existe](https://eeglab.org/secureLSL/) (cifrado autenticado libsodium sobre LSL, con protección de replay e integridad). ✔
+- **CORRECCIÓN al texto del autor**: la afirmación "nadie midió el overhead" es **falsa** — los propios docs reportan *"overhead < 5%"* a 1000 Hz. Lo que NO existe: **verificación independiente** de ese número, y **caracterización bajo carga creciente** (canales × frecuencia) y bajo condiciones adversas (pérdida de paquetes + cifrado).
+- **Tesis (reformulada honesta)**: *"Verificación independiente y caracterización del costo del cifrado en streaming de señales neurales"* — replicación del claim + curvas de costo bajo carga. Encuadre correcto: costo de escalamiento, no "mirá cómo falla". Conecta neuroderechos (tema 18) → justificación ética fuerte.
+
+### ✅ 28.3 — Benchmark como producto vivo → **PASA como ENVOLTORIO, no como tesis autónoma**
+
+- MOABB como precedente real (benchmark continuo para algoritmos; nadie para frameworks). ✔
+- **Crítica**: no es una pregunta de investigación — es el mecanismo de entrega. Correcto uso: convierte el tema 28 (con 28.1 o 28.2 adentro) en **Prototipado Tecnológico**: contenedores + CI + reproducción con un comando. El aporte es la infraestructura; los resultados la validan.
+
+### 🟡 4, 5 y 6 → componentes, NO tesis autónomas
+
+- **Interoperabilidad/conformidad**: un eje más de la evaluación (matriz de estándares soportados). Se integra, no encabeza.
+- **Minería de repositorios**: ya iniciada (tabla de salud de la sección 1); fortalece la evaluación estática. Componente.
+- **Evaluar→extender (PR upstream)**: cierre elegante del modelo UNSAM, no tema.
+
+### La configuración recomendada
+
+**Tema 28 base (evaluación con ISO 25010 + benchmark justo) + UNA expansión de identidad:**
+- **28.1 Robustez** si el autor se identifica con testing → Investigación.
+- **28.2 Seguridad** si se identifica con el eje neuroderechos/implantes → Investigación.
+- **+ 28.3** si prefiere que el producto sea software → lo vuelve Prototipado.
+
+Los tres caminos usan: los frameworks vivos según la tabla de salud (BciPy, MEDUSA, LSL; Timeflux como caso "¿estancado?"), replay de señal pública, sin hardware, sin GPU.
+
 ## Enlaces
 
 [[Tema-28-Evaluacion-Frameworks-BCI]] · [[../../20-Investigacion/Que-Es-BRAND|Qué es BRAND]] · [[../../20-Investigacion/Que-Es-Un-Framework-BCI|Qué es un framework BCI]] · [[../../20-Investigacion/Calibracion-Alcance-Tesis-BCI|Calibración]]
