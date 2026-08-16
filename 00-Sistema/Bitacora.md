@@ -2,6 +2,16 @@
 
 > Una entrada por sesión de trabajo. Formato: fecha, qué se hizo, próximo paso. La entrada más reciente arriba.
 
+## 2026-08-16 — Cierre de la sesión de selección: propuesta final sobre la mesa
+
+**Qué se hizo (últimos días de la sesión)**:
+- Sprint de descubrimiento de frameworks: tabla de salud GitHub (Timeflux posiblemente estancado; BciPy/MEDUSA/LSL activos), 6 ideas de expansión auditadas → 28.1 (robustez/fault injection) y 28.2 (costo de cifrado, con corrección: Secure LSL autoreporta <5%) pasan; 28.3 como envoltorio.
+- Ramas laterales investigadas y cerradas: video Shainline (neuromórfico = inspiración, no tesis), Science Corp/Max Hodak (biohíbrido + PRIMA; veta de visión protésica anotada sin desarrollar).
+- **Intervención de mentor**: declarada terminada la exploración (30 temas, patrón de búsqueda infinita). Propuesta elegida por el mentor con regla de veto: **28 + 28.1 + capa IA (falla→error del modelo)**. Esquema visual publicado.
+- Creado [[ESTADO-ACTUAL]] como documento de traspaso; rama mergeada a main.
+
+**Pendiente BLOQUEANTE**: confirmación o veto-con-causa del autor + fecha del Módulo 0.
+
 ## 2026-08-15 — Corrección de calibración: la vara estaba mal
 
 **Qué se hizo**:
