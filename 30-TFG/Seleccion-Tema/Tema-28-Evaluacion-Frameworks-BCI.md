@@ -107,6 +107,16 @@ Respuesta en tres capas:
 | Acusación de subjetividad | Método documentado (ISO 25010), criterios definidos ANTES de evaluar, todo verificable |
 | Alcance: 7 frameworks × profundidad | Dos niveles: evaluación estática para todos, benchmark+caso de estudio solo para finalistas |
 
+## Refuerzos desde la investigación de carrera (2026-08-16)
+
+Del [[../../20-Investigacion/Oportunidades-Neurotech-Para-Ingenieros-Software|mapa de oportunidades neurotech]], tres insumos que FORTALECEN esta tesis (no la cambian):
+
+1. **Antecedente para la capa IA**: ENFOR-SA — fault injection para evaluar confiabilidad de DNNs (https://arxiv.org/pdf/2602.00909) ⚠️ SIN VERIFICAR (leer en Mes 1 antes de citar). Ancla la medición falla-de-software → error-del-decodificador en literatura de dependability de ML.
+2. **Munición para la justificación** (entregas posteriores): la FDA clasifica el software de BCI implantadas como "major level of concern" (guidance 2021) e IEC 62304 exige V&V en todo el ciclo de vida — la tesis produce exactamente el tipo de evidencia que ese marco pide. ⚠️ Verificar textos antes de citar.
+3. **Trabajo futuro declarado** (sección final de la tesis, NO alcance del TFG): (a) versión closed-loop con el modelo en el lazo y fallas dentro de la DNN — candidato natural a tema de maestría; (b) neuroseguridad: de fallos accidentales a maliciosos; (c) extensión hardware-in-the-loop.
+
+**Nota del autor (2026-08-16)**: al leer el tema "confiabilidad de pipelines ML de decodificación mediante fault injection" como área futura, el autor lo marcó como lo que más le interesó — sin registrar que es la capa IA de su propia tesis con otras palabras. Señal de motivación correcta: el tema elegido y el interés espontáneo coinciden.
+
 ## Relación con los temas vecinos (las respuestas del 2026-08-15)
 
 **¿El tema 7 (construir un SDK nuevo) es buena tesis? → NO en su forma original.** El espacio está lleno: siete frameworks activos, incluido uno *no-code* publicado en 2025 (PyNoetic). Construir el octavo framework sería entrar a un mercado saturado sin haber demostrado que los existentes fallan — y con riesgo brutal de scope creep. **La forma correcta de esa energía es este tema 28**: primero se evalúa lo que hay; si la evaluación revela un hueco real, construirlo será la continuación natural (o el trabajo futuro declarado).
