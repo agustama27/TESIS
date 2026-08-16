@@ -2,7 +2,9 @@
 
 > Una entrada por sesión de trabajo. Formato: fecha, qué se hizo, próximo paso. La entrada más reciente arriba.
 
-## 2026-08-16 — DECISIÓN DE DOMINIO: BCI confirmado como tema del TFG
+## 2026-08-16 — Decisión de dominio: BCI elegido en sesión → **corregido a PRELIMINAR el mismo día**
+
+> ⚠️ **Corrección posterior (misma fecha)**: el autor aclaró que la decisión definitiva de tema AÚN NO está tomada. Lo registrado abajo queda como preferencia preliminar. D-004 revertida a pendiente; ESTADO-ACTUAL corregido. Sigue vigente: no se generan temas nuevos.
 
 **Qué se hizo**:
 - Sesión corta y decisiva: el autor vino a resolver el bloqueante de dominio planteado en [[ESTADO-ACTUAL]].

@@ -30,21 +30,25 @@ Sobre `tfg-editor`: el TFG se defiende oralmente ante una Comisión Académica E
 
 **Correcciones técnicas aplicadas**: nombres de tools `mcp__engram__*` → `mcp__plugin_engram_engram__*`; namespace de Engram unificado a `tesis` (convivían `Investigación_BCI`, `bci-thesis` y `tesis`).
 
-## D-004 · 2026-08-16 · Dominio y tema del TFG confirmados: BCI — propuesta 28+28.1+capa IA
+## D-004 · 2026-08-16 · Dominio y tema del TFG: BCI — propuesta 28+28.1+capa IA — **ESTADO: PRELIMINAR**
 
-**Decisión**: el autor confirma la propuesta del mentor como tema del TFG: **"Evaluación de resiliencia de frameworks BCI open source mediante inyección de fallos, con medición del impacto en la precisión del decodificador"** (tema 28 + expansión 28.1 + capa IA falla→error del modelo). La decisión se tomó con la alternativa completa sobre la mesa: el documento [[../30-TFG/Seleccion-Tema/Alternativas-Fuera-de-BCI-2026-08-16|Alternativas fuera de BCI]] (temas LLM-agentes A/B/C, dominio laboral del autor) fue presentado explícitamente como opción (a) vs (b) y el autor eligió BCI.
+> ⚠️ **Corrección del mismo día**: horas después de esta elección, el autor aclaró que **la decisión definitiva aún no está tomada**. D-004 queda como preferencia preliminar registrada, no como decisión firme. La decisión definitiva se tomará con/tras el proceso de aprobación del tutor.
+
+**Decisión (preliminar)**: el autor eligió en sesión la propuesta del mentor como tema del TFG: **"Evaluación de resiliencia de frameworks BCI open source mediante inyección de fallos, con medición del impacto en la precisión del decodificador"** (tema 28 + expansión 28.1 + capa IA falla→error del modelo). La decisión se tomó con la alternativa completa sobre la mesa: el documento [[../30-TFG/Seleccion-Tema/Alternativas-Fuera-de-BCI-2026-08-16|Alternativas fuera de BCI]] (temas LLM-agentes A/B/C, dominio laboral del autor) fue presentado explícitamente como opción (a) vs (b) y el autor eligió BCI.
 
 **Por qué**: BCI es el puente declarado de carrera hacia neurotecnología/maestría (meta registrada en `AGENTS.md`). La alternativa LLM-agentes ofrecía curva de aprendizaje nula y motivación presunta máxima, pero el autor priorizó el objetivo de carrera sobre la comodidad del dominio conocido. La propuesta elegida tiene hueco verificado dos veces, plantilla metodológica publicada (arXiv 2404.06203) y es ejecutable sin hardware ni GPU.
 
 **Alternativas descartadas**: temas A/B/C de LLM-agentes (quedan documentados en el vault por si sirven para publicaciones laterales — NO como tema de TFG); temas BCI finalistas 28.2, 24 y 19 (regla de veto no ejercida).
 
-**Consecuencias** (quedan definidas por el tema, a ratificar formalmente con el tutor):
-- Tipo de TFG: **Trabajo de Investigación** (resuelve la ex-pendiente D-004 tipo).
-- Línea temática (IRREVERSIBLE): **Transformación Digital** (resuelve la ex-pendiente D-005).
-- Fuente de datos: **datasets públicos, sin hardware propio** (resuelve la ex-pendiente D-006).
+**Consecuencias condicionales** (SI este tema se confirma definitivamente):
+- Tipo de TFG: **Trabajo de Investigación**.
+- Línea temática (IRREVERSIBLE): **Transformación Digital**.
+- Fuente de datos: **datasets públicos, sin hardware propio**.
 
-**Regla vigente**: la selección de tema queda CERRADA. No se generan más temas ni se reabre la exploración.
+**Regla vigente aun con la decisión abierta**: NO se generan temas nuevos ni se reabre la exploración — la decisión definitiva es entre los candidatos ya documentados (propuesta 28+28.1+IA, finalistas BCI 19/24/28.2, alternativas LLM A/B/C con citas sin verificar).
 
 ## Decisiones pendientes
 
-- [ ] D-007: Ratificación del tipo/línea/tema con el tutor en el Módulo 0 (formalidad — la decisión de fondo es D-004).
+- [ ] **D-004 (definitiva)**: confirmar el tema del TFG — la preferencia preliminar es la propuesta BCI 28+28.1+IA (Word ya generado); el proceso de aprobación del tutor puede ser el mecanismo que la cierre.
+- [ ] D-005: Tipo de TFG y línea temática (IRREVERSIBLE) — quedan definidas por el tema que se confirme.
+- [ ] D-006: Fuente de datos — ídem, condicional al tema.

@@ -1,6 +1,6 @@
 # Oportunidades en neurotecnología para ingenieros de software
 
-> 2026-08-16 · Investigación de CARRERA (no de selección de tema — la selección está cerrada, ver [[../00-Sistema/Decisiones|D-004]]).
+> 2026-08-16 · Investigación de CARRERA (no de selección de tema — ver [[../00-Sistema/Decisiones|D-004]], preferencia preliminar por BCI; decisión definitiva pendiente).
 > Disparador: el autor encontró https://www.neuroenglab.com/join-us/ (tesis de MSc en neuroingeniería) y pidió mapear el ecosistema: ¿a qué puertas apunta la tesis como puntapié?
 > Método: barrido web de esta fecha (labs + empresas + agregadores). Todas las URLs provienen de fetches o resultados de búsqueda reales. Los avisos de empresas rotan rápido — esto es una foto, no un catálogo permanente.
 

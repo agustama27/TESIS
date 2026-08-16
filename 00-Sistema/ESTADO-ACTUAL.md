@@ -7,15 +7,15 @@
 
 ## 🎯 Dónde está parado el proyecto HOY
 
-**Fase**: selección de tema **CERRADA (2026-08-16)** — tema confirmado por el autor, ver [[Decisiones|D-004]]. Próxima fase: formalización (Módulo 0 + Word oficial) y primer contacto técnico.
+**Fase**: selección de tema — **decisión definitiva PENDIENTE**. El 2026-08-16 el autor eligió preliminarmente BCI (propuesta 28+28.1+capa IA) en sesión, pero horas después aclaró que **aún no tiene la decisión tomada de forma definitiva**. Ver [[Decisiones|D-004]] (estado: preliminar).
 
-**Tema confirmado** (elegido por el mentor tras ~30 temas explorados, confirmado por el autor el 2026-08-16 con la alternativa LLM-agentes sobre la mesa):
+**Tema candidato principal** (elegido por el mentor tras ~30 temas explorados; preferencia preliminar del autor el 2026-08-16 con la alternativa LLM-agentes sobre la mesa):
 
 > **"Evaluación de resiliencia de frameworks BCI open source mediante inyección de fallos, con medición del impacto en la precisión del decodificador."**
 > Tema 28 + expansión 28.1 (robustez/chaos engineering) + capa IA (función de transferencia falla-de-software → error-del-modelo).
 > Trabajo de Investigación · línea Transformación Digital · sin hardware, sin GPU, datos públicos.
 
-**Estado de la decisión**: ✅ **CONFIRMADA por el autor (2026-08-16)** — regla de veto no ejercida. La decisión incluyó el giro de dominio (sección más abajo): las alternativas LLM-agentes fueron presentadas explícitamente y el autor eligió BCI por el puente de carrera hacia neurotecnología. Detalle y consecuencias (tipo=Investigación, línea=Transformación Digital, datos públicos) en [[Decisiones|D-004]]. La selección NO se reabre.
+**Estado de la decisión**: 🟡 **PRELIMINAR, NO definitiva** (corrección del autor, 2026-08-16). En sesión el autor eligió BCI frente a la alternativa LLM-agentes (por el puente de carrera hacia neurotecnología), pero luego aclaró que la decisión definitiva sigue abierta. El proceso real de la universidad es el que decide: se presentan idea(s) en Word al tutor y él aprueba. El Word del tema 28 ya está generado y listo. Consecuencias condicionales al tema (tipo=Investigación, línea=Transformación Digital, datos públicos) en [[Decisiones|D-004]]. **Regla que sigue vigente**: NO se generan temas nuevos — la decisión es entre los candidatos ya documentados.
 
 **Esquema visual de la propuesta** (para mostrar al tutor): https://claude.ai/code/artifact/2b87500e-b857-4f89-b859-f614e57479ae
 
@@ -51,17 +51,17 @@
 
 **Memoria Engram**: proyecto `tesis`, topic keys `bci/*` (seleccion-tema/estado, seleccion-tema/calibracion, brain-to-text/*, se4ai/*).
 
-## 🔀 Giro de dominio evaluado y RESUELTO (2026-08-16): se mantiene BCI
+## 🔀 Giro de dominio evaluado (2026-08-16): preferencia preliminar por BCI
 
 Al cerrar la sesión se encontró en el vault un documento nuevo — [[../30-TFG/Seleccion-Tema/Alternativas-Fuera-de-BCI-2026-08-16|Alternativas fuera de BCI]] — que plantea **temas de Ingeniería de Software × sistemas LLM/agentes** (testing de regresión de agentes conversacionales, evaluación de agentes de voz en español, benchmarks): el dominio que el autor ejerce a diario en Evoltis. El documento sigue la calibración correcta y contiene una observación clave: *tras 30 temas BCI sin que ninguno encienda — incluido el de mayor motivación declarada — el candidato a problema puede ser el dominio, no la lista.*
 
-**Resolución (2026-08-16)**: el dilema (a) BCI vs (b) LLM-agentes fue presentado al autor con ambas opciones completas. El mentor recomendó el tema B (evaluación de agentes de voz); **el autor eligió BCI** priorizando el puente de carrera hacia neurotecnología/maestría. Registrado en [[Decisiones|D-004]]. Los temas A/B/C quedan en el vault como material de referencia (posibles publicaciones laterales), NO como candidatos de TFG. Sus citas siguen ⚠️ SIN VERIFICAR.
+**Estado (2026-08-16)**: el dilema (a) BCI vs (b) LLM-agentes fue presentado al autor con ambas opciones completas. El mentor recomendó el tema B (evaluación de agentes de voz); el autor eligió **preliminarmente** BCI priorizando el puente de carrera hacia neurotecnología/maestría — pero luego aclaró que la decisión definitiva sigue pendiente. Registrado en [[Decisiones|D-004]] (preliminar). Las citas de los temas A/B/C siguen ⚠️ SIN VERIFICAR — si vuelven a considerarse, la verificación completa es prerequisito.
 
 ## ⏭️ Próximos pasos (en orden)
 
 **Corrección de proceso (2026-08-16, aportada por el autor)**: NO existe una fecha de Módulo 0. El proceso real es: presentar el/los temas en Word según el estándar oficial → el tutor aprueba o rechaza las ideas. Estrategia acordada: presentar la propuesta confirmada; si el autor luego quiere un seguro contra rechazo, el tema 19 ya tiene su Word listo como segunda idea (misma línea temática). Regla vigente: dos ideas EN EL DOCUMENTO es aceptable; trabajar dos temas en paralelo hasta etapas avanzadas, NO (es el patrón de búsqueda infinita).
 
-1. **[BLOQUEANTE — en manos del autor] Enviar al tutor el Word del tema confirmado**: `30-TFG/Seleccion-Tema/Tamagusuku_Agustin - Trabajo de Investigacion - Tema 28 Resiliencia.docx` (generado 2026-08-16, formato verificado contra la plantilla oficial). Antes de enviar: completar Documento y Legajo (dice "Completar").
+1. **[BLOQUEANTE — en manos del autor] Tomar la decisión definitiva de tema** (entre candidatos ya documentados: propuesta BCI 28+28.1+IA, finalistas BCI 19/24/28.2, alternativas LLM A/B/C) **y/o enviar al tutor el Word de idea(s)** para que el proceso de aprobación decida. El Word del tema 28 ya está listo: `30-TFG/Seleccion-Tema/Tamagusuku_Agustin - Trabajo de Investigacion - Tema 28 Resiliencia.docx` (generado 2026-08-16, formato verificado contra la plantilla oficial). Antes de enviar: completar Documento y Legajo (dice "Completar").
 2. **Prueba de humo** (3 hs de sábado): `pip install bcipy` + hola mundo de BciPy y MEDUSA — primer contacto real con los frameworks que la tesis va a evaluar.
 3. Regenerar presentación NotebookLM del tema confirmado (prompts listos).
 4. Pendientes menores: repositorio PUCE caído (reintentar); texto completo tesis Uniandes (anti-bot); completar revista/DOI exactos de la cita de MEDUSA (quedó fuera del Word por estar incompleta).
