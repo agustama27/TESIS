@@ -9,7 +9,10 @@
 - Se presentaron las dos opciones completas: (a) propuesta BCI 28+28.1+capa IA, (b) alternativas LLM-agentes (temas A/B/C de [[../30-TFG/Seleccion-Tema/Alternativas-Fuera-de-BCI-2026-08-16|Alternativas fuera de BCI]]). El mentor recomendó el tema B (evaluación de agentes de voz) por el patrón de los 30 temas sin encender.
 - **El autor eligió BCI — propuesta 28+28.1+capa IA** — priorizando el puente de carrera hacia neurotecnología. Registrado como [[Decisiones|D-004]]. La selección de tema queda CERRADA.
 
-**Próximo paso**: conseguir fecha del Módulo 0 / reunión con tutor (ahora el único bloqueante) → Word oficial del tema → prueba de humo (`pip install bcipy`, 3 hs de sábado).
+- **Corrección de proceso del autor**: no hay fecha de Módulo 0; el gate real es presentar el Word de idea(s) para aprobación del tutor. Estrategia: una idea fuerte ahora (la confirmada); el 19 queda como backup listo si hiciera falta una segunda. Dos ideas en el documento sí; dos temas en paralelo hasta etapas avanzadas, no.
+- **Generado el Word oficial del tema 28**: `Tamagusuku_Agustin - Trabajo de Investigacion - Tema 28 Resiliencia.docx`, clonando el formato de la plantilla del tema 19 (validado + render verificado). Contenido: título, justificación de línea, explicación (28+28.1+capa IA), pregunta, 4 citas APA verificadas del vault (fault recovery arXiv 2404.06203, BCI-HIL, PyNoetic, LSL; MEDUSA excluida por DOI incompleto), justificación completa.
+
+**Próximo paso**: el autor completa Documento/Legajo y envía el Word al tutor → prueba de humo (`pip install bcipy`, 3 hs de sábado).
 
 ## 2026-08-16 — Cierre de la sesión de selección: propuesta final sobre la mesa
 

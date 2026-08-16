@@ -59,11 +59,12 @@ Al cerrar la sesión se encontró en el vault un documento nuevo — [[../30-TFG
 
 ## ⏭️ Próximos pasos (en orden)
 
-1. **[BLOQUEANTE] Conseguir la fecha del Módulo 0 / reunión con el tutor** (SAM o Profesor Director). Es el único bloqueante restante — sin fecha no hay presión real.
-2. Generar el **Word oficial** del tema confirmado (plantillas .docx de los temas 19/23 como base; 5 minutos).
-3. **Prueba de humo** (3 hs de sábado): `pip install bcipy` + hola mundo de BciPy y MEDUSA — primer contacto real con los frameworks que la tesis va a evaluar.
-4. Regenerar presentación NotebookLM del tema confirmado (prompts listos).
-5. Pendientes menores: repositorio PUCE caído (reintentar); texto completo tesis Uniandes (anti-bot).
+**Corrección de proceso (2026-08-16, aportada por el autor)**: NO existe una fecha de Módulo 0. El proceso real es: presentar el/los temas en Word según el estándar oficial → el tutor aprueba o rechaza las ideas. Estrategia acordada: presentar la propuesta confirmada; si el autor luego quiere un seguro contra rechazo, el tema 19 ya tiene su Word listo como segunda idea (misma línea temática). Regla vigente: dos ideas EN EL DOCUMENTO es aceptable; trabajar dos temas en paralelo hasta etapas avanzadas, NO (es el patrón de búsqueda infinita).
+
+1. **[BLOQUEANTE — en manos del autor] Enviar al tutor el Word del tema confirmado**: `30-TFG/Seleccion-Tema/Tamagusuku_Agustin - Trabajo de Investigacion - Tema 28 Resiliencia.docx` (generado 2026-08-16, formato verificado contra la plantilla oficial). Antes de enviar: completar Documento y Legajo (dice "Completar").
+2. **Prueba de humo** (3 hs de sábado): `pip install bcipy` + hola mundo de BciPy y MEDUSA — primer contacto real con los frameworks que la tesis va a evaluar.
+3. Regenerar presentación NotebookLM del tema confirmado (prompts listos).
+4. Pendientes menores: repositorio PUCE caído (reintentar); texto completo tesis Uniandes (anti-bot); completar revista/DOI exactos de la cita de MEDUSA (quedó fuera del Word por estar incompleta).
 
 ## 🗂️ Estado del repo
 
