@@ -5,19 +5,19 @@
 
 ## El mapa
 
-| Rama de la carrera | Ya explorado en el vault | Tema NUEVO posible (formato tesis) |
-|---|---|---|
-| **Requisitos** | — | 🆕 Elicitación y especificación de requisitos para sistemas BCI asistivos, con usuarios y terapeutas (⚠️ requiere acceso a personas — riesgo logístico) |
-| **Arquitectura e interoperabilidad** | Tema 7 (SDK/framework) | 🆕 **Tema 28**: evaluación de arquitecturas middleware para streaming de señales neurales (LSL vs alternativas), o diseño de un adaptador/puente entre estándares |
-| **Construcción** | Temas 7, 25 (implementación de decodificadores) | — (cubierto) |
-| **Testing / QA** | **Tema 26** (embrión): framework de pruebas automatizadas para pipelines BCI OSS | Variantes: emulador de señal para tests de regresión (estilo DEEGMUX por software), suite de conformidad |
-| **Seguridad** | Temas 18 (threat modeling + neuroderechos) y 21 (robustez adversarial) | — (cubiertos, reactivables bajo la vara nueva) |
-| **Usabilidad / HCI / accesibilidad** | Opción C (descartada): diseño de interfaces para cursores BCI con ley de Fitts | ♻️ **Reactivable**: bajo la vara correcta es un "diseño y evaluación con usuarios sanos + simulación de cursor degradado" — ejecutable y con estudio humano barato |
-| **Mantenimiento / MLOps** | Tema 20: drift y recalibración de decodificadores (benchmark FALCON) | ♻️ Reactivable igual que el 25 (fue descartado con la vara equivocada) |
-| **Performance** | Temas 23 (compresión de modelos) y 16 (compresión de datos) | ♻️ Reactivables |
-| **Ingeniería de datos** | — | 🆕 **Tema 27**: pipeline automatizado de datos EEG conforme al estándar BIDS — adquisición (LSL) → conversión (EEG-BIDS) → validación → versionado. Precedente a extender: LSLAutoBIDS |
-| **Calidad de proceso / normativa** | Capítulo de normativa en la tesis UNSAM (precedente) | 🆕 **Tema 29**: aplicación del ciclo de vida de software de dispositivos médicos (norma IEC 62304 ⚠️ verificar alcance) a un sistema BCI open source — gap analysis + artefactos de conformidad |
-| **Gestión de proyectos** | — | Débil como tesis técnica de la carrera; descartar |
+| Rama de la carrera                   | Ya explorado en el vault                                                         | Tema NUEVO posible (formato tesis)                                                                                                                                                              |
+| ------------------------------------ | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Requisitos**                       | —                                                                                | 🆕 Elicitación y especificación de requisitos para sistemas BCI asistivos, con usuarios y terapeutas (⚠️ requiere acceso a personas — riesgo logístico)                                         |
+| **Arquitectura e interoperabilidad** | Tema 7 (SDK/framework)                                                           | 🆕 **Tema 28**: evaluación de arquitecturas middleware para streaming de señales neurales (LSL vs alternativas), o diseño de un adaptador/puente entre estándares                               |
+| **Construcción**                     | Temas 7, 25 (implementación de decodificadores)                                  | — (cubierto)                                                                                                                                                                                    |
+| **Testing / QA**                     | **Tema 26** (embrión): framework de pruebas automatizadas para pipelines BCI OSS | Variantes: emulador de señal para tests de regresión (estilo DEEGMUX por software), suite de conformidad                                                                                        |
+| **Seguridad**                        | Temas 18 (threat modeling + neuroderechos) y 21 (robustez adversarial)           | — (cubiertos, reactivables bajo la vara nueva)                                                                                                                                                  |
+| **Usabilidad / HCI / accesibilidad** | Opción C (descartada): diseño de interfaces para cursores BCI con ley de Fitts   | ♻️ **Reactivable**: bajo la vara correcta es un "diseño y evaluación con usuarios sanos + simulación de cursor degradado" — ejecutable y con estudio humano barato                              |
+| **Mantenimiento / MLOps**            | Tema 20: drift y recalibración de decodificadores (benchmark FALCON)             | ♻️ Reactivable igual que el 25 (fue descartado con la vara equivocada)                                                                                                                          |
+| **Performance**                      | Temas 23 (compresión de modelos) y 16 (compresión de datos)                      | ♻️ Reactivables                                                                                                                                                                                 |
+| **Ingeniería de datos**              | —                                                                                | 🆕 **Tema 27**: pipeline automatizado de datos EEG conforme al estándar BIDS — adquisición (LSL) → conversión (EEG-BIDS) → validación → versionado. Precedente a extender: LSLAutoBIDS          |
+| **Calidad de proceso / normativa**   | Capítulo de normativa en la tesis UNSAM (precedente)                             | 🆕 **Tema 29**: aplicación del ciclo de vida de software de dispositivos médicos (norma IEC 62304 ⚠️ verificar alcance) a un sistema BCI open source — gap analysis + artefactos de conformidad |
+| **Gestión de proyectos**             | —                                                                                | Débil como tesis técnica de la carrera; descartar                                                                                                                                               |
 
 ## Los tres nuevos, en una línea cada uno
 

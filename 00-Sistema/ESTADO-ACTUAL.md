@@ -51,9 +51,17 @@
 
 **Memoria Engram**: proyecto `tesis`, topic keys `bci/*` (seleccion-tema/estado, seleccion-tema/calibracion, brain-to-text/*, se4ai/*).
 
+## 🔀 NOVEDAD DE ÚLTIMO MOMENTO (2026-08-16, al cierre): posible giro de dominio
+
+Al cerrar la sesión se encontró en el vault un documento nuevo — [[../30-TFG/Seleccion-Tema/Alternativas-Fuera-de-BCI-2026-08-16|Alternativas fuera de BCI]] — que plantea **temas de Ingeniería de Software × sistemas LLM/agentes** (testing de regresión de agentes conversacionales, evaluación de agentes de voz en español, benchmarks): el dominio que el autor ejerce a diario en Evoltis. El documento sigue la calibración correcta y contiene una observación clave: *tras 30 temas BCI sin que ninguno encienda — incluido el de mayor motivación declarada — el candidato a problema puede ser el dominio, no la lista.*
+
+**Esto redefine la decisión pendiente**: ya no es solo "confirmar o vetar la propuesta BCI", sino **elegir dominio**: (a) la propuesta BCI (28+28.1+capa IA), o (b) las alternativas LLM-agentes (temas A/B del documento — motivación presunta máxima por ser su oficio).
+
+⚠️ **Advertencia de rigor**: las citas y afirmaciones del documento de alternativas NO fueron verificadas por esta sesión (regla: verificar antes de enamorarse). Primera tarea si se toma ese camino: correr la verificación completa de sus fuentes y huecos. Segunda: confirmar con la universidad que la línea temática admite sistemas LLM. Tercera: límites de propiedad intelectual con el empleador (el tema A roza herramientas del trabajo).
+
 ## ⏭️ Próximos pasos (en orden)
 
-1. **[BLOQUEANTE] Confirmación o veto-con-causa del autor** sobre la propuesta.
+1. **[BLOQUEANTE] Decisión de dominio del autor**: BCI (propuesta 28+28.1+IA) vs LLM-agentes (temas A/B de Alternativas). La prueba de humo aplica a ambos: 3 horas de sábado con el candidato elegido.
 2. **[BLOQUEANTE] Conseguir la fecha del Módulo 0 / reunión con el tutor** (SAM o Profesor Director). Sin fecha no hay presión real y la decisión flota.
 3. Generar el **Word oficial** del tema confirmado (plantillas .docx de los temas 19/23 como base; 5 minutos).
 4. Día 3 del sprint: `pip install bcipy` + hola mundo de BciPy y MEDUSA — primer contacto real (3 hs).
