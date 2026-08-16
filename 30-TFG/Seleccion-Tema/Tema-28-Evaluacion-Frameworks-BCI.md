@@ -107,6 +107,26 @@ Respuesta en tres capas:
 | Acusación de subjetividad | Método documentado (ISO 25010), criterios definidos ANTES de evaluar, todo verificable |
 | Alcance: 7 frameworks × profundidad | Dos niveles: evaluación estática para todos, benchmark+caso de estudio solo para finalistas |
 
+## Auditoría externa (2026-08-16) — corrección verificada + recorte de alcance
+
+Un segundo agente de IA leyó el repo completo y produjo tres aportes; se auditaron antes de aceptarlos (regla vigente):
+
+### ✔ Corrección del hueco (VERIFICADA por fetch de PMC12434378)
+
+La afirmación absoluta "nadie evaluó la capa de software BCI frente a fallas" **no debe usarse**. El paper de LSL: (a) describe mecanismos de reconexión, corrección de timestamps y compensación de jitter (secc. 2.2.5, 2.4); (b) declara stress-tests periódicos con cientos de streams y desconexiones aleatorias (secc. 2.6) — **pero sin ninguna métrica cuantitativa** (sin tasas de pérdida, tiempos de recuperación ni latencia bajo fallo; las pruebas formales de la secc. 3 son en condiciones ideales); (c) admite pérdida de datos ante desconexiones largas (secc. 5); (d) **no mide impacto sobre decodificador o pipeline alguno**. → **Hueco refinado y MÁS fuerte**: verificación independiente y cuantitativa de lo autodeclarado + propagación de la falla a la decodificación. Es el mismo molde que ya validamos con Secure LSL.
+
+### ✔ Recorte de alcance (ACEPTADO — coincide con nuestro riesgo declarado)
+
+El tema 28 "base" acumula demasiado (ISO 25010 completo + 7 frameworks + DX study + stress intracortical + cifrado). **Núcleo ejecutable en 4 meses**: 1 banco de experimentación (replay + inyectores + observabilidad) · 1 pipeline BCI de referencia · 2 frameworks/implementaciones · 3-4 tipos de falla (drop, jitter, desconexión, clock skew) · métricas de sistema Y de decodificador. Todo lo demás (ISO 25010 integral, era intracortical, SNN, cifrado, neuroderechos, DX) → antecedentes o trabajo futuro. La unidad de análisis es **el pipeline BCI como sistema de software**, no un ranking de frameworks.
+
+### ✔ Prueba de humo v2 (MEJOR que "hola mundo")
+
+En vez de solo instalar BciPy/MEDUSA: dataset EEG público → MNE → **MNE-LSL PlayerLSL** (replay como stream LSL simulado — ⚠️ verificar docs el día del PoC) → receptor → clasificador baseline → accuracy normal; luego el mismo replay + jitter/pérdida inyectados → medir la degradación. Si sale aunque sea rudimentario, demuestra de un golpe la cadena completa de la tesis: datos → streaming reproducible → falla controlable → efecto cuantificable.
+
+### ✗ Rechazado de esa auditoría
+
+Su sugerencia de "comparar seriamente 28 vs 20 vs 19" — reabriría el carrusel de rankings. Tres señales independientes ya convergen en la familia 28 (elección del mentor, interés espontáneo del autor por la capa IA, y el propio ranking del agente externo que la pone 🥇). El mecanismo de cierre es el PoC + el tutor, no otra comparación.
+
 ## Refuerzos desde la investigación de carrera (2026-08-16)
 
 Del [[../../20-Investigacion/Oportunidades-Neurotech-Para-Ingenieros-Software|mapa de oportunidades neurotech]], tres insumos que FORTALECEN esta tesis (no la cambian):

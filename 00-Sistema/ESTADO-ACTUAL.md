@@ -21,7 +21,7 @@
 
 ## ✅ Qué respalda la propuesta
 
-- Hueco verificado DOS veces: no existe evaluación de la capa de software de frameworks BCI frente a fallas (la literatura de "robustez BCI" es sobre modelos frente a ruido en la señal).
+- Hueco verificado DOS veces y **REFINADO el 2026-08-16 tras auditoría externa**: el paper de LSL (PMC12434378, verificado por fetch) SÍ declara mecanismos de recuperación y dice hacer stress-tests con desconexiones — pero **sin métricas cuantitativas** (ni tasas de pérdida, ni tiempos de recuperación), con pruebas formales solo en condiciones ideales, y **sin medir jamás el impacto sobre el decodificador aguas abajo**. Formulación correcta del hueco: *no existe evaluación independiente y cuantitativa del comportamiento bajo fallas, ni medición de su propagación a la decodificación* — el mismo patrón que Secure LSL (<5% autoreportado → la verificación independiente es el aporte). La frase absoluta "nadie evaluó la capa de software" NO debe usarse.
 - Plantilla metodológica publicada: benchmark de fault recovery en stream processing (arXiv 2404.06203, hecho para Flink/Spark).
 - Frameworks objetivo según tabla de salud GitHub (2026-08-16): BciPy y MEDUSA activos, LSL activo, Timeflux posiblemente estancado (~20 meses sin push) — eso también es un dato del estudio.
 - Antecedente citable para la capa IA: literatura de degradación de señal sobre modelos EXISTE (se cita); lo nuevo verificado es la cadena con software real en el medio.
@@ -62,7 +62,7 @@ Al cerrar la sesión se encontró en el vault un documento nuevo — [[../30-TFG
 **Corrección de proceso (2026-08-16, aportada por el autor)**: NO existe una fecha de Módulo 0. El proceso real es: presentar el/los temas en Word según el estándar oficial → el tutor aprueba o rechaza las ideas. Estrategia acordada: presentar la propuesta confirmada; si el autor luego quiere un seguro contra rechazo, el tema 19 ya tiene su Word listo como segunda idea (misma línea temática). Regla vigente: dos ideas EN EL DOCUMENTO es aceptable; trabajar dos temas en paralelo hasta etapas avanzadas, NO (es el patrón de búsqueda infinita).
 
 1. **[BLOQUEANTE — en manos del autor] Tomar la decisión definitiva de tema** (entre candidatos ya documentados: propuesta BCI 28+28.1+IA, finalistas BCI 19/24/28.2, alternativas LLM A/B/C) **y/o enviar al tutor el Word de idea(s)** para que el proceso de aprobación decida. El Word del tema 28 ya está listo: `30-TFG/Seleccion-Tema/Tamagusuku_Agustin - Trabajo de Investigacion - Tema 28 Resiliencia.docx` (generado 2026-08-16, formato verificado contra la plantilla oficial). Antes de enviar: completar Documento y Legajo (dice "Completar").
-2. **Prueba de humo** (3 hs de sábado): `pip install bcipy` + hola mundo de BciPy y MEDUSA — primer contacto real con los frameworks que la tesis va a evaluar.
+2. **Prueba de humo v2** (3 hs de sábado — reemplaza al "hola mundo"): dataset EEG público → MNE-LSL PlayerLSL (replay como stream) → clasificador baseline → accuracy; luego inyectar jitter/pérdida y medir degradación. Demuestra la cadena completa de la tesis en miniatura. Detalle en [[../30-TFG/Seleccion-Tema/Tema-28-Evaluacion-Frameworks-BCI|Tema-28]] (sección Auditoría externa). Si el PoC engancha y funciona → la decisión de tema queda prácticamente cerrada.
 3. Regenerar presentación NotebookLM del tema confirmado (prompts listos).
 4. Pendientes menores: repositorio PUCE caído (reintentar); texto completo tesis Uniandes (anti-bot); completar revista/DOI exactos de la cita de MEDUSA (quedó fuera del Word por estar incompleta).
 
