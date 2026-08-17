@@ -41,6 +41,14 @@ Evaluación de resiliencia de frameworks de código abierto para interfaces cere
 
 > Nota: el título del Word usa "frameworks" (nivel presentación-de-idea); el título de trabajo interno usa "pipelines" (formulación refinada). Son compatibles: el pipeline se construye sobre esos frameworks. El refinamiento fino va en la Entrega 1 si el tutor aprueba.
 
+## Evidencia de adopción del ecosistema open source (verificada 2026-08-17)
+
+La afirmación "los laboratorios BCI dependen de software open source" fue cuestionada por el autor y verificada contra fuentes:
+
+- **LSL — fidelidad ALTA (estándar de facto)**: el paper de LSL (PMC12434378) reporta **>2.300 menciones en artículos científicos** (a mediados de 2025), **>150 clases de dispositivos compatibles**, **>100 aplicaciones cliente**, integración en BCI2000, OpenViBE, NeuroPype, Open Ephys, MNE-Python, Timeflux, MEDUSA y Dareplane, adopción comercial (iMotions, BrainProducts) y bindings en 8+ lenguajes. ⚠️ Cifras autoreportadas por los autores de LSL — citarlas como "según el paper de LSL".
+- **BciPy/MEDUSA — fidelidad MEDIA (frameworks académicos de nicho)**: son frameworks publicados (BciPy: arXiv 2002.06642; MEDUSA: ScienceDirect S016926072300024X) y activos, pero de comunidades chicas (tabla de salud GitHub: 155⭐ y 22⭐). NO afirmar que "los laboratorios dependen de BciPy/MEDUSA".
+- **Formulación correcta para la tesis y las presentaciones**: *"la investigación BCI se apoya en un ecosistema open source cuyo estándar de facto de transporte es LSL (>2.300 menciones científicas según sus autores); la capa de aplicación la cubren frameworks académicos más chicos y fragmentados (BciPy, MEDUSA, Timeflux…)"*. La fragmentación de esa capa es en sí misma parte de la motivación del estudio.
+
 ## El hueco, formulado con precisión (verificado)
 
 La literatura de "robustez BCI" evalúa modelos frente a ruido en la señal. Sobre la capa de software: el paper de LSL (PMC12434378, verificado por fetch 2026-08-16) declara mecanismos de reconexión y stress-tests con desconexiones, **pero sin métricas cuantitativas** (sin tasas de pérdida ni tiempos de recuperación; pruebas formales solo en condiciones ideales) y **sin medir jamás el impacto sobre el decodificador**. → El hueco es: **verificación independiente y cuantitativa de lo autodeclarado + propagación de la falla a la decodificación**. La frase absoluta "nadie evaluó la capa de software" NO debe usarse. Es el mismo molde que Secure LSL (<5% de overhead autoreportado → la verificación independiente es el aporte).
