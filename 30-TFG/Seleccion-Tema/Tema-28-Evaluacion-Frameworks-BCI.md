@@ -1,149 +1,99 @@
-# Tema 28 — Evaluación arquitectónica comparativa de frameworks BCI open source
+# Tema 28 — Resiliencia de pipelines BCI mediante inyección de fallos ("BCI Reliability Engineering")
 
-> Estado: 🎯 **CANDIDATO ACTIVO** · formalizado 2026-08-15 a pedido del autor
-> Nace de responder tres preguntas juntas: ¿el tema 7 (construir un SDK) es buena tesis?, ¿qué aporte queda para el 25?, y ¿qué hay en arquitectura/interoperabilidad?
+> Estado: 🎯 **CANDIDATO PRINCIPAL** · decisión de tema preliminar, ver [[../../00-Sistema/Decisiones|D-004]] · reorganizado 2026-08-17 para eliminar la ambigüedad entre formulaciones (la original quedó abajo, en Historia).
+> **Formulación vigente**: [[Propuesta-Reformulacion-Tema-28]] (3 RQs, supuestos, fault models, dataset, escalera de PoCs) — auditada y aceptada como versión de trabajo, **condicionada al PoC**. La identidad definitiva se consolida cuando la escalera de PoCs pase (§35 de la propuesta).
 
 ## La idea en palabras simples
 
-Existen **al menos siete frameworks open source** para construir sistemas BCI (Timeflux, BciPy, MEDUSA, OpenViBE, BCI2000, NeuXus, PyNoetic…). Cada uno promete cosas distintas, cada paper elogia el suyo, **y nadie los comparó sistemáticamente**: un desarrollador o laboratorio que arranca hoy no tiene forma objetiva de elegir. Tu tesis: **evaluarlos con método de ingeniería de software** — atributos de calidad, benchmarks de rendimiento y un caso de estudio implementado en los mejores — y producir la guía de decisión que el campo no tiene.
+Los laboratorios que investigan interfaces cerebro-computadora dependen de software open source (LSL, BciPy, MEDUSA…) que transporta y procesa señal neural en tiempo real, y que **declara** tolerar desconexiones, retrasos y pérdida de datos. Nadie verificó esas promesas de forma independiente y cuantitativa, ni midió qué pasa con la **decisión final de la BCI** cuando algo falla en el camino. Esta tesis hace el crash test: reproduce señal EEG pública como stream en tiempo real, **inyecta fallos controlados** (pérdida de muestras, jitter, retraso, desconexión) y mide cómo se propagan por el pipeline hasta el decodificador — ¿el sistema avisa, se recupera, o falla en silencio?
 
-Es la analogía de las zapatillas otra vez, pero esta vez **el corredor es el software**: cada framework corrió en su propia pista (su paper); vos organizás la carrera.
+Es la analogía del crash test: los autos declaran ser seguros; alguien tiene que chocarlos contra la pared con método y publicar los resultados.
 
-## Por qué esta ES la tesis de tu carrera
+## Formulación vigente (resumen — el detalle completo está en la propuesta)
 
-- **Evaluación de arquitecturas de software con método documentado**: atributos de calidad según **ISO/IEC 25010** (mantenibilidad, portabilidad, eficiencia, usabilidad del API), análisis de trade-offs arquitectónicos — material central de la carrera, aplicado a un dominio de frontera.
-- **Benchmarks reproducibles**: latencia extremo a extremo, throughput, jitter — medidos con señal reproducida (replay), sin hardware.
-- **Developer experience medible**: el "hola mundo" en cada framework — líneas de código, tiempo, obstáculos documentados.
-- **Caso de estudio**: implementar LA MISMA aplicación BCI mínima (ej. clasificador sobre dataset público en replay) en los 2-3 frameworks finalistas. Ahí la evaluación deja de ser opinión y pasa a ser evidencia.
+- **Título de trabajo**: *Evaluación de resiliencia de pipelines BCI en tiempo real mediante inyección de fallos y análisis de propagación hacia la decodificación*.
+- **Unidad de análisis**: el pipeline BCI como sistema de software (NO un ranking de frameworks).
+- **Pregunta central**: ¿cómo se propagan fallos controlados del streaming de señales EEG hacia las propiedades operativas y el desempeño funcional de un pipeline BCI, y en qué medida la telemetría permite detectar o anticipar esa degradación?
+- **3 RQs falsables**: propagación del fallo · discrepancia infraestructura-función (sin presuponer silent failures) · valor de un detector ML de telemetría multivariable contra baseline de reglas (resultado negativo válido).
+- **Núcleo ejecutable en 4 meses**: 1 banco Software-in-the-Loop (replay MNE-LSL + inyectores + telemetría) · 1 pipeline de referencia (BNCI2014_001 vía MOABB, CSP+LDA) · 3-4 familias de fallos · métricas de sistema Y de decodificador. Un segundo framework solo como validez externa, después del PoC.
+- **Tipo/línea**: Trabajo de Investigación · Transformación Digital (el testbed es instrumento experimental, no producto).
 
-## Definiciones Iniciales (formato oficial)
+## Definiciones Iniciales (formato oficial — según el Word generado el 2026-08-16)
 
-- **Tipo de TFG**: ☑ Trabajo de Investigación *(alternativa defendible: Prototipado, si el énfasis se pone en el banco de evaluación como producto)*
-- **Línea Temática**: ☑ Transformación Digital *(alternativa natural: **Plataformas de Desarrollo** — herramientas para producir software; decidir con el tutor)*
+El Word entregable es `Tamagusuku_Agustin - Trabajo de Investigacion - Tema 28 Resiliencia.docx`. Su contenido:
 
-### Título tentativo (~12 palabras)
+- **Tipo**: ☑ Trabajo de Investigación · **Línea**: ☑ Transformación Digital
 
-Evaluación arquitectónica comparativa de frameworks de código abierto para interfaces cerebro-computadora
+### Título tentativo
 
-### Justificación de la línea (3 renglones)
+Evaluación de resiliencia de frameworks de código abierto para interfaces cerebro-computadora mediante inyección de fallos
 
-El desarrollo de aplicaciones BCI depende de frameworks open source que ningún estudio comparó sistemáticamente: cada equipo elige a ciegas. Producir la evaluación arquitectónica y la guía de decisión que faltan acelera la construcción de las herramientas digitales que la transformación necesita.
+### Pregunta de investigación
 
-### Explicación del tema (5-15 renglones)
+¿Cómo se comportan los frameworks BCI de código abierto ante fallas realistas de la capa de software (pérdida de muestras, desconexiones, jitter, deriva de reloj): las detectan, las informan y se recuperan según lo que declaran? ¿Cómo se propagan esas fallas a la precisión del decodificador que consume la señal?
 
-El ecosistema de software para interfaces cerebro-computadora creció en frameworks de código abierto — Timeflux, BciPy, MEDUSA, OpenViBE, BCI2000, NeuXus, PyNoetic — cada uno con arquitecturas, paradigmas soportados y filosofías distintas. La literatura que los presenta es autodescriptiva: cada paper documenta las virtudes del propio framework, sin comparaciones sistemáticas entre ellos. Este trabajo produce esa comparación con método de ingeniería de software: (1) revisión y selección de frameworks activos; (2) evaluación de atributos de calidad según ISO/IEC 25010 sobre criterios verificables (documentación, cobertura de pruebas, actividad de mantenimiento, extensibilidad, portabilidad); (3) benchmark reproducible de rendimiento en tiempo real (latencia extremo a extremo, throughput, jitter) usando señal EEG pública reproducida; y (4) caso de estudio: la misma aplicación BCI mínima implementada en los frameworks finalistas, midiendo esfuerzo de desarrollo y calidad del resultado. El producto es una guía de decisión fundada en evidencia para desarrolladores y laboratorios.
+### Revisión de literatura (4 citas verificadas)
 
-### Problema / pregunta de investigación (3-5 renglones)
+1. *A comprehensive benchmarking analysis of fault recovery in stream processing frameworks*. (2024). arXiv. https://arxiv.org/abs/2404.06203
+2. *An open-source human-in-the-loop BCI research framework: method and design*. (2023). *Frontiers in Human Neuroscience*. https://doi.org/10.3389/fnhum.2023.1129362
+3. *PyNoetic: A modular python framework for no-code development of EEG brain-computer interfaces*. (2025). *PLOS One*. https://doi.org/10.1371/journal.pone.0327791
+4. *The lab streaming layer for synchronized multimodal recording*. (2024). *Imaging Neuroscience*. https://doi.org/10.1162/IMAG.a.136
 
-¿Qué framework open source de BCI ofrece el mejor equilibrio entre atributos de calidad de software, rendimiento en tiempo real y experiencia de desarrollo, según una evaluación arquitectónica sistemática y reproducible? ¿Qué trade-offs definen la elección según el caso de uso?
+> Nota: el título del Word usa "frameworks" (nivel presentación-de-idea); el título de trabajo interno usa "pipelines" (formulación refinada). Son compatibles: el pipeline se construye sobre esos frameworks. El refinamiento fino va en la Entrega 1 si el tutor aprueba.
 
-### Revisión de literatura (4 trabajos, APA)
+## El hueco, formulado con precisión (verificado)
 
-1. *An open-source human-in-the-loop BCI research framework: method and design* (BCI-HIL, sobre Timeflux). (2023). *Frontiers in Human Neuroscience*. https://doi.org/10.3389/fnhum.2023.1129362
-2. *PyNoetic: A modular python framework for no-code development of EEG brain-computer interfaces*. (2025). *PLOS One*. https://doi.org/10.1371/journal.pone.0327791
-3. *MEDUSA©: A novel Python-based software ecosystem to accelerate brain-computer interface and cognitive neuroscience research*. (2023). ⚠️ completar revista/DOI exactos.
-4. *The lab streaming layer for synchronized multimodal recording*. (2024/2025). *Imaging Neuroscience* (MIT Press). https://direct.mit.edu/imag/article/doi/10.1162/IMAG.a.136/132678/
+La literatura de "robustez BCI" evalúa modelos frente a ruido en la señal. Sobre la capa de software: el paper de LSL (PMC12434378, verificado por fetch 2026-08-16) declara mecanismos de reconexión y stress-tests con desconexiones, **pero sin métricas cuantitativas** (sin tasas de pérdida ni tiempos de recuperación; pruebas formales solo en condiciones ideales) y **sin medir jamás el impacto sobre el decodificador**. → El hueco es: **verificación independiente y cuantitativa de lo autodeclarado + propagación de la falla a la decodificación**. La frase absoluta "nadie evaluó la capa de software" NO debe usarse. Es el mismo molde que Secure LSL (<5% de overhead autoreportado → la verificación independiente es el aporte).
 
-### Justificación (borrador — expandir al confirmar)
+## Auditoría externa (2026-08-16) — resumen
 
-La elección de framework es la primera decisión de arquitectura de cualquier proyecto BCI y hoy se toma sin evidencia comparativa. El trabajo aplica las herramientas centrales de la Ingeniería de Software — modelos de calidad, benchmarking, análisis de trade-offs — a un ecosistema que nunca fue evaluado así, con protocolo reproducible y datos públicos. El diseño es informativo en cualquier resultado: la guía de decisión tiene valor sea cual sea el framework que gane, y los benchmarks quedan publicados para la comunidad. Sin hardware, sin GPU, ejecutable con recursos mínimos. *(Expandir a 15-20 renglones.)*
+Un segundo agente de IA auditó el repo; sus aportes se verificaron antes de aceptarse:
 
-## 🚀 El gancho Neuralink (agregado 2026-08-15, a pedido del autor)
-
-**Lo honesto primero**: Neuralink no usa estos frameworks — construye su stack propietario. La conexión NO es "evalúo lo que usa Neuralink". La conexión legítima es mejor:
-
-### El stress-test de la era de los implantes
-
-Todo el ecosistema de frameworks abiertos nació para **EEG**: 8-64 canales a 250-1000 Hz. Pero la era que Neuralink inauguró es de **datos intracorticales**: 1.024 canales a ~30.000 Hz — **tres órdenes de magnitud más caudal**. Y los datos de esa escala ya son públicos (datasets de Stanford/Willett, FALCON).
-
-**La pregunta que hace única a la tesis**: *¿está el ecosistema de software abierto preparado para la era de los implantes?* El benchmark deja de ser "comparar frameworks con cargas de juguete" y pasa a ser un **stress-test de escalabilidad**: reproducir señal a escala creciente (canales × frecuencia de muestreo) a través de cada framework y medir **dónde se rompe cada uno** — latencia, jitter, pérdida de muestras, CPU. Curvas de quiebre por arquitectura.
-
-- Es medible, reproducible y visual (las curvas de degradación de cada framework son la demo).
-- Es una ausencia verificable: los frameworks se evalúan a sí mismos con EEG; nadie publicó su comportamiento a escala intracortical. ⚠️ Verificar en el Mes 1 con búsqueda dedicada.
-- No afirma nada sobre Neuralink — usa la escala de datos que esa industria volvió realidad, con datasets públicos.
-
-### Título tentativo alternativo (con el gancho)
-
-*"Evaluación arquitectónica de frameworks BCI de código abierto frente a cargas de datos de próxima generación"*
-
-### La línea de CV que produce
-
-> "Evalué sistemáticamente la infraestructura de software abierta del campo BCI y medí si puede escalar a los caudales de datos de los implantes de nueva generación."
-
-Arquitectura de software + benchmarking + neurotecnología de frontera — el perfil que las empresas del área (que construyen exactamente esta infraestructura, pero cerrada) contratan. Y para una maestría: metodología de evaluación + resultados reproducibles + un hueco real.
-
-### Sinergia con el interés en SNN (opcional)
-
-El caso de estudio puede incluir un decodificador convencional Y uno de impulsos como cargas de trabajo — el interés del autor por las SNN sobrevive dentro de esta tesis sin cargar con su justificación.
-
-## Objeción anticipada clave (planteada por el autor, 2026-08-15)
-
-**"La industria va a construir su propio software cuando llegue la era de los implantes — no va a usar los frameworks gratuitos. ¿Para qué evaluarlos?"**
-
-Respuesta en tres capas:
-
-1. **El usuario de la tesis no es la industria: es la ciencia.** Las empresas hacen stacks propietarios para sus productos; pero la validación científica, la replicación y la formación de los ingenieros ocurren en universidades y laboratorios que dependen del ecosistema abierto. Si las herramientas abiertas no aguantan datos de implante, la ciencia queda afuera de esa era.
-2. **Para los DATOS, la era de los implantes ya llegó**: los datasets intracorticales (Stanford/Willett, FALCON) son públicos HOY, y los laboratorios ya necesitan procesarlos con las herramientas que tienen. La pregunta es de presente, no de futuro.
-3. **Precedente histórico**: cada era arrancó con stacks cerrados y maduró sobre infraestructura abierta (Unix propietario → Linux en toda la nube; móviles cerrados → Android; y PyTorch, open source, debajo de toda la IA actual — incluida la de las empresas que compiten entre sí). Las empresas compiten en el producto y convergen en la infraestructura.
-
-**Formulación blindada de la pregunta**: "Los datos de implante ya son públicos y la comunidad científica ya los necesita procesar, pero sus herramientas se diseñaron para un caudal mil veces menor. Esta tesis mide si las herramientas que la ciencia realmente usa pueden con los datos que ya existen." — Sin futurología: presente medible.
-
-## Plan de 4 meses
-
-| Mes | Trabajo |
-|---|---|
-| 1 · E1 | Relevamiento del ecosistema, criterios de inclusión, marco teórico (ISO 25010, evaluación de arquitecturas, BCI), diseño del protocolo de evaluación |
-| 2 · E2 | Evaluación estática de atributos de calidad (todos los frameworks incluidos) + instalación y "hola mundo" documentado en cada uno |
-| 3 · E3 | Benchmark de rendimiento con replay de señal + caso de estudio en los 2-3 finalistas |
-| 4 · E4 | Tabla final de trade-offs, guía de decisión, redacción, publicación del protocolo y el código |
-
-**Herramientas**: Python · los frameworks bajo evaluación · dataset EEG público (replay) · scripts de medición propios. **Sin hardware, sin GPU.**
-
-## Riesgos honestos
-
-| Riesgo | Mitigación |
-|---|---|
-| Frameworks que no instalan/compilan (legado C++ como BCI2000) | Criterios de inclusión explícitos; documentar el fallo de instalación ES un dato de la evaluación |
-| Acusación de subjetividad | Método documentado (ISO 25010), criterios definidos ANTES de evaluar, todo verificable |
-| Alcance: 7 frameworks × profundidad | Dos niveles: evaluación estática para todos, benchmark+caso de estudio solo para finalistas |
-
-> 🔄 **Formulación de trabajo vigente (2026-08-16)**: existe una reformulación metodológica completa de este tema — [[Propuesta-Reformulacion-Tema-28]] (3 RQs, supuestos, fault models, dataset, escalera de PoCs) — **auditada y aceptada como versión de trabajo, condicionada al PoC**. Este archivo se reescribirá recién cuando el PoC pase. Hasta entonces, este documento conserva la historia y el contexto del tema.
-
-## Auditoría externa (2026-08-16) — corrección verificada + recorte de alcance
-
-Un segundo agente de IA leyó el repo completo y produjo tres aportes; se auditaron antes de aceptarlos (regla vigente):
-
-### ✔ Corrección del hueco (VERIFICADA por fetch de PMC12434378)
-
-La afirmación absoluta "nadie evaluó la capa de software BCI frente a fallas" **no debe usarse**. El paper de LSL: (a) describe mecanismos de reconexión, corrección de timestamps y compensación de jitter (secc. 2.2.5, 2.4); (b) declara stress-tests periódicos con cientos de streams y desconexiones aleatorias (secc. 2.6) — **pero sin ninguna métrica cuantitativa** (sin tasas de pérdida, tiempos de recuperación ni latencia bajo fallo; las pruebas formales de la secc. 3 son en condiciones ideales); (c) admite pérdida de datos ante desconexiones largas (secc. 5); (d) **no mide impacto sobre decodificador o pipeline alguno**. → **Hueco refinado y MÁS fuerte**: verificación independiente y cuantitativa de lo autodeclarado + propagación de la falla a la decodificación. Es el mismo molde que ya validamos con Secure LSL.
-
-### ✔ Recorte de alcance (ACEPTADO — coincide con nuestro riesgo declarado)
-
-El tema 28 "base" acumula demasiado (ISO 25010 completo + 7 frameworks + DX study + stress intracortical + cifrado). **Núcleo ejecutable en 4 meses**: 1 banco de experimentación (replay + inyectores + observabilidad) · 1 pipeline BCI de referencia · 2 frameworks/implementaciones · 3-4 tipos de falla (drop, jitter, desconexión, clock skew) · métricas de sistema Y de decodificador. Todo lo demás (ISO 25010 integral, era intracortical, SNN, cifrado, neuroderechos, DX) → antecedentes o trabajo futuro. La unidad de análisis es **el pipeline BCI como sistema de software**, no un ranking de frameworks.
-
-### ✔ Prueba de humo v2 (MEJOR que "hola mundo")
-
-En vez de solo instalar BciPy/MEDUSA: dataset EEG público → MNE → **MNE-LSL PlayerLSL** (replay como stream LSL simulado — ⚠️ verificar docs el día del PoC) → receptor → clasificador baseline → accuracy normal; luego el mismo replay + jitter/pérdida inyectados → medir la degradación. Si sale aunque sea rudimentario, demuestra de un golpe la cadena completa de la tesis: datos → streaming reproducible → falla controlable → efecto cuantificable.
-
-### ✗ Rechazado de esa auditoría
-
-Su sugerencia de "comparar seriamente 28 vs 20 vs 19" — reabriría el carrusel de rankings. Tres señales independientes ya convergen en la familia 28 (elección del mentor, interés espontáneo del autor por la capa IA, y el propio ranking del agente externo que la pone 🥇). El mecanismo de cierre es el PoC + el tutor, no otra comparación.
+- ✔ **Corrección del hueco** (verificada contra PMC12434378) — incorporada arriba.
+- ✔ **Recorte de alcance** — incorporado en la formulación vigente. Fuera del núcleo: ISO 25010 integral, 7 frameworks, DX study, escala intracortical, SNN, cifrado, neuroderechos → antecedentes o trabajo futuro.
+- ✔ **Prueba de humo v3**: escalera de 4 PoCs ([[Propuesta-Reformulacion-Tema-28]] §22-23) — reemplaza al "hola mundo". Si dataset+decoder+replay+una perturbación+telemetría+consecuencia medible funcionan → tema técnicamente viable, decisión prácticamente cerrada.
+- ✗ **Rechazado**: reabrir la comparación 28 vs 20 vs 19 — tres señales independientes convergen en la familia 28; el mecanismo de cierre es el PoC + el tutor.
 
 ## Refuerzos desde la investigación de carrera (2026-08-16)
 
-Del [[../../20-Investigacion/Oportunidades-Neurotech-Para-Ingenieros-Software|mapa de oportunidades neurotech]], tres insumos que FORTALECEN esta tesis (no la cambian):
+Del [[../../20-Investigacion/Oportunidades-Neurotech-Para-Ingenieros-Software|mapa de oportunidades neurotech]]:
 
-1. **Antecedente para la capa IA**: ENFOR-SA — fault injection para evaluar confiabilidad de DNNs (https://arxiv.org/pdf/2602.00909) ⚠️ SIN VERIFICAR (leer en Mes 1 antes de citar). Ancla la medición falla-de-software → error-del-decodificador en literatura de dependability de ML.
-2. **Munición para la justificación** (entregas posteriores): la FDA clasifica el software de BCI implantadas como "major level of concern" (guidance 2021) e IEC 62304 exige V&V en todo el ciclo de vida — la tesis produce exactamente el tipo de evidencia que ese marco pide. ⚠️ Verificar textos antes de citar.
-3. **Trabajo futuro declarado** (sección final de la tesis, NO alcance del TFG): (a) versión closed-loop con el modelo en el lazo y fallas dentro de la DNN — candidato natural a tema de maestría; (b) neuroseguridad: de fallos accidentales a maliciosos; (c) extensión hardware-in-the-loop.
+1. **Antecedente para la RQ3 (capa IA)**: ENFOR-SA — fault injection para evaluar confiabilidad de DNNs (https://arxiv.org/pdf/2602.00909) ⚠️ SIN VERIFICAR (leer en Mes 1 antes de citar).
+2. **Munición regulatoria para la justificación**: la FDA clasifica el software de BCI implantadas como "major level of concern" (guidance 2021) e IEC 62304 exige V&V en todo el ciclo de vida. ⚠️ Verificar textos antes de citar.
+3. **Trabajo futuro declarado**: closed-loop con el modelo en el lazo (candidato a tema de maestría) · neuroseguridad (fallos maliciosos) · extensión hardware-in-the-loop.
 
-**Nota del autor (2026-08-16)**: al leer el tema "confiabilidad de pipelines ML de decodificación mediante fault injection" como área futura, el autor lo marcó como lo que más le interesó — sin registrar que es la capa IA de su propia tesis con otras palabras. Señal de motivación correcta: el tema elegido y el interés espontáneo coinciden.
+**Nota de motivación (2026-08-16)**: al leer "confiabilidad de pipelines ML mediante fault injection" como área futura, el autor lo marcó como lo que más le interesó — sin registrar que es su propia tesis con otras palabras. El tema elegido y el interés espontáneo coinciden.
 
-## Relación con los temas vecinos (las respuestas del 2026-08-15)
+---
 
-**¿El tema 7 (construir un SDK nuevo) es buena tesis? → NO en su forma original.** El espacio está lleno: siete frameworks activos, incluido uno *no-code* publicado en 2025 (PyNoetic). Construir el octavo framework sería entrar a un mercado saturado sin haber demostrado que los existentes fallan — y con riesgo brutal de scope creep. **La forma correcta de esa energía es este tema 28**: primero se evalúa lo que hay; si la evaluación revela un hueco real, construirlo será la continuación natural (o el trabajo futuro declarado).
+# Historia — formulación original (SUPERADA, conservada por contexto)
 
-**¿Qué aporte queda para el 25 (SNN)? → Tres opciones concretas**, ver [[Tema-25-ESTADO-CONSOLIDADO]]:
-1. La extensión FALCON multi-sesión/few-shot (robustez temporal — NeuroBench no la cubrió).
-2. Reformularlo como **Prototipado**: el banco de evaluación reproducible + la demo de trayectorias como producto de software — el aporte es LA HERRAMIENTA, los resultados la validan.
-3. Fusionarlo aquí: los decodificadores (convencional y SNN) como cargas de trabajo del caso de estudio del tema 28.
+> Todo lo que sigue es la versión previa del tema (comparación arquitectónica). Se conserva porque documenta el razonamiento y contiene material reutilizable en antecedentes/motivación, pero **ya no describe la tesis**.
+
+## Formulación original: evaluación arquitectónica comparativa
+
+Existen al menos siete frameworks open source para construir sistemas BCI (Timeflux, BciPy, MEDUSA, OpenViBE, BCI2000, NeuXus, PyNoetic…). Cada uno promete cosas distintas, cada paper elogia el suyo, y nadie los comparó sistemáticamente. La idea original: evaluarlos con método de ingeniería de software — atributos de calidad ISO/IEC 25010, benchmarks de rendimiento, developer experience medible y un caso de estudio implementado en los finalistas — y producir la guía de decisión que el campo no tiene.
+
+**Por qué se superó**: intentaba demasiadas cosas a la vez (ISO 25010 + 7 frameworks + DX + benchmark + stress intracortical), la pregunta "¿cuál es mejor?" empuja a un ranking arbitrario, y la contribución de investigación quedaba difusa. La energía correcta de esa idea sobrevive en la formulación vigente con el pipeline como unidad de análisis.
+
+## El gancho Neuralink / era intracortical (demovido a motivación y trabajo futuro)
+
+La era que Neuralink inauguró es de datos intracorticales: 1.024 canales a ~30.000 Hz — tres órdenes de magnitud más caudal que el EEG para el que nació el ecosistema abierto. Los datos de esa escala ya son públicos (Stanford/Willett, FALCON). La pregunta "¿está el software abierto preparado para la era de los implantes?" es potente como **motivación y trabajo futuro**, pero NO condiciona el experimento del TFG: cambia la escala, introduce otra modalidad y amenaza el alcance. La respuesta a la objeción "la industria hará su propio software" se conserva: el usuario del ecosistema abierto es la ciencia (validación, replicación, formación), los datos de implante ya son públicos, y cada era de cómputo maduró sobre infraestructura abierta (Unix→Linux, PyTorch bajo toda la IA actual).
+
+## Sinergia SNN (opcional, conservada)
+
+El caso de estudio puede incluir un decodificador convencional Y uno de impulsos como cargas de trabajo — el interés del autor por las SNN sobrevive sin cargar con su justificación. Hoy: fuera del núcleo; posible extensión.
+
+## Relación con los temas vecinos (respuestas del 2026-08-15)
+
+**¿El tema 7 (construir un SDK nuevo) es buena tesis? → NO en su forma original.** El espacio está lleno: siete frameworks activos, incluido uno no-code publicado en 2025 (PyNoetic). Construir el octavo sin demostrar que los existentes fallan sería scope creep puro. La forma correcta de esa energía es este tema: primero se evalúa lo que hay.
+
+**¿Qué aporte queda para el 25 (SNN)?** → Ver [[Tema-25-ESTADO-CONSOLIDADO]]: extensión FALCON multi-sesión, reformulación como Prototipado del banco de evaluación, o fusión aquí como carga de trabajo del caso de estudio.
+
+## Tabla de salud del ecosistema (2026-08-16, dato del estudio)
+
+BciPy y MEDUSA activos · LSL activo · Timeflux posiblemente estancado (~20 meses sin push) — la fragmentación y ese estancamiento son en sí mismos el argumento de que hace falta evaluación sistemática. Detalle en [[Sprint-Descubrimiento-Frameworks]] sección 1.
+
+## Enlaces
+
+[[Propuesta-Reformulacion-Tema-28]] · [[Sprint-Descubrimiento-Frameworks]] · [[../../20-Investigacion/Calibracion-Alcance-Tesis-BCI|Calibración]] · [[../../20-Investigacion/Que-Es-Un-Framework-BCI|Qué es un framework BCI]] · [[00-Indice]]

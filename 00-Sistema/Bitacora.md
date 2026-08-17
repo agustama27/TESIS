@@ -12,6 +12,15 @@
 
 **Próximo paso**: ejecutar la escalera de PoCs (sábado). Si pasa → decisión de tema prácticamente cerrada + enviar Word al tutor (sigue válido para presentación de idea).
 
+## 2026-08-17 — Reorganización del Tema-28 + prompt NotebookLM
+
+**Qué se hizo**:
+- **[[../30-TFG/Seleccion-Tema/Tema-28-Evaluacion-Frameworks-BCI|Tema-28]] reorganizado**: eliminada la ambigüedad que señalaba la propuesta (§2) — la formulación vigente (resiliencia de pipelines, resumen de las 3 RQs, hueco refinado, definiciones del Word) quedó arriba; la formulación original (comparación arquitectónica ISO 25010, gancho Neuralink) quedó demovida a una sección "Historia — SUPERADA". La identidad definitiva sigue condicionada al PoC (no es la reescritura final).
+- Alineadas las Definiciones Iniciales del vault con el contenido real del Word generado.
+- Agregado el prompt NotebookLM del tema 28 (presentación explicativa de 12 láminas, sin notas del orador) en [[../30-TFG/Seleccion-Tema/Prompts-NotebookLM|Prompts-NotebookLM]].
+
+**Próximo paso**: sin cambios — escalera de PoCs (sábado) + Word al tutor.
+
 ## 2026-08-16 — Decisión de dominio: BCI elegido en sesión → **corregido a PRELIMINAR el mismo día**
 
 > ⚠️ **Corrección posterior (misma fecha)**: el autor aclaró que la decisión definitiva de tema AÚN NO está tomada. Lo registrado abajo queda como preferencia preliminar. D-004 revertida a pendiente; ESTADO-ACTUAL corregido. Sigue vigente: no se generan temas nuevos.
