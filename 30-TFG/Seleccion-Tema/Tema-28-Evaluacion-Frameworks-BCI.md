@@ -18,28 +18,28 @@ Es la analogía del crash test: los autos declaran ser seguros; alguien tiene qu
 - **Núcleo ejecutable en 4 meses**: 1 banco Software-in-the-Loop (replay MNE-LSL + inyectores + telemetría) · 1 pipeline de referencia (BNCI2014_001 vía MOABB, CSP+LDA) · 3-4 familias de fallos · métricas de sistema Y de decodificador. Un segundo framework solo como validez externa, después del PoC.
 - **Tipo/línea**: Trabajo de Investigación · Transformación Digital (el testbed es instrumento experimental, no producto).
 
-## Definiciones Iniciales (formato oficial — según el Word generado el 2026-08-16)
+## Definiciones Iniciales — ENTREGABLE OFICIAL (regenerado 2026-08-17)
 
-El Word entregable es `Tamagusuku_Agustin - Trabajo de Investigacion - Tema 28 Resiliencia.docx`. Su contenido:
+**Archivo**: `Tamagusuku_Agustin - Trabajo de Investigacion.docx` — nombre según exige la plantilla oficial (`<<Apellido_Nombre - Tipo TFG>>.docx`). Adaptado al PDF *"Selección Tema TFG - Seminario Final - ING SOFT"*: Arial 12, A4, interlineado 1,5, todas las secciones con sus conteos de renglones respetados (3 / 5-15 / 3-5 / 15-20) y el campo "Nombre del archivo" que faltaba. Contenido alineado con la formulación vigente (pipelines, no ranking de frameworks). Antes de enviar: completar **Documento** y **Legajo**.
 
-- **Tipo**: ☑ Trabajo de Investigación · **Línea**: ☑ Transformación Digital
+- **Tipo**: ☒ Trabajo de Investigación · **Línea**: ☒ Transformación Digital
 
-### Título tentativo
+### Título tentativo (13 palabras)
 
-Evaluación de resiliencia de frameworks de código abierto para interfaces cerebro-computadora mediante inyección de fallos
+Evaluación de resiliencia de pipelines de interfaces cerebro-computadora mediante inyección controlada de fallos
 
 ### Pregunta de investigación
 
-¿Cómo se comportan los frameworks BCI de código abierto ante fallas realistas de la capa de software (pérdida de muestras, desconexiones, jitter, deriva de reloj): las detectan, las informan y se recuperan según lo que declaran? ¿Cómo se propagan esas fallas a la precisión del decodificador que consume la señal?
+¿Cómo se propagan fallos controlados de la capa de transporte de señal —pérdida de muestras, jitter, retraso y desconexión— hacia las propiedades operativas y el desempeño funcional de un pipeline BCI en tiempo real? ¿Existen condiciones en las que la infraestructura permanece operativa mientras la decodificación se degrada, y en qué medida la telemetría del sistema permite detectar o anticipar esa degradación?
 
-### Revisión de literatura (4 citas verificadas)
+### Revisión de literatura (4 citas — autores verificados 2026-08-17)
 
-1. *A comprehensive benchmarking analysis of fault recovery in stream processing frameworks*. (2024). arXiv. https://arxiv.org/abs/2404.06203
-2. *An open-source human-in-the-loop BCI research framework: method and design*. (2023). *Frontiers in Human Neuroscience*. https://doi.org/10.3389/fnhum.2023.1129362
-3. *PyNoetic: A modular python framework for no-code development of EEG brain-computer interfaces*. (2025). *PLOS One*. https://doi.org/10.1371/journal.pone.0327791
-4. *The lab streaming layer for synchronized multimodal recording*. (2024). *Imaging Neuroscience*. https://doi.org/10.1162/IMAG.a.136
+1. Kothe, C., Shirazi, S. Y., Stenner, T., Medine, D., Boulay, C., Grivich, M. I., Artoni, F., Mullen, T., Delorme, A., y Makeig, S. (**2025**). The lab streaming layer for synchronized multimodal recording. *Imaging Neuroscience, 3*. https://doi.org/10.1162/IMAG.a.136
+2. Vogel, A., Henning, S., Perez-Wohlfeil, E., Ertl, O., y Rabiser, R. (2024). A comprehensive benchmarking analysis of fault recovery in stream processing frameworks. *arXiv*. https://arxiv.org/abs/2404.06203
+3. Natella, R., Cotroneo, D., y Madeira, H. (2016). Assessing dependability with software fault injection: A survey. *ACM Computing Surveys, 48*(3), artículo 44. https://doi.org/10.1145/2841425
+4. Gemborn Nilsson, M., Tufvesson, P., Heskebeck, F., y Johansson, M. (2023). An open-source human-in-the-loop BCI research framework: Method and design. *Frontiers in Human Neuroscience, 17*. https://doi.org/10.3389/fnhum.2023.1129362
 
-> Nota: el título del Word usa "frameworks" (nivel presentación-de-idea); el título de trabajo interno usa "pipelines" (formulación refinada). Son compatibles: el pipeline se construye sobre esos frameworks. El refinamiento fino va en la Entrega 1 si el tutor aprueba.
+> **Correcciones respecto de la versión anterior del Word**: el paper de LSL es de **2025** (vol. 3), no 2024 · las 4 citas ahora llevan autores (antes empezaban por el título) · entró el survey de fault injection de Natella et al. (fundamento metodológico de la disciplina) en lugar de PyNoetic, que era redundante con la cita de BCI-HIL.
 
 ## Evidencia de adopción del ecosistema open source (verificada 2026-08-17)
 

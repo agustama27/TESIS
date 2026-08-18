@@ -12,6 +12,16 @@
 
 **Próximo paso**: ejecutar la escalera de PoCs (sábado). Si pasa → decisión de tema prácticamente cerrada + enviar Word al tutor (sigue válido para presentación de idea).
 
+## 2026-08-17 — Word oficial del tema 28 regenerado contra la plantilla de la universidad
+
+**Qué se hizo**:
+- El autor trajo el PDF oficial *"Selección Tema TFG - Seminario Final - ING SOFT"*. Se extrajo su estructura exacta y se detectaron desvíos del Word anterior: faltaba el campo **"Nombre del archivo"**, los nombres de sección no incluían los conteos de renglones, el nombre del archivo no seguía el patrón `<<Apellido_Nombre - Tipo TFG>>.docx` y el contenido era previo a la reformulación.
+- **Regenerado** como `Tamagusuku_Agustin - Trabajo de Investigacion.docx`: Arial 12 (lo que pide la plantilla; verificado que la plantilla previa ya lo usaba), A4, interlineado 1,5, viñetas y casillas del formato oficial, y **conteos de renglones respetados** (línea 3,0 · explicación 14,5 · problema 4,5 · justificación 19,6). Contenido en la formulación vigente (pipelines, Software-in-the-Loop, 3 RQs, hueco refinado con el dato de adopción de LSL).
+- **Citas APA corregidas**: las 4 ahora llevan autores verificados por fetch. Correcciones: el paper de LSL es de **2025** (vol. 3), no 2024; entró Natella et al. (2016), survey de fault injection en *ACM Computing Surveys*, como fundamento metodológico, en lugar de PyNoetic (redundante con BCI-HIL).
+- Eliminado el Word anterior del tema 28 (contenido superado; recuperable en el historial de git).
+
+**Próximo paso**: completar Documento y Legajo → enviar al tutor. En paralelo, la escalera de PoCs.
+
 ## 2026-08-17 — Reorganización del Tema-28 + prompt NotebookLM
 
 **Qué se hizo**:
