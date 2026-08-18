@@ -11,7 +11,7 @@ Es la analogía del crash test: los autos declaran ser seguros; alguien tiene qu
 
 ## Formulación vigente (resumen — el detalle completo está en la propuesta)
 
-- **Título de trabajo**: *Evaluación de resiliencia de pipelines BCI en tiempo real mediante inyección de fallos y análisis de propagación hacia la decodificación*.
+- **Título oficial (elegido 2026-08-17, el que va al tutor)**: *Interfaces cerebro-computadora bajo condiciones adversas: del software a la decodificación*. Molde: [objeto] bajo [condición]: [recorrido medido]. El "del software a la decodificación" declara la cadena completa sin gastar palabras en "evaluación" ni "impacto".
 - **Unidad de análisis**: el pipeline BCI como sistema de software (NO un ranking de frameworks).
 - **Pregunta central**: ¿cómo se propagan fallos controlados del streaming de señales EEG hacia las propiedades operativas y el desempeño funcional de un pipeline BCI, y en qué medida la telemetría permite detectar o anticipar esa degradación?
 - **3 RQs falsables**: propagación del fallo · discrepancia infraestructura-función (sin presuponer silent failures) · valor de un detector ML de telemetría multivariable contra baseline de reglas (resultado negativo válido).
@@ -24,9 +24,9 @@ Es la analogía del crash test: los autos declaran ser seguros; alguien tiene qu
 
 - **Tipo**: ☒ Trabajo de Investigación · **Línea**: ☒ Transformación Digital
 
-### Título tentativo (13 palabras)
+### Título tentativo (10 palabras, elegido por el autor el 2026-08-17)
 
-Evaluación de resiliencia de pipelines de interfaces cerebro-computadora mediante inyección controlada de fallos
+Interfaces cerebro-computadora bajo condiciones adversas: del software a la decodificación
 
 ### Pregunta de investigación
 
