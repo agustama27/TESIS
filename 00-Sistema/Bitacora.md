@@ -19,7 +19,9 @@
 - Retener la última muestra daña como borrar y produce fallas silenciosas puras, invisibles para la telemetría.
 - Reproducibilidad: 1.080/1.080 decisiones idénticas entre sesiones de máquina.
 
-**Próximo paso**: sesión nueva para la Entrega 3 (prompt en [[Prompt-Sesion-Entrega-3]]). Esta sesión cierra la prueba de `MulticastMinRTT = 0,25` y apaga la VM.
+- **Prueba de intervención (cierre de la sesión)**: con `MulticastMinRTT = 0,25` el hueco de un corte de 1,1 s baja de 2,04 a 1,80 s (45/45) y el piso de 1,52 s no cambia. Modelo `max(1,52; 0,52 + RTT·ceil(d/RTT))` ajusta 359/360 cortes. Mecanismo demostrado → [[../30-TFG/Analisis-M3-campana-exploratoria|Analisis-M3-campana-exploratoria]] §1.4.
+
+**Próximo paso**: sesión nueva para la Entrega 3 (prompt en [[Prompt-Sesion-Entrega-3]]). VM: detenerla.
 
 ## 2026-09-26 — Entregable 2: banco Software-in-the-Loop construido y validado en local
 

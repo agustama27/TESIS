@@ -84,6 +84,31 @@ Los tres valores nuevos (y los de d = 1 s) siguen `hueco = max(1,52; 0,52 + 0,5 
 
 ---
 
+### 1.4 Confirmación experimental del mecanismo: `MulticastMinRTT` (07/10)
+
+**Diseño.** Familia `m3rtt` (`runner.py`): `disconnect` con 5 cortes estratificados de d = 0,5 / 1,1 / 1,25 / 1,75 s, sujetos 1-9, corrida 0, bajo dos archivos `lsl_api.cfg` (variable `LSLAPICFG`): `[tuning] MulticastMinRTT = 0.5` (valor por defecto) y `0.25`. 72 ejecuciones, 0 fallidas, 360 cortes, 0 descartados por emparejamiento. liblsl v1.17.7 en la VM (`lsl_library_info()` = `git:v1.17.7`, compilada con GNU 14.2.1). d = 1,1 s se eligió porque **no** está cerca de ningún punto de la grilla de 0,5 s: la regla lineal predice 1,62 s y el modelo escalonado 2,02 s. `[bci-fault-bench/scripts/m3d_rtt.py -> campaign-m3/analysis/m3d_rtt_cortes.csv, m3d_rtt_resumen.csv]`
+
+**Resultado (hueco en s, n = 45 cortes por celda; entre paréntesis, d registrada en la grilla de bloques de 40 ms):**
+
+| d nominal | `MulticastMinRTT` = 0,5 | `MulticastMinRTT` = 0,25 |
+|---|---|---|
+| 0,5 | 1,52 (45) | 1,52 (45) |
+| 1,1 | 2,04 (45) | **1,80** (45) |
+| 1,25 | 2,04 (45) | **1,80** (33, d = 1,24) / 2,04 (12, d = 1,28) |
+| 1,75 | 2,52 (45) | **2,28** (6 de 6 con d = 1,72) / 2,52 (37 de 39 con d = 1,76) |
+
+**Lectura.**
+1. **El parámetro configurable controla la grilla.** Con d = 1,1 s el hueco baja de 2,04 a 1,80 s en los 45 cortes al pasar `MulticastMinRTT` de 0,5 a 0,25 s: es una intervención causal, no una correlación.
+2. **El piso de 1,52 s no se mueve** (d = 0,5 s: 1,52 s con ambos valores): el mínimo de 1,0 s y la pausa de 500 ms son fijos, como dice el código.
+3. **La regla lineal queda refutada** también con d = 1,1 s (2,04 observado contra 1,62 predicho, configuración por defecto).
+4. **La mezcla en 1,25 y 1,75 s no es ruido, es la fase.** El corte real dura d registrada (múltiplo de 40 ms: 1,24 o 1,28; 1,72 o 1,76). Con grilla de 0,25 s, un outlet que vuelve en 1,24 s alcanza la consulta de 1,25 s (hueco 1,77-1,80) y uno que vuelve en 1,28 s la pierde y espera la de 1,50 s (2,02-2,04). Ídem 1,72 frente a 1,76 s respecto de la consulta de 1,75 s. Con grilla de 0,5 s esos valores quedan lejos de un punto de la grilla y no hay ambigüedad.
+
+**Modelo final (con d registrada):** `hueco = max(1,52; 0,52 + RTT · ceil(d / RTT))`, con RTT = `MulticastMinRTT`. Ajusta **359 de 360** cortes de esta prueba dentro de ±40 ms; el único fuera (d = 1,76 s, hueco 2,28 s) es un caso de frontera en el que la consulta de 1,75 s salió unos milisegundos tarde y alcanzó al outlet. Con RTT = 0,5 s reproduce además los 1.800 cortes de §1.3 y los 7.154 de la campaña anterior.
+
+**Conclusión para el manuscrito.** El piso de reconexión está **explicado y demostrado**: 1,0 s de espera mínima fija + la próxima consulta de búsqueda (cada `MulticastMinRTT`, configurable, 0,5 s por defecto) + 0,5 s de pausa fija + unos 20 ms de reconexión. Con la configuración por defecto cada desconexión cuesta al menos 1,52 s; bajar `MulticastMinRTT` acorta solo la parte que depende de la grilla (hasta 0,25 s en este ensayo), y los 1,5 s fijos no bajan sin modificar liblsl. **Estatus**: exploratorio y posterior a los datos del E2; la prueba de intervención se diseñó con predicciones escritas antes de correrla (tabla del 07/10 en la conversación y en `runner.py`).
+
+---
+
 ## 2. Tarea 2: barrido de exposición (K = 2 / 5 / 10 / 20 cortes de 1 s)
 
 ### 2.1 Método
