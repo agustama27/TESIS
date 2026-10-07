@@ -1,0 +1,54 @@
+# Mejoras de redacción y técnicas pendientes para la versión corregida (Módulo 3)
+
+> 2026-09-28 · Surgidas de la revisión del Entregable 2 entregado (855 ejecuciones, 11 figuras). Ver también [[Trabajo-Futuro]] y [[Fundamentos-Diseno-Estadistico]].
+>
+> **07/10: traspaso a la sesión de la Entrega 3** en [[Traspaso-Entrega-3]] (consigna, hallazgos por objetivo, pendientes). Sección C ampliada con C3-C8.
+>
+> **Versión 6 (28/09, vigente)**: `Modulo-2/v6/`, 35 págs. Sobre la v5 (forma de la CAE: objetivos en viñetas, interrogantes numerados, tríada de Sampieri sin página, 4 subsecciones en Métodos, "Elaboración propia" en todas las tablas y figuras, ética en Participantes) se definieron *pipeline*, *jitter* y en línea/fuera de línea, se agregó el método de verificación fuera de línea y la Tabla 2 de trazabilidad. Métodos: 7 págs, aceptado por el autor. Pendiente: la página de Hernández Sampieri (2014).
+>
+> **Versión 4 (28/09)**: `Modulo-2/v4/`, 35 págs. Métodos recortado a la extensión del E1 (≈ 6 págs, 1.438 palabras) y Resultados a la de la consigna (5 págs: Tablas 2-3 compactas, Figuras 6-7; la Figura 7 une los dos decodificadores). Se eliminaron del manuscrito la tabla por sujeto, la tabla completa de infraestructura y la de divergencia (quedan en el repo) y las figuras de latencia, retardo y divergencia. Respaldos: `src/*.v3.js`.
+>
+> **Estado (28/09): aplicadas todas en la versión 3** (`30-TFG/Entregas/Modulo-2/v3/`, 49 págs). B2 se resolvió acotando el objetivo a "detectar" (sin *lead time*, por el rezago de la etiqueta) y agregando precisión promedio y prevalencia (`bci-fault-bench/scripts/detectores_ap.py`, que reproduce la Tabla 6 original de forma exacta). Respaldos de la v2: `src/*.v2-con-figuras.js`, `tablas.v2.json`, `numeros.v2.json`.
+
+## A. Claridad de la redacción (revisión del autor, 13 puntos)
+
+| # | Dónde | Problema | Propuesta |
+|---|---|---|---|
+| 1 | Intro, etapas de la BCI | "Entrenado con ejemplos etiquetados" da por sabido el aprendizaje supervisado | Explicar etiqueta = respuesta correcta conocida de cada ensayo; el modelo aprende la asociación y luego se aplica a señal nueva |
+| 2 | Intro, relevamiento de repositorios | "Relevamiento propio" informal; "estrellas" sin definir | "Se consultaron, el 16/08/2026, dos indicadores públicos de sus repositorios en GitHub…: usuarios que los marcaron como favoritos (*estrellas*), medida habitual aunque indirecta de popularidad, y fecha de la última modificación" |
+| 3 | Intro, marcos BCI | No se distingue capa de transporte (LSL) de marcos de aplicación | Agregar: son marcos de aplicación; la mayoría recibe la señal por LSL; BRAND es la excepción (usa Redis, Ali et al., 2024, verificado). La debilidad de LSL alcanza a los marcos que lo usan |
+| 4 | Intro, "condiciones ordinarias de operación" | Idea enterrada | Reescribir: estas fallas son parte del uso cotidiano (casco inalámbrico, red, máquina ocupada) |
+| 5 | Intro, "Lo que no tiene… es un modelo de decodificación" | Suena a limitación propia; en realidad describe a Vogel et al. y es el aporte | Reescribir en positivo: una BCI tiene un decodificador contrastable con la intención real; esa es la pieza que se agrega. Mitigación en el decodificador → recomendación de la Discusión, no experimento |
+| 6 | Intro, "ninguno combina…" | Sobreformal | Anteponer versión llana: "nadie rompe el transporte y mira a la vez si el sistema se da cuenta y si el decodificador sigue acertando" |
+| 7 | Intro, "es posible que exista en fuentes no relevadas" | Cautela vaga | Declarar bases, términos y fecha. Citar Zheng et al. (2025), *Brain Sciences* 15(3) 221, doi 10.3390/brainsci15030221 (pérdida de paquetes + decodificador, sin telemetría; leer antes de citar) y Kothe et al. (2025) como trabajos más próximos |
+| 8 | Intro, tercer interrogante | "Modelo entrenado con telemetría multivariable" opaco | Paréntesis: aprende a partir de varias mediciones a la vez vs. umbral sobre una sola |
+| 9 | Intro, LSL | Falta por qué importa | Problema de sincronización multimodal; >2.300 menciones y >150 clases de dispositivos (autorreportado, Kothe et al., 2025); integraciones con equipos de Brain Products, g.tec, ANT Neuro, BioSemi, Emotiv, OpenBCI, Tobii, SR Research, Vicon, Qualisys, PsychoPy, E-Prime, Unity (documentación, página de dispositivos soportados: agregar como referencia aparte). Decir "integraciones con equipos de", no "empresas que usan" |
+| 10 | Métodos, párrafo del banco | Un bloque mezcla todo | Partir siguiendo el camino de la señal: apertura (simulador), emisor, consumidor y decisión, registro, EEGNet, entorno |
+| 11 | Métodos, EEGNet | "Ventana" ambigua | "Los cuatro segundos de la ventana (mil muestras) se reconstruyen y los faltantes se completan con ceros"; definir ventana una vez en la Intro |
+| 12 | Métodos, VD | *Balanced accuracy* sin ejemplo | Ejemplo 10 izquierda / 4 derecha válidos: siempre "izquierda" = 71 % simple, 50 % balanceada |
+| 13 | Métodos, Diseño | No se justifica por qué esas VI y VD | VI = tipo y severidad (la causa); VD siguen la propagación: flujo → función → observabilidad, una familia por interrogante. Δ = Y(fallo) − Y(referencia) en la misma corrida |
+
+## B. Revisión técnica externa (28/09), verificada contra el código y el texto
+
+| # | Hallazgo | Veredicto | Acción |
+|---|---|---|---|
+| B1 | La familia estructurada se agregó después de ver el nulo de la etapa 1, pero Métodos dice que las severidades "no se modifican después de observar resultados" | Válido | Declarar la familia uniforme como preespecificada y la estructurada como fase exploratoria de un diseño secuencial; sus *p* como exploratorios. Confirmar que sus severidades se fijaron antes de ejecutarla |
+| B2 | Objetivo "detectar o anticipar", pero el retardo solo cuenta alarmas dentro del episodio | Válido | Agregar un *lead time* (alarmas antes del inicio) sin nueva campaña. Cuidado: la degradación se etiqueta con una ventana móvil de 8 ensayos, que llega tarde respecto del fallo, así que una alarma "anticipada" puede ser un artefacto del rezago de la etiqueta; y con tasas de falsas alarmas de 0,54-0,59 cualquier alarma previa es esperable por azar. Compararla contra la tasa base de alarmas |
+| B3 | Tabla 5: columnas que no suman (0,000 + 0,073 ≠ 0,079) | Válido, no es error | Nota: "las medianas de cada categoría y del total se calculan por separado" |
+| B4 | Detectores: no presentar a *random forest* como ganador | Válido | Prevalencia 1,34 %: la precisión de umbrales (0,010) queda por debajo del azar; RF (0,036) ≈ 2,7 veces el azar. Resultado: ningún detector combina sensibilidad y pocas falsas alarmas. Considerar *average precision* |
+| B5 | EEGNet no es comparación pura entre arquitecturas | Válido | Llamarlo análisis de robustez con una segunda familia de decodificador; el 99,0 % de concordancia acota la diferencia de entrada |
+| B6 | p99 = 1,3 µs parece demasiado bueno | Verificado en `replay.py`: espera híbrida (sleep + espera activa los últimos 2 ms), y `timing_err` mide el despertar antes del envío, no la entrega | Precisar: "el servicio despertó para emitir cada bloque con un error…", y mencionar la espera activa |
+| B7 | Similitud con el E1 (~54 % de texto literal, estimación externa) | Esperable: el E2 incluye por consigna Intro y Métodos corregidos | Si Turnitin lo marca, es autosimilitud con una entrega previa; se puede excluir como fuente |
+
+## C. Pendientes para el Módulo 3 surgidos después de la v6
+
+| # | Dónde | Problema | Propuesta | Estado |
+|---|---|---|---|---|
+| C1 | Métodos > Participantes (descripción del conjunto) | "Ensayo" no se describe; no se dice por qué la ventana es de 2 a 6 s ni que hay una decisión por ensayo. Sin eso no se entiende la exposición (por qué la familia uniforme no degradó y la estructurada sí) | "Cada ensayo es una repetición de la tarea: a los 0 s aparece una cruz de fijación con un breve tono de aviso; a los 2 s, una flecha indica durante 1,25 s la clase que la persona debe imaginar (mano izquierda, mano derecha, pies o lengua), y la imaginación se sostiene hasta que la cruz desaparece, a los 6 s, seguida de una pausa breve (Tangermann et al., 2012). El decodificador analiza, en cada ensayo, la ventana de 2 a 6 s, los cuatro segundos de imaginación, y emite una decisión por ensayo (Figura 5)." | Cita **verificada** el 07/10 en Tangermann et al. (2012), sección 5.2.2 "Protocol" (cruz y tono a 0 s, flecha a 2 s durante 1,25 s, imaginación hasta 6 s, pausa) |
+| C2 | Resultados > Divergencia (y Discusión) | El E2 dice que la proporción máxima de segundos operativos y degradados fue 0,000. Es cierto como **mediana entre sujetos**, pero el conteo total da 2.888 de 229.500 segundos con fallo (1,26 %) en 57 de 810 ejecuciones, casi todos en la familia estructurada; en la referencia, 0 | Reformular: "la mediana entre sujetos fue 0 en las 18 condiciones; en conjunto, el 1,26 % de los segundos con fallo fueron operativos y degradados, concentrados en la familia estructurada". En la Discusión: parte de esos segundos se explica por el rezago de la ventana móvil de 8 ensayos | Verificado el 07/10 sobre `analysis/windows.csv`; detalle en [[Analisis-M3-ensayos-divergencia]] |
+| C3 | Resultados > Infraestructura (desconexión) y Discusión | La regla "hueco = max(1,52; d + 0,52)" vale solo para d múltiplo de 0,5 s | Reemplazar por max(1,52; 0,52 + 0,5·ceil(d/0,5)) y, en la Discusión, explicar las tres piezas de liblsl (1 s mínimo fijo, consultas cada `MulticastMinRTT` configurable, pausa fija de 500 ms) | Verificado en el código de liblsl v1.17.7 el 07/10; prueba con `MulticastMinRTT = 0,25` en curso. Detalle en [[Analisis-M3]] §1.6 |
+| C4 | Referencias | Karpowicz et al. (2025) tenía mal el número de artículo | *Nature Communications, 16*, **4662** | Verificado con Crossref |
+| C5 | Métodos > Instrumentos (semillas) | La semilla se deriva con `hash()` de Python, que cambia entre procesos | "La semilla de cada ejecución se registra en el plan de la campaña" en lugar de sugerir que es una función fija del nombre | Verificado en el código |
+| C6 | Introducción > antecedentes | Falta un antecedente de pérdida inalámbrica real en una BCI | Simeral et al. (2021): sistema inalámbrico real que repite el último dato válido ante una pérdida | Fuente verificada; registrar en `20-Investigacion/` |
+| C7 | Resultados y Discusión | IC de Hodges-Lehmann con margen ±0,03 (equivalencia práctica) | Incorporar solo si el autor lo decide; advertir que los IC [0;0] son degenerados | Calculado en [[Analisis-M3]] §3 |
+| C8 | Métodos y Resultados | Campaña exploratoria (familia 3: barrido de cortes, retención, diagnóstico del piso) | Si el autor decide incluirla: familia exploratoria post hoc en Métodos + Resultados corregidos; si no, línea futura | **Decisión pendiente del autor**. Datos en [[Analisis-M3-campana-exploratoria]] |

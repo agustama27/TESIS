@@ -1,6 +1,6 @@
 # Roadmap del TFG — NeuroIngeniería / BCI
 
-> Etapa actual: **Etapa 0 — Fundamentos** (iniciada 2026-08-09)
+> Etapa actual: **Etapa 3 — Seminario Final** (Entregable 1 entregado el 2026-09-07; Etapas 0-2 cerradas de facto con la selección del tema 28 y la escalera de PoCs pendiente como parte del Módulo 2)
 > Las fechas de las Etapas 3-4 dependen del cuatrimestre en que se curse Seminario Final.
 
 ## Visión general

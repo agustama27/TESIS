@@ -2,6 +2,61 @@
 
 > Una entrada por sesión de trabajo. Formato: fecha, qué se hizo, próximo paso. La entrada más reciente arriba.
 
+## 2026-10-07 — Análisis M3, campaña exploratoria y mecanismo del piso de LSL
+
+**Contexto**: E2 v6 subido el 28/09 (35 págs). Sesión larga de mejoras del texto, análisis para el Módulo 3 y una campaña exploratoria en AWS.
+
+**Qué se hizo**:
+- Versiones v3 a v6 del E2 (claridad, objetivo 5 acotado a "detectar", métricas de precisión promedio, forma de la CAE, Tabla 2 de trazabilidad): ver [[../30-TFG/Mejoras-Redaccion-M3|Mejoras-Redaccion-M3]].
+- Análisis sobre los 855: piso de reconexión, exposición de la ventana, IC de Hodges-Lehmann, ensayos tocados vs. no tocados, sensibilidad de la divergencia y relleno de EEGNet → [[../30-TFG/Analisis-M3|Analisis-M3]] y [[../30-TFG/Analisis-M3-ensayos-divergencia|Analisis-M3-ensayos-divergencia]].
+- Campaña exploratoria de 387 ejecuciones (barrido de 2-20 cortes, retención `hold_trial`, diagnóstico del piso) → [[../30-TFG/Analisis-M3-campana-exploratoria|Analisis-M3-campana-exploratoria]].
+- Traspaso para la Entrega 3 → [[../30-TFG/Traspaso-Entrega-3|Traspaso-Entrega-3]].
+
+**Hallazgos clave**:
+- Piso de reconexión: hueco = max(1,52; 0,52 + 0,5·ceil(d/0,5)) s. Mecanismo verificado en liblsl v1.17.7 (la de mne-lsl 1.14): 1 s mínimo fijo + consultas cada `MulticastMinRTT` (0,5 s, configurable) + pausa fija de 500 ms.
+- La familia uniforme no degrada por exposición (toca pocos ensayos), no por robustez del decodificador.
+- La fragilidad de EEGNet es intrínseca (no depende del relleno con ceros).
+- Retener la última muestra daña como borrar y produce fallas silenciosas puras, invisibles para la telemetría.
+- Reproducibilidad: 1.080/1.080 decisiones idénticas entre sesiones de máquina.
+
+**Próximo paso**: sesión nueva para la Entrega 3 (prompt en [[Prompt-Sesion-Entrega-3]]). Esta sesión cierra la prueba de `MulticastMinRTT = 0,25` y apaga la VM.
+
+## 2026-09-26 — Entregable 2: banco Software-in-the-Loop construido y validado en local
+
+**Contexto**: devolución del Entregable 1 = **8/10 sin comentarios**. Fecha límite del Módulo 2: **2026-09-28**. El plan de 8 días armado el 20/09 no se ejecutó (seis días sin avances); el autor decidió **recortar el alcance y entregar el 28** en lugar de pedir prórroga ([[Decisiones|D-008]]).
+
+**Qué se hizo**:
+- Consignas de la Lectura 2 extraídas: Intro y Métodos corregidos + **Resultados** (~5 págs, pretérito, orden de objetivos específicos, sin citas/métodos/interpretación, tablas y figuras APA sin duplicar texto) + Referencias única. Formato igual al E1 (TNR 12, 3 cm, doble espacio, nº de página arriba a la derecha, portada tentativa con legajo SOF02612).
+- **Banco construido en `40-Prototipo/`** (ver README): loader MOABB, decodificador CSP+LDA (9 sujetos entrenados: 0,83/0,61/0,91/0,65/0,59/0,63/0,72/0,95/0,93), reproductor LSL con flujo de marcadores, inyector de 4 modelos de fallo con semilla, consumidor con telemetría por segundo, ejecutor por bloques reanudable, análisis (Friedman/Wilcoxon+Holm, ventana móvil, umbral, divergencia, detectores LOSO, figuras APA).
+- Tres bugs cazados y documentados: MOABB desplaza las anotaciones +2 s (usar canal `STI`); `pull_chunk` de MNE-LSL devuelve vistas (copiar); el flujo va en µV y el modelo se entrenó en V.
+- Pruebas de humo por fallo OK. Mini campaña local 26/26 OK; `analyze.py` produce todas las tablas. Primer hallazgo: en desconexiones, cada reconexión de LSL cuesta ~1 s de muestras además del corte.
+- Decisión de infraestructura: campaña en **AWS c6i.2xlarge Ubuntu** ([[Decisiones|D-009]]); el autor está creando la instancia.
+
+**Continuación de la misma sesión (noche del 26 y madrugada del 27)**:
+- VM AWS creada por el autor (tras una validación de cuenta nueva), desplegada con `scripts/deploy.sh`; reloj Linux verificado (sleep de 1 ms se pasa 60 µs; error de entrega del reproductor p99 < 1 µs).
+- Piloto 39/39 + control de paralelismo 3/3: 6 ejecuciones simultáneas alteran latencia/dispersión en < 0,1 ms. Decisiones del autor: severidades = Tabla 1; W = 8; regla de umbral `min`; campaña nocturna; publicar el banco.
+- Bug cazado antes de la campaña: la telemetría escribía hasta el tope de 420 s (recibido 0,921 falso en referencia); ahora usa el marcador de fin.
+- Campaña de 234 ejecuciones lanzada 21:44 ART; 0 fallidas. Análisis preliminar con el bloque 1 (9 sujetos): infraestructura exacta, decodificador invariante, reconexión de LSL ≈ 563 ms, retardo de decisión +50/+100/+250 ms, 7 episodios de degradación → detectores degenerados.
+- Manuscrito E2 escrito (`resultados.js` + tablas/números automáticos; 36 págs con datos parciales); `final_pipeline.sh` probado de punta a punta.
+- Repositorio público https://github.com/agustama27/bci-fault-bench con README en español y 4 diagramas Mermaid.
+- Notas nuevas: [[../30-TFG/Trabajo-Futuro|Trabajo-Futuro]], [[../30-TFG/Fundamentos-Diseno-Estadistico|Fundamentos-Diseno-Estadistico]].
+
+**Versión 1 cerrada (27/09 02:30)**: campaña 234/234, PDF 36 págs, repo v1.0.
+
+**Versión 2 (27/09, 03:30 → 12:40)**: el autor decidió iterar antes del lunes (profesor: "pueden hacer todos los cambios que quieran; modificá el diseño metodológico"). Se agregaron: 5 corridas; familia de fallos **estructurados** (`burst_trial`, `disconnect_trial`; criterio de escala del ensayo, no magnitud); segmentos guardados por ensayo; **EEGNet** como segundo decodificador evaluado fuera de línea sobre segmentos (equivalencia verificada); Métodos y Resultados reescritos como diseño secuencial. Campaña 2: 855/855 en 8,1 h, 12 workers. Hallazgo central: las fallas uniformes no afectan a ningún decodificador; las estructuradas rompen a EEGNet con cualquier corte en el ensayo y a CSP solo en la severidad máxima. Reconexión LSL 579 ms. Repo v2.0. VM apagada. DOI pospuesto.
+
+**Próximo paso**: el autor lee el PDF v2 (41 págs), autoevaluación, subida el lunes 28 antes de las 23:59, y **terminar** la instancia AWS. Sesión paralela autónoma de líneas futuras: [[Prompt-Sesion-Lineas-Futuras]].
+
+## 2026-09-07 — Entregable 1 (Módulo 1: Introducción y Métodos) redactado y ENTREGADO
+
+**Qué se hizo**:
+- Sesión contra reloj: el autor no tenía nada escrito y la entrega vencía en ~4 h. Se extrajeron las consignas del PDF "Trabajo de investigación - Lectura 1" (Intro ~15 págs sin subtítulos / Métodos ~3 págs con subtítulos / Referencias APA / TNR 12, 3 cm, doble espacio, nº de página, PDF) y se generó el manuscrito desde el vault: [[../30-TFG/Entregas/Modulo-1/README|30-TFG/Entregas/Modulo-1]].
+- **Once iteraciones** con el autor: (1) borrador de 23 págs; (2) reescritura por trazabilidad de decisiones tras un análisis externo de estilo (sin "humanizar": fundamentar); (3) ontología sujeto/sesión/corrida; (4) selección de corridas y manejo de las 4 clases; (5) condensación a 19 págs; (6) apertura didáctica para tutor/comité; (7-8) convención de términos en inglés y explicaciones para lector externo; (9) antecedentes profundizados con hallazgos verificados por fetch (LSL, Wilson, Gemborn Nilsson, Natella, Basiri, Vogel); (10) **corrección de validez de constructo**: los modelos de fallo son perturbaciones en la interfaz de transporte, no fallas del protocolo LSL (TCP retransmite; el búfer descarta las más antiguas al saturarse); (11) unidad estadística = sujeto (mediana de 5 corridas).
+- **Entregado**: PDF de 25 págs (Intro 12, Métodos 6, Refs 5), 29 referencias verificadas contra Crossref, tutor **Luis Miguel Nuñez** en portada. Detalle de decisiones en [[../30-TFG/Entregas/Modulo-1/Decisiones-Metodologicas-Entregable-1|Decisiones-Metodologicas-Entregable-1]].
+- Con la entrega, el tema 28 (formulación vigente) queda **presentado formalmente** al tutor → D-004 pasa a decisión tomada por el autor, sujeta a devolución.
+
+**Próximo paso**: esperar la devolución del tutor. Mientras tanto, la escalera de PoCs y el piloto (que ahora fija severidades, umbral y tamaño de ventana sobre la corrida 6) son el trabajo del Módulo 2.
+
 ## 2026-08-16 — Reformulación metodológica del tema 28 (handoff externo auditado)
 
 **Qué se hizo**:

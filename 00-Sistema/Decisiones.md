@@ -49,6 +49,34 @@ Sobre `tfg-editor`: el TFG se defiende oralmente ante una Comisión Académica E
 
 ## Decisiones pendientes
 
-- [ ] **D-004 (definitiva)**: confirmar el tema del TFG — la preferencia preliminar es la propuesta BCI 28+28.1+IA (Word ya generado); el proceso de aprobación del tutor puede ser el mecanismo que la cierre.
-- [ ] D-005: Tipo de TFG y línea temática (IRREVERSIBLE) — quedan definidas por el tema que se confirme.
-- [ ] D-006: Fuente de datos — ídem, condicional al tema.
+- [x] **D-004 (definitiva, 2026-09-07)**: el autor entregó el Entregable 1 del Seminario Final con el tema 28 en su formulación vigente ("Interfaces cerebro-computadora bajo condiciones adversas: del software a la decodificación"). La decisión quedó tomada por el acto de entrega; sujeta a la devolución del tutor.
+- [x] D-005 (2026-09-07): Tipo = Trabajo de Investigación · Línea = Transformación Digital (declarados en la portada del Entregable 1).
+- [x] D-006 (2026-09-07): Fuente de datos = BCI Competition IV 2a (BNCI2014_001 vía MOABB), sin hardware propio.
+
+## D-007 · 2026-09-07 · Modelos de fallo definidos sobre la interfaz de transporte, no como fallas del protocolo LSL
+
+**Decisión**: los cuatro modelos de fallo (pérdida de muestras, *jitter*, retraso, desconexión) se definen como perturbaciones observables del flujo que entra al pipeline. Pérdida se aplica al contenido; *jitter*/retraso al instante de entrega; desconexión al transporte real (cerrar y recrear el flujo), y es la única que ejercita directamente los mecanismos que LSL declara.
+
+**Por qué**: LSL transmite por TCP; una pérdida de paquetes de red no elimina muestras, las demora. La pérdida real ocurre antes de LSL (dispositivo) o por saturación del búfer del consumidor (documentado en la FAQ de LSL). Definirlos como "fallas de LSL" habría sido un error de validez de constructo señalado por un revisor externo y verificado contra las fuentes.
+
+**Alternativas descartadas**: perturbar la red real con herramientas de emulación (evalúa TCP más que el pipeline; queda como extensión); simular solo omisión de datos (no ejercitaría la reconexión declarada).
+
+**Consecuencias**: diseño por bloques (corridas 1-5 campaña, 6 piloto), comparación siempre misma corrida con/sin fallo, umbral y ventana móvil en la misma escala, unidad estadística = sujeto. Detalle en [[../30-TFG/Entregas/Modulo-1/Decisiones-Metodologicas-Entregable-1|Decisiones-Metodologicas-Entregable-1]].
+
+## D-008 · 2026-09-26 · Recorte de alcance del Entregable 2: 2 corridas por bloque en lugar de 5
+
+- **Decisión (autor)**: entregar el 28/09 con campaña reducida en vez de pedir prórroga. Se reduce de 5 a **2 corridas** de la sesión de evaluación por sujeto (corridas 1 y 2); se mantienen los **9 sujetos** y las **12 condiciones de fallo** (4 tipos × 3 severidades). Total: 234 ejecuciones.
+- **Por qué así**: la unidad estadística es el sujeto (Métodos); recortar sujetos o condiciones cambiaría la pregunta, recortar réplicas por bloque solo reduce la robustez de la mediana por sujeto. El Métodos corregido lo declara como limitación y reserva el diseño completo (5 corridas) para el módulo siguiente.
+- **Regla del ejecutor**: campaña por bloques completos (corrida 1 de todos, luego corrida 2) para que una interrupción deje bloques analizables.
+
+## D-009 · 2026-09-26 · Campaña en VM Linux dedicada (AWS c6i.2xlarge, us-east-1)
+
+- **Decisión (autor)**: correr piloto y campaña en una instancia AWS c6i.2xlarge (8 vCPU, 16 GiB, Ubuntu 24.04), plan pago con crédito inicial.
+- **Por qué**: (1) el temporizador de Windows resuelve ~15 ms y la severidad mínima de jitter es 10 ms; (2) máquina dedicada = sin contención de CPU ajena a las mediciones; (3) hardware fijo y documentable para replicabilidad; (4) instancias burstable (t3) y Spot descartadas por estrangulamiento de CPU e interrupción.
+- **Costo estimado**: 0,34 USD/h; 10-25 USD en total, cubiertos por el crédito. Terminar (no detener) la instancia al cerrar.
+
+## D-010 · 2026-10-07 · Campaña exploratoria post hoc (familia 3) para el Módulo 3
+
+- **Decisión (autor)**: correr en la VM una tercera familia de condiciones, declarada exploratoria y posterior a ver los resultados del E2: barrido de exposición (2/5/10/20 cortes de 1 s por corrida), retención de la última muestra en el ensayo (`hold_trial` 10/25/40 %), diagnóstico del piso con cortes de 1,25/1,75/2,25 s y una referencia repetida como control de máquina. 387 ejecuciones, 0 fallidas.
+- **Por qué**: probar las dos explicaciones de la Discusión (exposición y falla silenciosa) en lugar de solo argumentarlas, y discriminar la forma del piso de reconexión.
+- **Estado**: **sin decidir si entra al manuscrito** (Métodos + Resultados corregidos) o queda como línea futura. La Discusión no puede introducir datos que no estén en Resultados. Detalle en [[../30-TFG/Analisis-M3-campana-exploratoria|Analisis-M3-campana-exploratoria]] y [[../30-TFG/Traspaso-Entrega-3|Traspaso-Entrega-3]].

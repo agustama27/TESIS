@@ -20,3 +20,9 @@ __pycache__/
 # SO
 Thumbs.db
 .DS_Store
+
+# Resultados de campañas (1,5 GB): publicados con el banco en github.com/agustama27/bci-fault-bench (v2.0).
+# Se versionan solo los modelos entrenados y los resúmenes fuera de línea.
+40-Prototipo/results/*
+!40-Prototipo/results/models/
+!40-Prototipo/results/*.csv
